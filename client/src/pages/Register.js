@@ -11,7 +11,11 @@ class Register extends Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      firstName: '',
+      lastName: '',
+      role: '',
+      phone: '',
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,12 +30,12 @@ class Register extends Component {
   handleSubmit (event) {
     event.preventDefault();
 
-    API.register(this.state.username, this.state.password)
+    API.register(this.state.username, this.state.password, this.state.firstName, this.state.lastName, this.state.role, this.state.phone)
       .then(res => res.json())
       .then(res => console.info(res))
       .catch(err => console.error(err));
   }
-
+  // We need to have a selector that will load different forms based on the user role
   render () {
     return (
       <Fragment>
