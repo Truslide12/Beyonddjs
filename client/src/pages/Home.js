@@ -6,7 +6,7 @@ import "./Home.css";
 
 const Home = () => (
   <Fragment>
-    <Title>Authentication</Title>
+    <Title>BeyondDjs</Title>
     <button class="btn"><Link to="/login">ENTER</Link></button>
   </Fragment>
 )

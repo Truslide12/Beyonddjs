@@ -1,6 +1,6 @@
 import React from "react";
 import "./Form.css";
-
+// Update this for each differnt role - we probably need different forms for the main registration then change the input values for each role
 const Form = ({ inputHandler, submitHandler }) => (
   <form class="form" onSubmit={submitHandler}>
     <div class="input-container">
