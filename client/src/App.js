@@ -8,6 +8,8 @@ import PromoterVendor from "./pages/PromoterVendor";
 import Entertainer from "./pages/Entertainer";
 import Admin from "./pages/Admin"; 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 
