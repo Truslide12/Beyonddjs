@@ -12,9 +12,9 @@ html, body {
       margin: 100px auto;
   }
 
-  .slick-slide {
+  /* .slick-slide {
     margin: 0px 20px;
-  }
+  } */
 
   .slick-slide img {
     width: 100%;
