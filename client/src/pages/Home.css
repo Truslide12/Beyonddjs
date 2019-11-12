@@ -20,3 +20,12 @@
 	outline: none;
 	color: gray;
 } */
+
+#userBox{
+	width: 200px;
+	height: 200px;
+	/* background-color: darkslategrey; */
+}
+#BeyondDJ{
+	font-family: 'Audiowide', cursive;
+}
