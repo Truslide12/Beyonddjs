@@ -1,0 +1,19 @@
+#end{
+    background-color: 
+    #301d6e;
+    color:whitesmoke;
+    padding: 10px;
+    border-top: 5px solid rgba(190, 245, 82, 0.623);
+}
+#links{
+    font-size: 20px;
+    margin-top: 20px;
+    line-height: 40px;
+}
+#media{
+    padding-top: 55px;
+    padding-left: 100px;
+}
+a{
+    padding-right: 40px;
+}
