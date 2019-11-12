@@ -16,7 +16,7 @@ class Home extends React.Component {
     return (
       <Container fluid className="p-0">
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/" id="BeyondDJ"><span><img src="./imgs/disco.png" alt="disco ball"/></span>BeyondDJ</Navbar.Brand>
+          <Navbar.Brand href="/" id="BeyondDJ"><span><img src="./imgs/disco.png" alt="disco ball" id="disco"/></span>&nbsp;&nbsp;BeyondDJ</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
             <Nav>
