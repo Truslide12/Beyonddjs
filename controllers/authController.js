@@ -56,26 +56,26 @@ module.exports = {
     }
     res.send(403);
   },
-  validateRole: (req, res) => {
-    db.User
-      .findOne({ email: req.body.email })
-      .then(user => {
-        if (req.body.role === user.role) {
-          req.session.role = role;
-          res.send(200)
-        }
-        else {
-          res.status(401).send("you do not have the correct permissions to view this page");
-        }
-      })
-  },
-  updateUser: (res, req) => { // figure out how to do this correctly
-    db.User
-      .findOne({_id: req.session.passport.user.id})
-      .then(user => {
-        update({ email: user.email, firstName: req.body.firstName, lastName: req.body.lastName, firstName: req.body.firstName, })
-      })
-  },
+  // validateRole: (req, res) => {
+  //   db.User
+  //     .findOne({ email: req.body.email })
+  //     .then(user => {
+  //       if (req.body.role === user.role) {
+  //         req.session.role = role;
+  //         res.send(200)
+  //       }
+  //       else {
+  //         res.status(401).send("you do not have the correct permissions to view this page");
+  //       }
+  //     })
+  // },
+  // updateUser: (res, req) => { // figure out how to do this correctly
+  //   db.User
+  //     .findOne({_id: req.session.passport.user.id})
+  //     .then(user => {
+  //       update({ email: user.email, firstName: req.body.firstName, lastName: req.body.lastName, firstName: req.body.firstName, })
+  //     })
+  // },
   logout: (req, res) => {
     req.session.destroy(err => {
       if (err) {

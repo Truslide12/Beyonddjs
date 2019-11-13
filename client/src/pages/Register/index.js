@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import Title from "../../components/Title";
 import Form from "../../components/Form";
-import "./Login.css";
+import "./Register.css";
 
 class Register extends Component {
   constructor (props) {

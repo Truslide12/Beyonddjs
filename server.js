@@ -10,14 +10,14 @@ const GitHubStrategy = require('passport-github2').Strategy;
 const auth = require('./utils/auth');
 const apis = require('./apis')
 
-passport.use(new LocalStrategy(auth.verify));
-passport.use(new GitHubStrategy({
-    clientID: process.env.GITHUB_CLIENT_ID,
-    clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/github/callback"
-  },
-  auth.github
-));
+// passport.use(new LocalStrategy(auth.verify));
+// passport.use(new GitHubStrategy({
+//     clientID: process.env.GITHUB_CLIENT_ID,
+//     clientSecret: process.env.GITHUB_CLIENT_SECRET,
+//     callbackURL: "http://localhost:3000/auth/github/callback"
+//   },
+//   auth.github
+// ));
 passport.serializeUser(auth.serializeUser);
 passport.deserializeUser(auth.deserializeUser);
 

@@ -16,6 +16,10 @@ router.route('/logout')
 
 router.route('/session/:sid')
   .get(authController.validateSession);
+
+// add router.route('/session/:role) - may be wrong
+// .get(authController.validateRole);
+
 // router.route('/auth/github')
 //   .get(passport.authenticate('github'));
 

@@ -1,12 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from './pages/Home';
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard"; // change to Basic and add routes for other roles
-import PromoterVendor from "./pages/PromoterVendor";
-import Entertainer from "./pages/Entertainer";
-import Admin from "./pages/Admin"; 
+import Home from './pages/Homepage/index';
+import Login from "./pages/Login/index";
+import Register from "./pages/Register/index";
+import Dashboard from "./pages/Dashboard/index"; // change to Basic and add routes for other roles
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -19,10 +16,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/Dashboard" component={Dashboard} /> 
-          <Route exact path="/promoterVendor" component={PromoterVendor} />
-          <Route exact path="/entertainer" component={Entertainer} />
-          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/dashboard" component={Dashboard} /> 
+          <Route exact path="/event" component={Event} />
         </Switch>
       </div>
     </Router>

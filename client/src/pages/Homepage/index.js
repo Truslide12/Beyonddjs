@@ -32,32 +32,32 @@ class Home extends React.Component {
       <Slider {...settings}>
         <div>
           <img
-              src="http://placehold.it/960x300?text=1-960w 960w"   
+              src="http://placehold.it/960x300?text=1-960w 960w" alt='#'
           />
         </div>
         <div>
         <img
-              src="http://placehold.it/960x300?text=1-960w 960w"   
+              src="http://placehold.it/960x300?text=1-960w 960w" alt='#' 
           />
         </div>
         <div>
         <img
-              src="http://placehold.it/960x300?text=1-960w 960w"   
+              src="http://placehold.it/960x300?text=1-960w 960w" alt='#'
           />
         </div>
         <div>
         <img
-              src="http://placehold.it/960x300?text=1-960w 960w"   
+              src="http://placehold.it/960x300?text=1-960w 960w" alt='#'  
           />
         </div>
         <div>
         <img
-              src="http://placehold.it/960x300?text=1-960w 960w"   
+              src="http://placehold.it/960x300?text=1-960w 960w" alt='#'  
           />
         </div>
         <div>
         <img
-              src="http://placehold.it/960x300?text=1-960w 960w"   
+              src="http://placehold.it/960x300?text=1-960w 960w" alt='#'
           />
         </div>
       </Slider>
