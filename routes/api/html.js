@@ -5,37 +5,22 @@ const auth = require('../../utils/auth');
 
 router.route('/register')
   .get((req, res) => {
-    res.sendFile(path.join(__dirname, '../public/register.html'));
+    res.sendFile(path.join(__dirname, '../../client/src/pages/Register/index'));
   })
 
 router.route('/login')
   .get((req, res) => {
-    res.sendFile(path.join(__dirname, '../public/login.html'));
+    res.sendFile(path.join(__dirname, '../../client/src/pages/Login/index'));
   })
 
-router.route('/basic.html') //need to change all secure.html to basic.html and create routes for 
+router.route('/dashboard') //need to change all secure.html to basic.html and create routes for 
   .get(auth.isLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/basic.html'));
-  });
-
-  router.route('/promotorVendor.html') //need to change all secure.html to basic.html and create routes for 
-  .get(auth.isLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/promotorVendor.html'));
-  });
-
-  router.route('/entertainer.html') //need to change all secure.html to basic.html and create routes for 
-  .get(auth.isLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/entertainer.html'));
-  });
-
-  router.route('/admin.html') //need to change all secure.html to basic.html and create routes for 
-  .get(auth.isLoggedIn, (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/admin.html'));
+    res.sendFile(path.join(__dirname, '../../client/src/pages/Dashboard/index'));
   });
 
 router.route('/')
   .get((req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    res.sendFile(path.join(__dirname, '../../client/public/index.html'));
   });
 
 module.exports = router;

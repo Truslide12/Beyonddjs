@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const EventsSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     required: true,
@@ -20,12 +24,16 @@ const EventsSchema = new Schema({
     type: String,
     required: true
   },
-  location: {
+  city: {
     type: String,
     required: true
   },
-  summary: {
+  state: {
     type: String,
+    required: true
+  },
+  zip: {
+    type: Number,
     required: true
   },
   public: {
@@ -38,12 +46,16 @@ const EventsSchema = new Schema({
   },
   maxEntertainers: {
       type: Number,
+      default: 1,
+      required: true
   },
   entsContacted: {
-    type: Array
+    type: Array,
+    default: false,
   },
   entsConfirmed: {
-    type: Array
+    type: Array,
+    default: false,
   },
   schedule: {
       type: Array

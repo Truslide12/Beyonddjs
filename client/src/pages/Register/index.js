@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import API from "../utils/API";
-import Title from "../components/Title";
-import Form from "../components/Form";
+import API from "../../utils/API";
+import Title from "../../components/Title";
+import Form from "../../components/Form";
 import "./Login.css";
 
 class Register extends Component {
@@ -10,11 +10,11 @@ class Register extends Component {
     super(props);
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
+      role: '',
       firstName: '',
       lastName: '',
-      role: '',
       phone: '',
     }
 
@@ -30,12 +30,12 @@ class Register extends Component {
   handleSubmit (event) {
     event.preventDefault();
 
-    API.register(this.state.username, this.state.password, this.state.firstName, this.state.lastName, this.state.role, this.state.phone)
+    API.register(this.state.email, this.state.password, this.state.role) //, this.state.firstName, this.state.lastName, this.state.phone
       .then(res => res.json())
       .then(res => console.info(res))
       .catch(err => console.error(err));
   }
-  // We need to have a selector that will load different forms based on the user role
+  // We need to have a selector that will load different forms based on the user role in /login
   render () {
     return (
       <Fragment>

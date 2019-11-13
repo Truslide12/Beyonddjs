@@ -1,0 +1,17 @@
+
+create
+db.users.insert({"continent": "Africa", "country":"Morocco", "majorcities": ["Casablanca", "Fez", "Marrakech"]})
+
+search
+db.events.find()
+db.places.find({"continent": "Africa"}) looking for specific data
+
+update
+db.users.findOne({"email": req.props.email"})
+    .then(
+db.users.update({"country": "Morocco"}, {$set: {"continent": "Antarctica"}}) change this to the correct format
+db.places.update({"email": req.props.email}, {$push: {"calendar": req.props.calendar}}) // 
+    )
+
+Deleting all data in a collection
+db.places.remove({})

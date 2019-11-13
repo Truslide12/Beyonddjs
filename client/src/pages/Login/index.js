@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import API from "../utils/API";
-import Title from "../components/Title";
-import Form from "../components/Form";
+import API from "../../utils/API";
+import Title from "../../components/Title";
+import Form from "../../components/Form";
 import "./Login.css";
 
 class Login extends Component {
@@ -11,7 +11,7 @@ class Login extends Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Title from "../components/Title";
-import Nav from "../components/Nav";
+import Title from "../../components/Title";
+import Nav from "../../components/Nav";
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -61,7 +61,7 @@ class Home extends React.Component {
           />
         </div>
       </Slider>
-      {/* <button class="btn"><Link to="/login">ENTER</Link></button> */}
+      <button class="btn"><Link to="/login">ENTER</Link></button>
       </div>
     );
   }

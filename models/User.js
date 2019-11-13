@@ -2,13 +2,17 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const AdminSchema = new Schema({
+const UserSchema = new Schema({
   email: {
     type: String,
     required: true,
     unique: true
   },
   hash: {
+    type: String,
+    required: true
+  },
+  role: {
     type: String,
     required: true
   },
@@ -20,16 +24,12 @@ const AdminSchema = new Schema({
     type: String,
     required: true
   },
-  role: {
-    type: String,
-    required: true
-  },
   phone: {
     type: String,
     required: true
   },
 })
 
-const Admin = mongoose.model('Admin', AdminSchema);
+const User = mongoose.model('User', UserSchema);
 
-module.exports = Admin;
+module.exports = User;
