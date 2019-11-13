@@ -1,10 +1,8 @@
 import React from 'react';
-import { Link } from "react-router-dom";
-import Title from "../components/Title";
 import Slider from "../components/Slider";
 import UserBox from "../components/UserBox";
 import Footer from "../components/Footer";
-import { Container, Row, Col, Nav, Navbar, Button, ButtonToolbar } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 // Import css files
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
@@ -17,18 +15,6 @@ class Home extends React.Component {
     return (
       <>
         <Container fluid className="p-0">
-          <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="/" id="BeyondDJ"><span><img src="./imgs/disco.png" alt="disco ball" id="disco" /></span>&nbsp;BeyondDJ</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-              <Nav>
-                <ButtonToolbar>
-                  <Button href="/login" variant="outline-light" style={{fontSize: "20px"}}><i class="fa fa-user-circle" style={{fontSize: "20px"}}></i>&nbsp;&nbsp;Log In</Button>
-                  <Button href="/register" variant="outline-light" style={{fontSize: "20px"}}>Sign Up</Button>
-                </ButtonToolbar>
-              </Nav>
-            </Navbar.Collapse>
-          </Navbar>
           <Slider></Slider>
           <Row className="mt-5">
             <Col className="p-0">
