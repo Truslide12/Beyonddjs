@@ -27,8 +27,6 @@
     "passport": "^0.4.0",
     "passport-github2": "^0.1.11",
     "passport-local": "^1.0.0",
-    "react-big-calendar": "^0.23.0",
-    "react-calendar": "^2.19.2",
     "react-cookies": "^0.1.1",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
