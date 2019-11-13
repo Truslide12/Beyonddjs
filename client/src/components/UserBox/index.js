@@ -7,7 +7,7 @@ function UserBox(props) {
         <div className="bg-white m-4 text-center border userBox">
             <Row>
                 <Col>
-                    <h2 className="p-3 mt-2">{props.children}</h2>
+                    <h2 className="p-3 mt-2">{props.description}</h2>
                 </Col>
             </Row>
             <Row>
@@ -22,7 +22,7 @@ function UserBox(props) {
             </Row>
             <Row>
                 <Col>
-                    <p className="mt-3">{props.description}</p>
+                    <p className="mt-2">{props.children}</p>
                 </Col>
             </Row>
         </div>
