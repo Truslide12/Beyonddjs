@@ -1,7 +1,8 @@
 import React from 'react';
-import Slider from "../components/Slider";
-import UserBox from "../components/UserBox";
-import Footer from "../components/Footer";
+import NavBar from "../../components/NavBar";
+import Slider from "../../components/Slider";
+import UserBox from "../../components/UserBox";
+import Footer from "../../components/Footer";
 import { Container, Row, Col } from 'react-bootstrap';
 // Import css files
 // import "slick-carousel/slick/slick.css";
@@ -15,6 +16,7 @@ class Home extends React.Component {
     return (
       <>
         <Container fluid className="p-0">
+          <NavBar />
           <Slider></Slider>
           <Row className="mt-5">
             <Col className="p-0">

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Title from "../components/Title";
 import API from "../utils/API";
 
-class Basic extends Component {
+class Admin extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,4 +52,4 @@ class Basic extends Component {
   }
 }
 
-export default Basic;
+export default Admin;

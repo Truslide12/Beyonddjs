@@ -1,0 +1,46 @@
+.link-to-register {
+	font-family: 'Oxygen';
+	font-size: 0.9em;
+	color: gray;
+	transition: 0.2s;
+	text-align: center !important;
+}
+
+.link-to-register:hover {
+	color: #768BB4;
+	text-decoration: underline;
+	transition: 0.2s;
+}
+div#login{
+	background-image: url("https://i.pinimg.com/originals/47/e3/20/47e320a0119a961c363819af702a9e16.jpg");
+	background-repeat: no-repeat; 
+	background-size: cover;
+	background-position: center;
+	opacity: 1.0;
+	height: 1000px;
+}
+#loginBox{
+	background: rgba(255, 255, 255, 0.644);
+	padding: 50px;
+	margin-top: 200px;
+}
+#registerBox{
+	margin-top: 200px;
+	font-size: 10px;
+}
+#signUp{
+	color: whitesmoke;
+	line-height: 1.6;
+	border-bottom: 1px solid whitesmoke !important;
+}
+p#regIntro{
+	margin: 0;
+	padding: 10px 0 20px 0;
+	color: rgb(184, 202, 226);
+	font-size: 22px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#regIntro::selection {
+	color: black;
+	background: rgb(152, 248, 242);
+}

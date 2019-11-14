@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import NavBar from "./components/NavBar";
 import Home from './pages/Home';
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -19,7 +18,6 @@ function App() {
   return (
     <Router>
       <div class="flexbox">
-        <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
