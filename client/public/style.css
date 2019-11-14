@@ -1,8 +1,8 @@
-html, body {
+body {
 	height: 100vh;
 	margin: 0;
 	padding: 0;
-	background-color: lightgrey !important;
+	background-color: rgba(209, 168, 209, 0.705) !important;
 }
 
 a {

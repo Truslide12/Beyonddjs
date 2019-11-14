@@ -1,21 +1,18 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import API from "../utils/API";
-import Title from "../components/Title";
-import Form from "../components/Form";
+import API from "../../utils/API";
+import NavBar from "../../components/NavBar";
+import Title from "../../components/Title";
+import Form from "../../components/Form";
 import "./Login.css";
 
-class Register extends Component {
+class Login extends Component {
   constructor (props) {
     super(props);
 
     this.state = {
       username: '',
-      password: '',
-      firstName: '',
-      lastName: '',
-      role: '',
-      phone: '',
+      password: ''
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -30,21 +27,24 @@ class Register extends Component {
   handleSubmit (event) {
     event.preventDefault();
 
-    API.register(this.state.username, this.state.password, this.state.firstName, this.state.lastName, this.state.role, this.state.phone)
+    API.login(this.state.username, this.state.password)
       .then(res => res.json())
       .then(res => console.info(res))
       .catch(err => console.error(err));
   }
-  // We need to have a selector that will load different forms based on the user role
+
   render () {
     return (
       <Fragment>
-        <Title>Register</Title>
+        <NavBar />
+        <div id="login">
+        <Title>Login</Title>
         <Form inputHandler={this.handleInputChange} submitHandler={this.handleSubmit} />
-        <Link to="/login" class="link-to-register">Already have an account? Login here</Link>
+        <Link to="/register" class="link-to-register">First time? Register here</Link>
+        </div>
       </Fragment>
     );
   }
 }
 
-export default Register;
+export default Login;

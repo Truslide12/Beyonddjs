@@ -1,0 +1,21 @@
+.link-to-register {
+	font-family: 'Oxygen';
+	font-size: 0.9em;
+	color: gray;
+	transition: 0.2s;
+}
+
+.link-to-register:hover {
+	color: #768BB4;
+	text-decoration: underline;
+	transition: 0.2s;
+}
+div#login{
+	/* background-color: teal !important; */
+	background-image: url("https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+	background-repeat: no-repeat; 
+	background-size: cover;
+	background-position: center;
+	height: 1000px;
+}
+

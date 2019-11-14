@@ -1,0 +1,8 @@
+div#register{
+	/* background-color: teal !important; */
+	background-image: url("https://ma-hub.imgix.net/wp-images/2019/05/28232723/sparkle-video-effects.jpg");
+	background-repeat: no-repeat; 
+	background-size: cover;
+	background-position: center;
+	height: 1000px;
+}
