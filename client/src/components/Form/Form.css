@@ -50,7 +50,7 @@ input:valid ~ .input-underline {
 	top: 12px;
 	left: 10px;
 	font-family: 'Oxygen';
-	color: #949494;
+	color: black;
 	text-transform: capitalize;
 	cursor: text;
 	pointer-events: none;
@@ -75,12 +75,12 @@ input:valid ~ .input-label {
 
 .btn {
 	margin: 20px;
-	/* height: 60px; */
 	width: 180px;
-	font-family: 'Fjalla One';
 	font-size: 2em;
-	background-color: #CDEBE9;
 	border-radius: 10px;
 	box-shadow: 2px 2px #888888;
 	transition: 0.2s;
+}
+#submit{
+	background-color: rgb(152, 248, 242);
 }

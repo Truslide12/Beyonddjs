@@ -13,7 +13,7 @@ const Form = ({ inputHandler, submitHandler }) => (
       <span class="input-underline"></span>
       <label for="password" class="input-label">Password</label>
     </div>
-    <button class="btn">SUBMIT</button>
+    <button class="btn" id="submit">SUBMIT</button>
   </form>
 );
 

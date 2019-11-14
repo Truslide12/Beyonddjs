@@ -2,7 +2,7 @@ body {
 	height: 100vh;
 	margin: 0;
 	padding: 0;
-	background-color: rgba(209, 168, 209, 0.705) !important;
+	background-color: lightgrey !important;
 }
 
 a {
