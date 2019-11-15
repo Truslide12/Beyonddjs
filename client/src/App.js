@@ -3,12 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from './pages/Homepage';
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard/index";
+import Dashboard from "./pages/Dashboard";
 import Event from "./pages/Event"
-import BasicUser from "./pages/BasicUser"; // change to Basic and add routes for other roles
-import PromoterVendor from "./pages/Promoter";
-import Entertainer from "./pages/Entertainer";
-import Admin from "./pages/Admin";
+import Promoter from "./pages/Promoter";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,6 +22,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/promoter" component={Promoter} />
           <Route exact path="/event" component={Event} />
         </Switch>
       </div>
