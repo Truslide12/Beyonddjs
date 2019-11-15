@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import API from "../../utils/API";
 import Title from "../../components/Title";
-import Form from "../../components/Form";
+import Form from "../../components/RegForm";
 import "./Register.css";
 
 class Register extends Component {
@@ -11,11 +11,14 @@ class Register extends Component {
     super(props);
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
+      role: '',
       firstName: '',
       lastName: '',
-      role: '',
+      city: '',
+      state: '',
+      zip: '',
       phone: '',
     }
 
@@ -31,7 +34,7 @@ class Register extends Component {
   handleSubmit (event) {
     event.preventDefault();
 
-    API.register(this.state.username, this.state.password, this.state.firstName, this.state.lastName, this.state.role, this.state.phone)
+    API.register(this.state.email, this.state.password, this.state.role, this.state.firstName, this.state.lastName, this.state.city, this.state.state, this.state.zip, this.state.phone)
       .then(res => res.json())
       .then(res => console.info(res))
       .catch(err => console.error(err));

@@ -22,10 +22,10 @@ div#login{
 #loginBox{
 	background: rgba(255, 255, 255, 0.644);
 	padding: 50px;
-	margin-top: 200px;
+	margin-top: 150px;
 }
 #registerBox{
-	margin-top: 200px;
+	margin-top: 150px;
 	font-size: 10px;
 }
 #signUp{

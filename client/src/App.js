@@ -1,8 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from './pages/Home';
+import Home from './pages/Homepage';
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard/index";
+import Event from "./pages/Event"
 import BasicUser from "./pages/BasicUser"; // change to Basic and add routes for other roles
 import PromoterVendor from "./pages/Promoter";
 import Entertainer from "./pages/Entertainer";
@@ -22,10 +24,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/basicuser" component={BasicUser} />
-          <Route exact path="/promoterVendor" component={PromoterVendor} />
-          <Route exact path="/entertainer" component={Entertainer} />
-          <Route exact path="/admin" component={Admin} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/event" component={Event} />
         </Switch>
       </div>
     </Router>
