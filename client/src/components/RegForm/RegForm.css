@@ -81,6 +81,6 @@ input:valid ~ .input-label {
 	box-shadow: 2px 2px #888888;
 	transition: 0.2s;
 }
-#submit{
-	background-color: rgb(152, 248, 242);
+.submit{
+	background-color: rgb(152, 248, 242) !important;
 }

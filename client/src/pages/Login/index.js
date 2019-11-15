@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import NavBar from "../../components/NavBar";
 import Title from "../../components/Title";
-import Form from "../../components/Form";
+import Form from "../../components/LoginForm";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import "./Login.css";
 
