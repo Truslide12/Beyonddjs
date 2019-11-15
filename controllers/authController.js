@@ -9,7 +9,16 @@ module.exports = {
         bcrypt.hash(req.body.password, salt)
           .then(hash => {
             db.User
-              .create({ username: req.body.username, hash })
+            .create(
+              {
+                email: req.body.email,
+                hash,
+                role: req.body.role,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                phone: req.body.phone,
+                calendar: []
+              })
               .then(newUser => {
                 req.session.user = newUser;
                 res.send(200);
@@ -56,4 +65,11 @@ module.exports = {
       res.send(200);
     });
   }
+    // updateUser: (res, req) => { // figure out how to do this correctly
+  //   db.User
+  //     .findOne({_id: req.session.passport.user.id})
+  //     .then(user => {
+  //       update({ email: user.email, firstName: req.body.firstName, lastName: req.body.lastName, firstName: req.body.firstName, })
+  //     })
+  // },
 };

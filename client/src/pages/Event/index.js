@@ -1,25 +1,20 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
-import NavBar from "../../components/NavBar";
 import API from "../../utils/API";
 import Title from "../../components/Title/index";
-import Form from "../../components/Form/index";
-import "./Register.css";
+import Form from "../../components/EventForm/index";
 
-class Register extends Component {
+
+class Event extends Component {
   constructor (props) {
     super(props);
 
     this.state = {
-      email: '',
+      username: '',
       password: '',
       role: '',
-      firstName: '',
-      lastName: '',
-      city: '',
-      state: '',
-      zip: '',
-      phone: '',
+      // firstName: '', need to add all data going to event form and need to figure out how to get email from session
+      // lastName: '',
+      // phone: '',
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -33,25 +28,22 @@ class Register extends Component {
 
   handleSubmit (event) {
     event.preventDefault();
-
-    API.register(this.state.email, this.state.password, this.state.role, this.state.firstName, this.state.lastName, this.state.city, this.state.state, this.state.zip, this.state.phone)
+// need to create event function in API.js and need to finish adding all data to be passed to event function
+    API.event(this.state.name, this.state.date, this.state.startTime) //, this.state.firstName, this.state.lastName, this.state.phone
       .then(res => res.json())
       .then(res => console.info(res))
       .catch(err => console.error(err));
   }
-  // We need to have a selector that will load different forms based on the user role
+  // We need to have a selector that will load different forms based on the user role in /login
   render () {
     return (
+        // add event html here and call form
       <Fragment>
-        <NavBar />
-        <div id="register">
-        <Title>Register</Title>
+        <Title>Search Entertainers</Title>
         <Form inputHandler={this.handleInputChange} submitHandler={this.handleSubmit} />
-        <Link to="/login" class="link-to-register">Already have an account? Login here</Link>
-        </div>
       </Fragment>
     );
   }
 }
 
-export default Register;
+export default Event;

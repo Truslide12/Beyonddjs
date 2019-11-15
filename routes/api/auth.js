@@ -9,13 +9,16 @@ router.route('/register')
   .post(authController.register);
 
 router.route('/login') //need to add different routes for each role
-  .post(passport.authenticate('local', { successRedirect: '/BasicUser', failureRedirect: '/login' }));
+  .post(passport.authenticate('local'), (req, res) => {
+    res.json(req.user);
+  });
 
 router.route('/logout')
   .delete(authController.logout);
 
 router.route('/session/:sid')
   .get(authController.validateSession);
+  
 // router.route('/auth/github')
 //   .get(passport.authenticate('github'));
 

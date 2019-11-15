@@ -12,7 +12,7 @@ class Login extends Component {
     super(props);
 
     this.state = {
-      username: '',
+      email: '',
       password: ''
     }
 
@@ -28,7 +28,7 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    API.login(this.state.username, this.state.password)
+    API.login(this.state.email, this.state.password)
       .then(res => res.json())
       .then(res => console.info(res))
       .catch(err => console.error(err));
