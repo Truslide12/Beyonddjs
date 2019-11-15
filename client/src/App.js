@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import BasicUser from "./pages/BasicUser"; // change to Basic and add routes for other roles
-import PromoterVendor from "./pages/PromoterVendor";
+import PromoterVendor from "./pages/Promoter";
 import Entertainer from "./pages/Entertainer";
 import Admin from "./pages/Admin";
 import './App.css';

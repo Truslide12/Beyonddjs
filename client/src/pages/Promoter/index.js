@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies'
 import { Redirect } from 'react-router-dom';
-import Title from "../components/Title";
-import API from "../utils/API";
+import Title from "../../components/Title";
+import API from "../../utils/API";
+import "./Promoter.css";
 
 class Basic extends Component {
   constructor(props) {
@@ -37,12 +38,12 @@ class Basic extends Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return <div>Loading...</div>;
-    }
-    if (!this.state.cookie) {
-      return <Redirect to='/login' />
-    }
+    // if (this.state.loading) {
+    //   return <div>Loading...</div>;
+    // }
+    // if (!this.state.cookie) {
+    //   return <Redirect to='/login' />
+    // }
     return (
       <Fragment>
         <Title>This the Vendor/Promoter page</Title>
