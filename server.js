@@ -1,14 +1,15 @@
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const GitHubStrategy = require('passport-github2').Strategy;
+// const GitHubStrategy = require('passport-github2').Strategy;
 const auth = require('./utils/auth');
-const apis = require('./apis')
+const apis = require('./apis');
 
 passport.use(new LocalStrategy(auth.verify));
 // passport.use(new GitHubStrategy({
@@ -29,6 +30,7 @@ mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/users', { useUnif
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 const sessConfig = {
   secret: "keybord cats", resave: false, saveUninitialized: false, // need to add secret to dotenv.env folder and gitignore

@@ -16,6 +16,9 @@ module.exports = {
                 role: req.body.role,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
                 phone: req.body.phone,
                 calendar: []
               })

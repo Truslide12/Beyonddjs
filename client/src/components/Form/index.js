@@ -4,7 +4,7 @@ import "./Form.css";
 const Form = ({ inputHandler, submitHandler }) => (
   <form class="form" onSubmit={submitHandler}>
     <div class="input-container">
-      <input id="email" type="text" name="email" onChange={inputHandler} required />
+      <input id="email" type="email" name="email" onChange={inputHandler} required />
       <span class="input-underline"></span>
       <label for="email" class="input-label">Email</label>
     </div>

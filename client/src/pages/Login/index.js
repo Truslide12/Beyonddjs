@@ -31,6 +31,7 @@ class Login extends Component {
     API.login(this.state.email, this.state.password)
       .then(res => res.json())
       .then(res => console.info(res))
+      .then(res => this.props.history.push('/dashboard'))
       .catch(err => console.error(err));
   }
 
