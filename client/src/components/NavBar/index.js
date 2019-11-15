@@ -10,7 +10,6 @@ function NavBar() {
                 <Nav>
                     <ButtonToolbar>
                         <Button href="/login" variant="outline-light" style={{ fontSize: "20px" }}><i class="fa fa-user-circle" style={{ fontSize: "20px" }}></i>&nbsp;&nbsp;Log In</Button>
-                        {/* <Button href="/register" variant="outline-light" style={{ fontSize: "20px" }}>Sign Up</Button> */}
                     </ButtonToolbar>
                 </Nav>
             </Navbar.Collapse>

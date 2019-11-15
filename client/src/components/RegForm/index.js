@@ -1,5 +1,5 @@
 import React from "react";
-import "./Form.css";
+import "./RegForm.css";
 // Update this for each differnt role - we probably need different forms for the main registration then change the input values for each role
 const Form = ({ inputHandler, submitHandler }) => (
   <form class="form" onSubmit={submitHandler}>
@@ -48,7 +48,7 @@ const Form = ({ inputHandler, submitHandler }) => (
       <span class="input-underline"></span>
       <label for="phone" class="input-label">phone</label>
     </div>
-    <button class="btn">SUBMIT</button>
+    <button class="btn submit">SUBMIT</button>
   </form>
 );
 

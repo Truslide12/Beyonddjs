@@ -2,8 +2,8 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import API from "../../utils/API";
-import Title from "../../components/Title/index";
-import Form from "../../components/Form/index";
+import Title from "../../components/Title";
+import Form from "../../components/RegForm";
 import "./Register.css";
 
 class Register extends Component {
