@@ -31,10 +31,6 @@ class Home extends React.Component {
               <UserBox src="./imgs/basic.png" description="Basic Users" btn="Register">Not an entertainer or a promoter but a music fanatic that wants to check what's in it for you?</UserBox>
             </Col>
           </Row>
-          <Row>
-            <Col>
-            </Col>
-          </Row>
         </Container>
         <Footer></Footer>
       </>

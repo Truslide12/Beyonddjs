@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import { Redirect } from 'react-router-dom';
 import Title from "../../components/Title/index";
+import PromoterPage from "../Promoter";
 import API from "../../utils/API";
 
 class Dashboard extends Component {
@@ -84,9 +85,7 @@ class Dashboard extends Component {
     else if (this.state.role === 'promoterVendor') {
     return (
       <Fragment>
-        <Title>This the Promoter/Vendor page</Title>
-        <p>Hello: {props.email}</p>
-        <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
+        <PromoterPage />
       </Fragment>
     );
     }
