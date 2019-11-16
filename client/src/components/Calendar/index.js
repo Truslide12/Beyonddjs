@@ -70,7 +70,7 @@ class TestCalendar extends Component {
             <option value="Club/Bar">Club/Bar</option>
             <option value="Other Event">Other Event</option>
           </select>
-          <button type="submit">Search for DJs</button>
+          <button type="submit">Search for Available DJs</button>
         </form>
       </div>
     );

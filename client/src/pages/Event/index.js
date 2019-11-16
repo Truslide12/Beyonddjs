@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import API from "../../utils/API";
 import Title from "../../components/Title/index";
 import Form from "../../components/EventForm/index";
+import NavBar from "../../components/NavBar";
+import "./Event.css";
 
 
 class Event extends Component {
@@ -9,7 +11,7 @@ class Event extends Component {
     super(props);
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
       role: '',
       // firstName: '', need to add all data going to event form and need to figure out how to get email from session
@@ -39,8 +41,11 @@ class Event extends Component {
     return (
         // add event html here and call form
       <Fragment>
-        <Title>Search Entertainers</Title>
+        <NavBar />
+        <div id="event">
+        <Title>Create Event</Title>
         <Form inputHandler={this.handleInputChange} submitHandler={this.handleSubmit} />
+        </div>      
       </Fragment>
     );
   }

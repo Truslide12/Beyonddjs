@@ -8,6 +8,8 @@ import "./Register.css";
 import { FormErrors } from "../Login/FormErrors";
 
 
+
+
 class Register extends Component {
   constructor (props) {
     super(props);
