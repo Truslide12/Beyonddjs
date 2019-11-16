@@ -9,9 +9,9 @@ router.route('/register')
   .post(authController.register);
 
 router.route('/login') //need to add different routes for each role
-  .post(passport.authenticate('local'), (req, res) => {
+  .post((req, res, next) => { console.info('Before auth', req.body); next(); }, passport.authenticate('local'), (req, res) => {
     res.json(req.user);
-  });
+});
 
 router.route('/logout')
   .delete(authController.logout);

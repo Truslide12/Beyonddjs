@@ -38,12 +38,12 @@ class Basic extends Component {
   }
 
   render() {
-    // if (this.state.loading) {
-    //   return <div>Loading...</div>;
-    // }
-    // if (!this.state.cookie) {
-    //   return <Redirect to='/login' />
-    // }
+    if (this.state.loading) {
+      return <div>Loading...</div>;
+    }
+    if (!this.state.cookie) {
+      return <Redirect to='/login' />
+    }
     return (
       <Fragment>
         <Title>This the Vendor/Promoter page</Title>

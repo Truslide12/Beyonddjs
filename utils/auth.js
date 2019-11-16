@@ -1,12 +1,12 @@
 const bcrypt = require('bcrypt');
-const db = require('../models/');
+const db = require('../models');
 
 module.exports = {
-  verify: (username, password, done) => {
-    db.User.findOne({ username: username })
+  verify: (email, password, done) => {
+    db.User.findOne({ email: email })
       .then(user => {
         if (!user) {
-          return done(null, false, { message: 'Incorrect username or password.' });
+          return done(null, false, { message: 'Incorrect email or password.' });
         }
 
         return bcrypt.compare(password, user.hash)
@@ -14,7 +14,7 @@ module.exports = {
             if (match) {
               return done(null, user);
             }
-            return done(null, false, { message: 'Incorrect username or password.' });
+            return done(null, false, { message: 'Incorrect email or password.' });
           })
           .catch(err => done(err));
       })
@@ -32,7 +32,7 @@ module.exports = {
 //     db.User.findOne({ githubId: profile.id })
 //       .then(user => {
 //         if (!user) {
-//           db.User.create({ githubId: profile.id, username: profile.username })
+//           db.User.create({ githubId: profile.id, email: profile.email })
 //             .then(newUser => done(null, newUser))
 //             .catch(err => done(err));
 //         }
