@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 import "./Form.css";
 // Need to add all event form inputs and search functions
 const Form = ({ inputHandler, submitHandler }) => (
