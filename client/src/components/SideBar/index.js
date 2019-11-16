@@ -22,18 +22,20 @@ function SideBar() {
                         Search Artists</a>
                     <a href="#">
                         {/* <i className="fas fa-briefcase"></i> */}
+                        Create Event</a>
+                    <a href="#">
+                        {/* <i className="fas fa-briefcase"></i> */}
                         Account Settings</a>
                     <a href="#">
                         {/* <i className="fas fa-briefcase"></i> */}
                         Contact Us</a>
+                    <div className="navFoot">
+                        <a href="#">
+                            {/* <i className="fas fa-briefcase"></i> */}
+                            BeyondDJ</a>
+                    </div>
                 </li>
             </ul>
-
-            <div className="navFoot">
-                <a href="#">
-                    {/* <i className="fas fa-briefcase"></i> */}
-                    Log Out</a>
-            </div>
         </nav>
     );
 }

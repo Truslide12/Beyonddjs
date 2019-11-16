@@ -27,10 +27,11 @@ a, a:hover, a:focus {
 }
 
 .navFoot{
-    padding: 20px;
     position: fixed;
+    /* padding: 20px; */
     bottom: 0;
 }
+
 /* Shrinking the sidebar from 250px to 80px and center aligining its content*/
 #sidebar.active {
     min-width: 80px;
@@ -161,6 +162,10 @@ ul ul a {
     /* Adjust the dropdown links padding*/
     #sidebar.active ul ul a {
         padding: 10px !important;
+    }
+
+    #sidebar.active #sidebar.navFoot{
+        padding: 0;
     }
 
     /* Changing the arrow position to bottom center position, 

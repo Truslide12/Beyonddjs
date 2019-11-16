@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route } from 'react-router-dom';
 import Title from "../../components/Title";
 import API from "../../utils/API";
@@ -59,9 +59,10 @@ class Basic extends Component {
               <Col className="p-0">
                 <div id="content">
                   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <p id="sidebarCollapse" className="mt-3" onClick={this.handleCollapse}>
+                    <p className="mt-3 text-secondary float-left" onClick={this.handleCollapse}>
                       <i className="fa fa-align-left"></i>
                     </p>
+                    <Button id="logout" onClick={this.handleLogout} className="float-right" variant="secondary" >LOG OUT</Button>
                   </nav>
                 </div>
               </Col>
