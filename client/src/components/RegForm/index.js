@@ -4,10 +4,11 @@ import "./RegForm.css";
 const Form = ({ inputHandler, submitHandler }) => (
   <form class="form" onSubmit={submitHandler}>
     <div class="input-container reg-container">
-      <select id="role" type="select" name="role" onChange={inputHandler} required>
+      <select>
+        <input id="role" type="select" name="role" onChange={inputHandler} required />
         <option value="0">Select Role:</option>
         <option value="1">Client</option>
-        <option value="2">Artist</option>
+        <option value="2">Entertainer</option>
         <option value="3">Promoter</option>
       </select>
     </div>
