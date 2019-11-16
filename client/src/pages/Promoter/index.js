@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import cookie from 'react-cookies'
+import cookie from 'react-cookies';
+import SideBar from '../../components/SideBar';
 import { Redirect } from 'react-router-dom';
 import Title from "../../components/Title";
 import API from "../../utils/API";
@@ -31,7 +32,7 @@ class Basic extends Component {
       .catch(err => this.setState({ loading: false }))
   }
 
-  handleLogout () {
+  handleLogout() {
     API.logout()
       .then(res => this.props.history.push('/login'))
       .catch(err => console.error(err));
@@ -46,8 +47,21 @@ class Basic extends Component {
     // }
     return (
       <Fragment>
-        <Title>This the Vendor/Promoter page</Title>
-        <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
+        <div className="wrapper">
+          <SideBar />
+          <div id="content">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              <div className="container-fluid">
+                <button type="button" id="sidebarCollapse" className="btn btn-info">
+                  <i className="fa fa-align-left"></i>
+                  <span>Toggle Sidebar</span>
+                </button>
+              </div>
+            </nav>
+          </div>
+        </div>
+        {/* <Title>This the Vendor/Promoter page</Title>
+        <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button> */}
       </Fragment>
     );
   }
