@@ -62,18 +62,30 @@ class Basic extends Component {
                     <p className="mt-3 text-secondary float-left" onClick={this.handleCollapse}>
                       <i className="fa fa-align-left"></i>
                     </p>
-                    <Button id="logout" onClick={this.handleLogout} className="float-right" variant="secondary" >LOG OUT</Button>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse"
+                      data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
+                      aria-expanded="false" aria-label="Toggle navigation">
+                      <span className="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                      <ul className="navbar-nav">
+                        <li className="nav-item active">
+                          <Button id="logout" onClick={this.handleLogout} variant="secondary" >LOG OUT</Button>
+                        </li>
+                      </ul>
+                    </div>
                   </nav>
                 </div>
               </Col>
             </Row>
             <Row>
               <Col>
-                {/* <Route exact path={`${props.match.url}/home`} component={Learn} /> */}
               </Col>
             </Row>
           </Container>
         </div>
+        {/* <Route exact path={`${props.match.url}/home`} component={Learn} /> */}
         {/* <Title>This the Vendor/Promoter page</Title>
         <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button> */}
       </Fragment>
