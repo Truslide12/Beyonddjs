@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Redirect, Route } from 'react-router-dom';
 import Title from "../../components/Title";
 import API from "../../utils/API";
 import "./Promoter.css";
@@ -59,11 +59,16 @@ class Basic extends Component {
               <Col className="p-0">
                 <div id="content">
                   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <Button type="button" id="sidebarCollapse" className="btn" variant="outline-secondary" onClick={this.handleCollapse}>
+                    <p id="sidebarCollapse" className="mt-3" onClick={this.handleCollapse}>
                       <i className="fa fa-align-left"></i>
-                    </Button>
+                    </p>
                   </nav>
                 </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                {/* <Route exact path={`${props.match.url}/home`} component={Learn} /> */}
               </Col>
             </Row>
           </Container>

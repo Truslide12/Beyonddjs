@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./SideBar.css";
 
 function SideBar() {
@@ -18,23 +19,21 @@ function SideBar() {
                 <li>
                     <a href="#">
                         {/* <i className="fas fa-briefcase"></i> */}
-                        About</a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
-                        {/* <i className="fas fa-copy"></i> */}
-                        Pages</a>
-                    <ul className="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
+                        Search Artists</a>
+                    <a href="#">
+                        {/* <i className="fas fa-briefcase"></i> */}
+                        Account Settings</a>
+                    <a href="#">
+                        {/* <i className="fas fa-briefcase"></i> */}
+                        Contact Us</a>
                 </li>
             </ul>
+
+            <div className="navFoot">
+                <a href="#">
+                    {/* <i className="fas fa-briefcase"></i> */}
+                    Log Out</a>
+            </div>
         </nav>
     );
 }

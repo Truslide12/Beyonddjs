@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/promoter" component={Promoter} />
+          <Route path="/promoter" component={Promoter} />
           <Route exact path="/event" component={Event} />
         </Switch>
       </div>

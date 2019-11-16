@@ -26,6 +26,11 @@ a, a:hover, a:focus {
     transform: translateY(-50%);
 }
 
+.navFoot{
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+}
 /* Shrinking the sidebar from 250px to 80px and center aligining its content*/
 #sidebar.active {
     min-width: 80px;
