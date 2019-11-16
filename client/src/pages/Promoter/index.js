@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import Title from "../../components/Title";
 import API from "../../utils/API";
@@ -39,6 +39,10 @@ class Basic extends Component {
       .catch(err => console.error(err));
   }
 
+  handleCollapse = () => {
+    document.getElementById('sidebar').classList.toggle('active');
+  };
+
   render() {
     // if (this.state.loading) {
     //   return <div>Loading...</div>;
@@ -55,10 +59,9 @@ class Basic extends Component {
               <Col className="p-0">
                 <div id="content">
                   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <button type="button" id="sidebarCollapse" className="btn btn-info">
+                    <Button type="button" id="sidebarCollapse" className="btn" variant="outline-secondary" onClick={this.handleCollapse}>
                       <i className="fa fa-align-left"></i>
-                      <span>Toggle Sidebar</span>
-                    </button>
+                    </Button>
                   </nav>
                 </div>
               </Col>
