@@ -45,7 +45,7 @@ class Login extends Component {
                 <div id="registerBox">
                   <h1 id="signUp">Sign Up Right Now!</h1>
                   <p id="regIntro">First Timer? Create an account with us to get access to one of the live music marketplace that makes it easy for talent buyers, event planners, venues and individuals to find, book, and pay musicians and bands. We dream of a world with more live music than ever because we’ve made it easy to find and book the right talent! What are you waiting for? Join us today!</p>
-                  <Button href="/register" variant="light" className="m-0">REGISTER</Button>
+                  <Button href="/register" variant="light" className="m-0 text-dark">REGISTER</Button>
                 </div>
               </Col>
               <Col>
