@@ -34,10 +34,10 @@ module.exports = {
   },
   login: (req, res) => {
     db.User
-      .findOne({ username: req.body.username })
+      .findOne({ email: req.body.email })
       .then(user => {
         if (!user) {
-          res.status(401).send("username or password incorrect");
+          res.status(401).send("email or password incorrect");
         }
 
         bcrypt.compare(req.body.password, user.hash)
@@ -46,7 +46,7 @@ module.exports = {
               req.session.user = user;
               res.send(200);
             }
-            res.status(401).send("username or password incorrect");
+            res.status(401).send("email or password incorrect");
           })
           .catch(err => res.status(500).send(err.message))
       })
@@ -56,9 +56,10 @@ module.exports = {
     const reqsid = decodeURIComponent(req.params.sid).split(':')[1].split('.')[0];
     console.info('sid:', req.sessionID, reqsid);
     if (reqsid === req.sessionID) {
-      res.send(200);
+      res.json(req.user);
+    } else {
+      res.send(403);
     }
-    res.send(403);
   },
   logout: (req, res) => {
     req.session.destroy(err => {

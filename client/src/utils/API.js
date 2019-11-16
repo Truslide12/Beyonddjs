@@ -3,7 +3,7 @@ export default {
     fetch("/api/auth/login", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }) 
     }),
   register: ( email, password, role, firstName, lastName, city, state, zip, phone ) =>
     fetch("/api/auth/register", {

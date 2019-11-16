@@ -11,7 +11,11 @@ const LocalStrategy = require('passport-local').Strategy;
 const auth = require('./utils/auth');
 const apis = require('./apis');
 
-passport.use(new LocalStrategy(auth.verify));
+passport.use(new LocalStrategy({
+  //
+  usernameField: 'email',
+  passwordField: 'password'
+}, auth.verify));
 // passport.use(new GitHubStrategy({
 //     clientID: process.env.GITHUB_CLIENT_ID,
 //     clientSecret: process.env.GITHUB_CLIENT_SECRET,
@@ -33,9 +37,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const sessConfig = {
-  secret: "keybord cats", resave: false, saveUninitialized: false, // need to add secret to dotenv.env folder and gitignore
+  secret: apis.sessionSecret, resave: false, saveUninitialized: false, // need to add secret to dotenv.env folder and gitignore
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  cookie: { path: '/', httpOnly: true, maxAge: 5 * 60 * 1000 }
+  cookie: { path: '/', httpOnly: false, maxAge: 5 * 60 * 1000 }
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -45,7 +49,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(session(sessConfig));
-app.use(passport.initialize());
+app.use(passport.initialize()); 
 app.use(passport.session());
 app.use(routes);
 
