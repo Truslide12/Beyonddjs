@@ -10,6 +10,7 @@ const Form = ({ inputHandler, submitHandler }) => (
         <option value="1">Client</option>
         <option value="2">Entertainer</option>
         <option value="3">Promoter</option>
+        <option value="4">Admin</option>
       </select>
     </div>
     <div class="input-container reg-container">
