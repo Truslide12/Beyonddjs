@@ -85,6 +85,9 @@ input:valid~.input-label {
 	color: #768BB4;
 	font-weight: bold;
 }
+.formErrors {
+	color:white;
+}
 
 .btn {
 	margin: 20px;
