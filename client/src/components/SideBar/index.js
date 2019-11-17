@@ -12,21 +12,21 @@ function SideBar() {
 
             <ul className="list-unstyled components">
                 <li>
-                    <a href="#">
+                    <Link to="/promoter/home">
                         <i className="fa fa-home"></i>&nbsp;
-                        Home</a>
+                        Home</Link>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/promoter/search">
                         <i className="fa fa-search"></i>&nbsp;
                         Search Artists</a>
-                    <a href="#">
+                    <a href="/promoter/create">
                         <i className="fa fa-calendar"></i>&nbsp;
                         Create Event</a>
-                    <a href="#">
+                    <a href="/promoter/settings">
                         <i className="fa fa-cogs"></i>&nbsp;
                         Account Settings</a>
-                    <a href="#">
+                    <a href="/promoter/contact">
                         <i className="fa fa-comments-o"></i>&nbsp;
                         Contact Us</a>
                     <div className="navFoot">

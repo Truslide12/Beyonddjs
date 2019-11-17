@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
+import PromoHome from "./PromoHome";
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Title from "../../components/Title";
 import API from "../../utils/API";
 import "./Promoter.css";
@@ -53,7 +54,7 @@ class Basic extends Component {
     return (
       <Fragment>
         <div className="wrapper">
-          <SideBar />
+          <SideBar currentPage={this.state.currentPage}/>
           <Container fluid>
             <Row>
               <Col className="p-0">
@@ -81,7 +82,9 @@ class Basic extends Component {
             </Row>
             <Row>
               <Col>
-                {/* <Route exact path={`${props.match.url}/home`} component={Learn} /> */}
+                <Switch>
+                  <Route exact path="/promoter/home" component={PromoHome} />
+                </Switch>
               </Col>
             </Row>
           </Container>
