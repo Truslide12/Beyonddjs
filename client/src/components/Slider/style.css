@@ -1,8 +1,15 @@
 img{
     width: 600px;
-    height: 500px;
+    height: 600px;
 }
 .slick-prev:before,
 .slick-next:before {
     color: transparent;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }

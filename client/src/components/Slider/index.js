@@ -26,13 +26,13 @@ class PauseOnHover extends Component {
                         <img src="./imgs/club.jpg" />
                     </div>
                     <div>
-                        <img src="./imgs/weddingCC.JPG" />
+                        <img src="./imgs/omfgnye.jpg" />
                     </div>
                     <div>
-                        <img src="http://placehold.it/960x300?text=1-960w 960w" />
+                        <img src="./imgs/marsh.jpg"/>
                     </div>
                     <div>
-                        <img src="http://placehold.it/960x300?text=1-960w 960w" />
+                        <img src="./imgs/entertainer.JPG" />
                     </div>
                 </Slider>
             </div>
