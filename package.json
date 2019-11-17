@@ -2,6 +2,7 @@
   "name": "beyonddjs",
   "version": "1.0.0",
   "description": "",
+  "proxy": "http://localhost:3001",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -18,6 +19,7 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "connect-mongo": "^3.1.0",
+    "cors": "^2.8.5",
     "create-react-app": "^3.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -31,7 +33,8 @@
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
     "react-slick": "^0.25.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "concurrently": "^5.0.0",

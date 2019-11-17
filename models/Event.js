@@ -7,10 +7,14 @@ const EventsSchema = new Schema({
     type: String,
     required: true,
   },
+  creator: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     required: true,
-    unique: true
+    unique: false
   },
   startTime: {
     type: String,
@@ -38,7 +42,8 @@ const EventsSchema = new Schema({
   },
   public: {
     type: Boolean,
-    require: false
+    require: false,
+    default: false
   },
   phone: {
     type: String,

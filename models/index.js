@@ -1,4 +1,4 @@
 module.exports = {
-  PromoterVendor: require('./User'),
+  User: require('./User'),
   Events: require('./Event'),
 };

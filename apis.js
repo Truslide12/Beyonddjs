@@ -1,3 +1,3 @@
-const sessionSecret = "alawkenfawel weosj";
+const sessionSecret = process.env.COOKIE_SECRET || "alawkenfawel weosj";
 
-module.exports = sessionSecret;
+module.exports = { sessionSecret };

@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import { Redirect } from 'react-router-dom';
 import Title from "../../components/Title/index";
+import Availability from "../../components/Availability";
+import TestCalendar from "../../components/Calendar";
 import PromoterPage from "../Promoter";
 import API from "../../utils/API";
 
@@ -12,7 +14,6 @@ class Dashboard extends Component {
       cookie: null,
       loading: true,
       email: '',
-      password: '',
       role: '',
       firstName: '',
       lastName: '',
@@ -27,7 +28,7 @@ class Dashboard extends Component {
   componentDidMount() {
     this.validateCookie();
     // this.generateForm();
-    console.log(this.session);
+
   }
 
   validateCookie() {
@@ -35,15 +36,21 @@ class Dashboard extends Component {
     API.validateCookie(cookieValue)
       .then(res => {
         if (res.status === 200) {
-          this.setState({ 
-            cookie: cookieValue, loading: false,
-            // email: user.email,
-            // role: user.role,
-            // firstName: user.firstName,
-            // lastName: user.lastName,
-            // phone: user.phone,
-            // calendar: user.calendar,
-          });
+          res.json().then(user => {
+            this.setState({
+              cookie: cookieValue,
+              loading: false,
+              email: user.email,
+              role: user.role,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              city: user.city,
+              state: user.state,
+              zip: user.zip,
+              phone: user.phone,
+              calendar: user.calendar,
+            });
+          })
         } else {
           this.setState({ loading: false });
         }
@@ -67,8 +74,9 @@ class Dashboard extends Component {
     if (this.state.role === 'Admin') {
     return (
       <Fragment>
-        <Title>This the Admin page</Title>
-        <p>Hello: {props.email}</p>
+        <Title>This is the Admin page</Title>
+        <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
+        <p>Email: {this.state.email}</p>
         <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
       </Fragment>
     );
@@ -76,8 +84,10 @@ class Dashboard extends Component {
     else if (this.state.role === 'Entertainer') {
     return (
       <Fragment>
-        <Title>This the Entertainer page</Title>
-        <p>Hello: {props.email}</p>
+        <Title>This is the Entertainer page</Title>
+        <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
+        <p>Email: {this.state.email}</p>
+        <Availability />
         <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
       </Fragment>
     );
@@ -89,16 +99,35 @@ class Dashboard extends Component {
       </Fragment>
     );
     }
-    else
-    if (this.state.role) {
+    else if (this.state.role === 'PromoterVendor') {
       return (
         <Fragment>
-          <Title>This the User page</Title>
-          <p>Hello: {props.email}</p>
+          <Title>This is the Promoter/Vendor page</Title>
+          <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
+          <p>Email: {this.state.email}</p>
           <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
         </Fragment>
       );
       }
+      else if (this.state.role === 'promoterVendor') {
+      return (
+        <Fragment>
+          <PromoterPage />
+        </Fragment>
+      );
+    }
+    else if (this.state.role) {
+      return (
+        <Fragment>
+          <Title>This is the Client page</Title>
+          <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
+          <p>Email: {this.state.email}</p>
+          <TestCalendar />
+          <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
+        </Fragment>
+      );
+      }
+    return null;
   }
 }
 
