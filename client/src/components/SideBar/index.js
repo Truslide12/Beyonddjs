@@ -13,26 +13,25 @@ function SideBar() {
             <ul className="list-unstyled components">
                 <li>
                     <a href="#">
-                        {/* <i className="fas fa-briefcase"></i> */}
+                        <i className="fa fa-home"></i>&nbsp;
                         Home</a>
                 </li>
                 <li>
                     <a href="#">
-                        {/* <i className="fas fa-briefcase"></i> */}
+                        <i className="fa fa-search"></i>&nbsp;
                         Search Artists</a>
                     <a href="#">
-                        {/* <i className="fas fa-briefcase"></i> */}
+                        <i className="fa fa-calendar"></i>&nbsp;
                         Create Event</a>
                     <a href="#">
-                        {/* <i className="fas fa-briefcase"></i> */}
+                        <i className="fa fa-cogs"></i>&nbsp;
                         Account Settings</a>
                     <a href="#">
-                        {/* <i className="fas fa-briefcase"></i> */}
+                        <i className="fa fa-comments-o"></i>&nbsp;
                         Contact Us</a>
                     <div className="navFoot">
-                        <a href="#">
-                            {/* <i className="fas fa-briefcase"></i> */}
-                            BeyondDJ</a>
+                        <a href="#" id="BeyondDJ">BeyondDJ</a>
+                        <img src="./imgs/edm.png"></img>
                     </div>
                 </li>
             </ul>

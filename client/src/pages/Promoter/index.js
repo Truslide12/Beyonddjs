@@ -60,7 +60,7 @@ class Basic extends Component {
                 <div id="content">
                   <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <p className="mt-3 text-secondary float-left" onClick={this.handleCollapse}>
-                      <i className="fa fa-align-left"></i>
+                      <i className="fa fa-bars"></i>
                     </p>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                       data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
@@ -71,7 +71,7 @@ class Basic extends Component {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                       <ul className="navbar-nav">
                         <li className="nav-item active">
-                          <Button id="logout" onClick={this.handleLogout} variant="secondary" >LOG OUT</Button>
+                          <Button id="logout" onClick={this.handleLogout} variant="secondary"><i class="fa fa-sign-out"></i>LOG OUT</Button>
                         </li>
                       </ul>
                     </div>
@@ -81,13 +81,12 @@ class Basic extends Component {
             </Row>
             <Row>
               <Col>
+                {/* <Route exact path={`${props.match.url}/home`} component={Learn} /> */}
               </Col>
             </Row>
           </Container>
         </div>
-        {/* <Route exact path={`${props.match.url}/home`} component={Learn} /> */}
-        {/* <Title>This the Vendor/Promoter page</Title>
-        <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button> */}
+        {/* <Title>This the Vendor/Promoter page</Title> */}
       </Fragment>
     );
   }
