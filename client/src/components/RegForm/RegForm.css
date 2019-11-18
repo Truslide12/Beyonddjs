@@ -1,6 +1,8 @@
 .form {
 	display: flex;
 	flex-direction: column;
+}
+.centerInput {
 	align-items: center;
 }
 #regForm{
@@ -13,8 +15,7 @@
 .input-container {
 	position: relative;
 	margin: 10px;
-	/* border: 1px solid black; */
-
+	border-bottom: solid 2px #a8a6a69c;
 }
 /* .reg-container {
 	background-color: rgba(255, 235, 205, 0.678);
@@ -103,6 +104,7 @@ input:valid~.input-label {
 
 .submit {
 	background-color: rgb(152, 248, 242) !important;
+	text-shadow: 1px 1px rgba(238, 232, 170, 0.808);
 }
 .link-to-register {
 	padding: 0 !important;

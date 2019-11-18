@@ -87,7 +87,7 @@ class Register extends Component {
         <Container fluid className="p-0">
           <div id="register">
             <Row>
-              <Col className="py-3" id="regTitle">
+              <Col className="pb-3 pt-5" id="regTitle">
                 <Title>Register</Title>
               </Col>
             </Row>
