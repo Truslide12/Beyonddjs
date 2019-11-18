@@ -1,18 +1,23 @@
 import React from "react";
+import { Row, Col } from 'react-bootstrap';
 import "./RegForm.css";
 // Update this for each differnt role - we probably need different forms for the main registration then change the input values for each role
 const Form = ({ inputHandler, submitHandler }) => (
-  <form class="form" onSubmit={submitHandler}>
-    <div class="input-container reg-container">
-      <select>
-        <input id="role" type="select" name="role" onChange={inputHandler} required />
-        <option value="0">Select Role:</option>
-        <option value="1">Client</option>
-        <option value="2">Entertainer</option>
-        <option value="3">Promoter</option>
-        <option value="4">Admin</option>
-      </select>
-    </div>
+  <form class="form" id="regForm" onSubmit={submitHandler}>
+    <Row>
+      <Col>
+        <div class="input-container reg-container">
+          <select>
+            <input id="role" type="select" name="role" onChange={inputHandler} required />
+            <option value="0">Select Role:</option>
+            <option value="1">Client</option>
+            <option value="2">Entertainer</option>
+            <option value="3">Promoter</option>
+            <option value="4">Admin</option>
+          </select>
+        </div>
+      </Col>
+    </Row>
     <div class="input-container reg-container">
       <input id="firstName" type="text" name="firstName" onChange={inputHandler} required />
       <span class="input-underline"></span>
