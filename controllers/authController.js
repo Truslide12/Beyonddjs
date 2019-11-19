@@ -3,6 +3,7 @@ const db = require('../models/');
 
 // Defining methods for the authController
 module.exports = {
+  // User Authorization
   register: (req, res) => {
     bcrypt.genSalt()
       .then(salt => {
@@ -68,12 +69,122 @@ module.exports = {
       }
       res.send(200);
     });
+  },
+    updateUser: (res, req) => { // figure out how to do this correctly
+    db.User
+      .findOne({_id: req.session.passport.user.id})
+      .then(user => {
+        update({ 
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          city: req.body.city,
+          state: req.body.state,
+          zip: req.body.zip,
+          phone: req.body.phone,
+          calendar: []
+         })
+      })
+  },
+
+  // Events 
+
+  createEvent: (res, req) => {
+    db.Event
+    .create(
+      {
+        name: req.body.name,
+        creator: req.body.creator, 
+        date: req.body.date, 
+        startTime: req.body.startTime, 
+        endTime: req.body.endTime, 
+        description: req.body.description, 
+        city: req.body.city, 
+        state: req.body.state, 
+        zip: req.body.zip, 
+        public: req.body.public, 
+        phone: req.body.phone, 
+        maxEntertainers: req.body.maxEntertainers, 
+        entsContacted: req.body.entsContacted, 
+        entsConfirmed: req.body.entsConfirmed, 
+        schedule: req.body.schedule
+      })
+      .then(res.send(200))
+      .catch(err => res.status(500).send(err.message));
+  },
+  updateEvent: (res, req) => { // figure out how to do this correctly
+    db.Event
+      .findOne({_id: req.session.passport.event.id})
+      .then(event => {
+        update({ 
+          date: req.body.date, 
+          startTime: req.body.startTime, 
+          endTime: req.body.endTime, 
+          description: req.body.description, 
+          city: req.body.city, 
+          state: req.body.state, 
+          zip: req.body.zip, 
+          public: req.body.public, 
+          phone: req.body.phone, 
+          maxEntertainers: req.body.maxEntertainers, 
+          entsContacted: req.body.entsContacted, 
+          entsConfirmed: req.body.entsConfirmed, 
+          schedule: req.body.schedule
+         })
+      })
+  },
+  search: (res, req) => {
+    // need to get search data input and compare each to the correct role
+//     var queryCond = {}
+// if(query.name){ // query.name should be req.name (or whichever field they are searching)
+//    queryCond.name={$regex:query.name,$options:"i"};
+// }
+// if(query.city){
+//    queryCond.city=query.city;
+// }
+// if(query.type){
+//    queryCond.type=query.type;
+// }
+// Location.find(queryCond); // location.find will be db.User.find(queryCond)
+// Location.find({
+//   $and: [
+//     { name: { $regex: query.name } },
+//     { city: query.city },
+//     { type: query.type }
+//   ]
+// });
+    db.User.find({}, function(err, result) { //{ name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule}, 
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(result);
+      }
+    })
+  },
+  searchEvents: (res, req) => {
+    // var queryCond = {}
+    // if(query.name){
+    //    queryCond.name={$regex:query.name,$options:"i"};
+    // }
+    // if(query.city){
+    //    queryCond.city=query.city;
+    // }
+    // if(query.type){
+    //    queryCond.type=query.type;
+    // }
+    // Location.find(queryCond);
+//     Location.find({
+//       $and: [
+//         { name: { $regex: query.name } },
+//         { city: query.city },
+//         { type: query.type }
+//       ]
+// });
+    db.Event.find({}, { date: req.event.date }, function(err, result) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(result);
+      }
+    })
   }
-    // updateUser: (res, req) => { // figure out how to do this correctly
-  //   db.User
-  //     .findOne({_id: req.session.passport.user.id})
-  //     .then(user => {
-  //       update({ email: user.email, firstName: req.body.firstName, lastName: req.body.lastName, firstName: req.body.firstName, })
-  //     })
-  // },
 };

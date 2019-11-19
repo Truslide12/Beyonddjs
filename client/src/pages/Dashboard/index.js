@@ -92,13 +92,6 @@ class Dashboard extends Component {
       </Fragment>
     );
     }
-    else if (this.state.role === 'promoterVendor') {
-    return (
-      <Fragment>
-        <PromoterPage />
-      </Fragment>
-    );
-    }
     else if (this.state.role === 'PromoterVendor') {
       return (
         <Fragment>
@@ -109,13 +102,6 @@ class Dashboard extends Component {
         </Fragment>
       );
       }
-      else if (this.state.role === 'promoterVendor') {
-      return (
-        <Fragment>
-          <PromoterPage />
-        </Fragment>
-      );
-    }
     else if (this.state.role) {
       return (
         <Fragment>
