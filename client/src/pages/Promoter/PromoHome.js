@@ -2,7 +2,10 @@ import React from "react";
 
 function PromoHome(){
     return (
-        <h1>Home Page</h1>
+        <div className="promoContent">
+            <h1 id="welcome"><span id="BeyondDJ">Welcome to BeyondDJ!</span></h1>
+            
+        </div>
     );
 }
 

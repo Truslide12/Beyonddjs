@@ -5,6 +5,11 @@
     min-height: 100vh;
     color: #fff !important;
     transition: all 0.3s;
+    background-image: url("https://3.bp.blogspot.com/-_1p6VcUxFtk/XEYSk_lfVfI/AAAAAAAADcc/W0I1pCJ-aus1xo15DqabWL0_SUogk8dIACHMYCw/s1600/cool-hd-music-wallpaper-desktop-equaliser-dj-backgrounds.jpg");
+    background-repeat: no-repeat; 
+    opacity: 2.0;
+	background-size: cover;
+	background-position: center;
 }
 
 a[data-toggle="collapse"] {

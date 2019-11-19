@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
 import PromoHome from "./PromoHome";
+import PromoSearch from "./PromoSearch";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Title from "../../components/Title";
@@ -45,17 +46,17 @@ class Basic extends Component {
   };
 
   render() {
-    // if (this.state.loading) {
-    //   return <div>Loading...</div>;
-    // }
-    // if (!this.state.cookie) {
-    //   return <Redirect to='/login' />
-    // }
+    if (this.state.loading) {
+      return <div>Loading...</div>;
+    }
+    if (!this.state.cookie) {
+      return <Redirect to='/login' />
+    }
     return (
       <Fragment>
         <div className="wrapper">
-          <SideBar currentPage={this.state.currentPage}/>
-          <Container fluid>
+          <SideBar firstName={this.props.firstName} lastName={this.props.lastName} firstInitial={this.props.firstInitial} lastInitial={this.props.lastInitial}/>
+          <Container fluid id="promoContent">
             <Row>
               <Col className="p-0">
                 <div id="content">
@@ -83,7 +84,8 @@ class Basic extends Component {
             <Row>
               <Col>
                 <Switch>
-                  <Route exact path="/promoter/home" component={PromoHome} />
+                  <Route exact path="/dashboard/promoter/home" component={PromoHome} />
+                  <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
                 </Switch>
               </Col>
             </Row>
