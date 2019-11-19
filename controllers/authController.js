@@ -86,7 +86,7 @@ module.exports = {
       })
   },
 
-  // Events
+  // Events 
 
   createEvent: (res, req) => {
     db.Event
@@ -152,7 +152,7 @@ module.exports = {
 //     { type: query.type }
 //   ]
 // });
-    db.User.find({}, { name: 1 }, function(err, result) {
+    db.User.find({}, function(err, result) { //{ name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule}, 
       if (err) {
         console.log(err);
       } else {
@@ -161,7 +161,7 @@ module.exports = {
     })
   },
   searchEvents: (res, req) => {
-    var queryCond = {}
+    // var queryCond = {}
     // if(query.name){
     //    queryCond.name={$regex:query.name,$options:"i"};
     // }
