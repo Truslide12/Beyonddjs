@@ -5,3 +5,7 @@ div#register{
 	background-position: center;
 	height: 1000px;
 }
+#regTitle{
+	color: rgb(250, 87, 33) !important;
+	text-shadow: 2px 2px whitesmoke;
+}
