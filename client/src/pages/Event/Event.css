@@ -44,7 +44,7 @@ div#event{
 .form-container{
 	background-color: rgb(237, 208, 165);
 }
-select {
+#regSelect {
 	width: 100%;
 	height:45px;
 	background-color: blanchedalmond;

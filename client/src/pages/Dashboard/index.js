@@ -92,7 +92,7 @@ class Dashboard extends Component {
       </Fragment>
     );
     }
-    else if (this.state.role === 'promoterVendor') {
+    else if (this.state.role === 'Promoter') {
     return (
       <Fragment>
         <PromoterPage />
