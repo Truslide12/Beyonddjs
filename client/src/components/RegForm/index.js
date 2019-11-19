@@ -7,9 +7,9 @@ const Form = ({ inputHandler, submitHandler }) => (
     <Row className="m-3">
       <Col>
         <div className="input-container reg-container">
-          <label>Please Select Your Role:</label>
+          <label for="role">Please Select Your Role:</label>
           <select>
-            <input id="role" type="select" name="role" onChange={inputHandler} required />
+            <input id="role" type="text" name="role" onChange={inputHandler} required />
             <option value="0">Choose...</option>
             <option value="1">Basic User</option>
             <option value="2">Entertainer</option>
