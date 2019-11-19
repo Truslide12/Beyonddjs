@@ -76,7 +76,7 @@ class Register extends Component {
     API.register(this.state.email, this.state.password, this.state.role, this.state.firstName, this.state.lastName, this.state.city, this.state.state, this.state.zip, this.state.phone)
       .then(res => res.json())
       .then(res => console.info(res))
-      .then(res => this.props.history.push('/dashboard'))
+      .then(res => this.props.history.push('/login'))
       .catch(err => console.error(err));
   }
   // We need to have a selector that will load different forms based on the user role
