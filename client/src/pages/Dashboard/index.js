@@ -99,23 +99,6 @@ class Dashboard extends Component {
       </Fragment>
     );
     }
-    else if (this.state.role === 'PromoterVendor') {
-      return (
-        <Fragment>
-          <Title>This is the Promoter/Vendor page</Title>
-          <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
-          <p>Email: {this.state.email}</p>
-          <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
-        </Fragment>
-      );
-      }
-      else if (this.state.role === 'promoterVendor') {
-      return (
-        <Fragment>
-          <PromoterPage />
-        </Fragment>
-      );
-    }
     else if (this.state.role) {
       return (
         <Fragment>
