@@ -92,15 +92,6 @@ class Dashboard extends Component {
       </Fragment>
     );
     }
-<<<<<<< HEAD
-    else if (this.state.role === 'Promoter') {
-    return (
-      <Fragment>
-        <PromoterPage />
-      </Fragment>
-    );
-    }
-=======
     else if (this.state.role === 'PromoterVendor') {
       return (
         <Fragment>
@@ -111,7 +102,6 @@ class Dashboard extends Component {
         </Fragment>
       );
       }
->>>>>>> 111dec5e6eec39cb15db7e3db5757aa7caa994c9
     else if (this.state.role) {
       return (
         <Fragment>
