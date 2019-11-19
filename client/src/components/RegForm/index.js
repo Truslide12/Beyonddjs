@@ -10,11 +10,11 @@ const Form = ({ inputHandler, submitHandler }) => (
           <label>Please Select Your Role:</label>
           <select>
             <input id="role" type="select" name="role" onChange={inputHandler} required />
-            <option value="0">Choose...</option>
-            <option value="1">Basic User</option>
-            <option value="2">Entertainer</option>
-            <option value="3">Promoter</option>
-            <option value="4">Admin</option>
+            <option value="Choose">Choose...</option>
+            <option value="Basic User">Basic User</option>
+            <option value="Entertainer">Entertainer</option>
+            <option value="Promoter">Promoter</option>
+            <option value="Admin">Admin</option>
           </select>
         </div>
       </Col>
