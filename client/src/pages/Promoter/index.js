@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
 import PromoHome from "./PromoHome";
+import PromoSearch from "./PromoSearch";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Title from "../../components/Title";
@@ -84,6 +85,7 @@ class Basic extends Component {
               <Col>
                 <Switch>
                   <Route exact path="/promoter/home" component={PromoHome} />
+                  <Route exact path="/promoter/search" component={PromoSearch} />
                 </Switch>
               </Col>
             </Row>
