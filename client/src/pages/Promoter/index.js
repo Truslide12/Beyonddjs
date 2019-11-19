@@ -46,16 +46,16 @@ class Basic extends Component {
   };
 
   render() {
-    // if (this.state.loading) {
-    //   return <div>Loading...</div>;
-    // }
-    // if (!this.state.cookie) {
-    //   return <Redirect to='/login' />
-    // }
+    if (this.state.loading) {
+      return <div>Loading...</div>;
+    }
+    if (!this.state.cookie) {
+      return <Redirect to='/login' />
+    }
     return (
       <Fragment>
         <div className="wrapper">
-          <SideBar />
+          <SideBar firstName={this.props.firstName} lastName={this.props.lastName} firstInitial={this.props.firstInitial} lastInitial={this.props.lastInitial}/>
           <Container fluid id="promoContent">
             <Row>
               <Col className="p-0">
@@ -84,8 +84,8 @@ class Basic extends Component {
             <Row>
               <Col>
                 <Switch>
-                  <Route exact path="/promoter/home" component={PromoHome} />
-                  <Route exact path="/promoter/search" component={PromoSearch} />
+                  <Route exact path="/dashboard/promoter/home" component={PromoHome} />
+                  <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
                 </Switch>
               </Col>
             </Row>

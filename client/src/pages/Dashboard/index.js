@@ -22,6 +22,8 @@ class Dashboard extends Component {
       zip: '',
       phone: '',
       calendar: [],
+      firstInitial: '',
+      lastInitial: ''
     };
   }
 
@@ -49,6 +51,8 @@ class Dashboard extends Component {
               zip: user.zip,
               phone: user.phone,
               calendar: user.calendar,
+              firstInitial: user.firstName.charAt(0),
+              lastInitial: user.lastName.charAt(0)
             });
           })
         } else {
@@ -64,7 +68,7 @@ class Dashboard extends Component {
       .catch(err => console.error(err));
   }
 
-  render(props) {
+  render() {
     if (this.state.loading) {
       return <div>Loading...</div>;
     }
@@ -75,7 +79,7 @@ class Dashboard extends Component {
     return (
       <Fragment>
         <Title>This is the Admin page</Title>
-        <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
+        <p>Hello: {this.state.firstName} {this.state.lastName}</p>
         <p>Email: {this.state.email}</p>
         <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
       </Fragment>
@@ -85,7 +89,7 @@ class Dashboard extends Component {
     return (
       <Fragment>
         <Title>This is the Entertainer page</Title>
-        <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
+        <p>Hello: {this.state.firstName} {this.state.lastName}</p>
         <p>Email: {this.state.email}</p>
         <Availability />
         <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
@@ -95,10 +99,11 @@ class Dashboard extends Component {
     else if (this.state.role === 'PromoterVendor') {
       return (
         <Fragment>
-          <Title>This is the Promoter/Vendor page</Title>
-          <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
+          {/* <Title>This is the Promoter/Vendor page</Title>
+          <p>Hello: {this.state.firstName} {this.state.lastName}</p>
           <p>Email: {this.state.email}</p>
-          <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
+          <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button> */}
+          <PromoterPage firstName={this.state.firstName} lastName={this.state.lastName} email={this.state.email} handleLogout={this.handleLogout} firstInitial={this.state.firstInitial} lastInitial={this.state.lastInitial}/>
         </Fragment>
       );
       }
