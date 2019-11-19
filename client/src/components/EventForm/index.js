@@ -11,7 +11,7 @@ const Form = ({ inputHandler, submitHandler }) => (
     <div class="input-container form-container">
       <input id="date" type="date" name="date" onChange={inputHandler} required />
       <span class="input-underline"></span>
-      <label for="date" class="input-label"></label>
+      <label for="date" class="input-label">Date</label>
     </div>
     <div class="input-container form-container">
       <input id="startTime" type="text" name="startTime" onChange={inputHandler} required />

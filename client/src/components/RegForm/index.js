@@ -8,12 +8,21 @@ const Form = ({ inputHandler, submitHandler }) => (
       <Col>
         <div className="input-container">
           <label>Please Select Your Role:</label>
+<<<<<<< HEAD
           <select id="regSelect" id="role" type="select" name="role" onChange={inputHandler}>
             {/* <input id="role" type="select" name="role" onChange={inputHandler} required /> */}
             <option value="Choose">Choose...</option>
             <option value="Basic User">Basic User</option>
             <option value="Entertainer">Entertainer</option>
             <option value="Promoter">Promoter</option>
+=======
+          <select id="role" type="select" name="role" onChange={inputHandler}>
+            {/* <input id="role" type="select" name="role" onChange={inputHandler} required /> */}
+            <option value="0">Choose...</option>
+            <option value="User">User</option>
+            <option value="Entertainer">Entertainer</option>
+            <option value="PromoterVendor">PromoterVendor</option>
+>>>>>>> 111dec5e6eec39cb15db7e3db5757aa7caa994c9
             <option value="Admin">Admin</option>
           </select>
         </div>
