@@ -9,7 +9,7 @@ function NavBar() {
             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                 <Nav>
                     <ButtonToolbar>
-                        <Button href="/login" variant="outline-light" style={{ fontSize: "20px" }}><i class="fa fa-user-circle" style={{ fontSize: "20px" }}></i>&nbsp;&nbsp;Log In</Button>
+                        <Button href="/login" variant="outline-light" style={{ fontSize: "20px" }}><i className="fa fa-user-circle" style={{ fontSize: "20px" }}></i>&nbsp;&nbsp;Log In</Button>
                     </ButtonToolbar>
                 </Nav>
             </Navbar.Collapse>
