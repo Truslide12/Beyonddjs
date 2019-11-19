@@ -55,7 +55,7 @@ class Basic extends Component {
       <Fragment>
         <div className="wrapper">
           <SideBar currentPage={this.state.currentPage}/>
-          <Container fluid>
+          <Container fluid id="promoContent">
             <Row>
               <Col className="p-0">
                 <div id="content">
