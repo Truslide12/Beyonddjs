@@ -19,9 +19,18 @@ router.route('/logout')
 router.route('/session/:sid')
   .get(authController.validateSession);
 
-// router.route('/createEvent')
-//   .get(authController.createEvent);
-  
+router.route('/updateUser')
+  .put((authController.updateUser))
+
+router.route('/createEvent')
+  .get(authController.createEvent);
+
+router.route('/search')
+.get(authController.search);
+
+router.route('/searchEvents')
+.get(authController.searchEvents);
+
 // router.route('/auth/github')
 //   .get(passport.authenticate('github'));
 

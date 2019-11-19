@@ -15,14 +15,17 @@ export default {
   logout: () => fetch("/api/auth/", { method: 'DELETE' }),
   validateCookie: sid => fetch(`/api/auth/session/${encodeURIComponent(sid)}`),
 
+  // Entertainer APIs
+
   // Event APIs
   createEvent: (name, creator, date, startTime, endTime, description, city, state, zip, public, phone, maxEntertainers, entsContacted, entsConfirmed, schedule) =>    //add appropriate event info from form
     fetch("api/auth/event", {
-      method: postMessage,
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, creator, date, startTime, endTime, description, city, state, zip, public, phone, maxEntertainers, entsContacted, entsConfirmed, schedule }) // add appropriate event info calls here too
     }),
-  search: ( name, creator, date, startTime, endTime, description, city, state, zip, public, phone, maxEntertainers, entsContacted, entsConfirmed, schedule ) => { // add all search info to run search
+    
+  searchEvents: ( name, creator, date, startTime, endTime, description, city, state, zip, public, phone, maxEntertainers, entsContacted, entsConfirmed, schedule ) => { // add all search info to run search
     fetch("api/auth/search"), {
       method: 'Post',
       headers: { 'Content-Type': 'application/json' },
