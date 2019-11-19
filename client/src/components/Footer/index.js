@@ -19,7 +19,7 @@ function Footer() {
                         <br />
                         <Link to="/contact" className="float-right">CONTACT</Link>
                         <br />
-                        <Link to="/promoter" className="float-right">FAQ</Link>
+                        <Link to="/promoter/home" className="float-right">FAQ</Link>
                     </Col>
                     <Col sm md lg={3} className="mt-3">
                         <p id="BeyondDJ" className="m-0">BeyondDJ</p>
