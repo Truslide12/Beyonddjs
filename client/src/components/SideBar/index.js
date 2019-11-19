@@ -11,7 +11,7 @@ function SideBar() {
             </div>
 
             <ul className="list-unstyled components">
-                <li>
+                <li className="active">
                     <Link to="/promoter/home">
                         <i className="fa fa-home"></i>&nbsp;
                         Home</Link>
