@@ -9,7 +9,6 @@ const Form = ({ inputHandler, submitHandler }) => (
         <div className="input-container reg-container">
           <label>Please Select Your Role:</label>
           <select id="role" type="select" name="role" onChange={inputHandler}>
-            {/* <input id="role" type="select" name="role" onChange={inputHandler} required /> */}
             <option value="0">Choose...</option>
             <option value="User">User</option>
             <option value="Entertainer">Entertainer</option>
