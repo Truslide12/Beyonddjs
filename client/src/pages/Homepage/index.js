@@ -28,7 +28,7 @@ class Home extends React.Component {
               <UserBox src="./imgs/dj.png" description="Artists" btn="Find Gigs">Are you a DJ looking to join our platform? Find local and national gigs and touring opportunities</UserBox>
             </Col>
             <Col className="p-0">
-              <UserBox src="./imgs/basic.png" description="Basic Users" btn="Register">Not an entertainer or a promoter but a music fanatic that wants to check what's in it for you?</UserBox>
+              <UserBox src="./imgs/basic.png" description="General Users" btn="Register">Not an entertainer or a promoter but a music fanatic that wants to check what's in it for you?</UserBox>
             </Col>
           </Row>
         </Container>

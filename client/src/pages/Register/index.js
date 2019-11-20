@@ -109,7 +109,7 @@ class Register extends Component {
             </Row>
             <Row>
               <Col md={{ span: 2, offset: 5 }} className="text-center mt-2">
-                <Link to="/login" class="link-to-register">Already have an account?<br /><span>Login here</span></Link>
+                <Link to="/login" className="link-to-register">Already have an account?<br /><span>Login here</span></Link>
               </Col>
             </Row>
           </div>
