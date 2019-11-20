@@ -16,7 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <Router>
-      <div class="flexbox">
+      <div className="flexbox">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />

@@ -8,7 +8,7 @@ const Form = ({ inputHandler, submitHandler }) => (
       <Col>
         <div className="input-container">
           <label>Please Select Your Role:</label>
-          <select id="role" type="select" name="role" onChange={inputHandler}>
+          <select className="regSelect" id="role" type="select" name="role" onChange={inputHandler}>
             <option value="0">Choose...</option>
             <option value="User">User</option>
             <option value="Entertainer">Entertainer</option>

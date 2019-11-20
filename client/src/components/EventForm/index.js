@@ -2,11 +2,11 @@ import React from "react";
 import "./Form.css";
 // Need to add all event form inputs and search functions
 const Form = ({ inputHandler, submitHandler }) => (
-  <form class="form" onSubmit={submitHandler}>
-    <div class="input-container form-container">
+  <form className="form" onSubmit={submitHandler}>
+    <div className="input-container form-container">
       <input id="name" type="text" name="name" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="name" class="input-label">Event Name</label>
+      <span className="input-underline"></span>
+      <label for="name" className="input-label">Event Name</label>
     </div>
     <div class="input-container form-container">
       <input id="creator" type="text" name="creator" onChange={inputHandler} required />
@@ -15,38 +15,38 @@ const Form = ({ inputHandler, submitHandler }) => (
     </div>
     <div class="input-container form-container">
       <input id="date" type="date" name="date" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="date" class="input-label">Date</label>
+      <span className="input-underline"></span>
+      <label for="date" className="input-label">Date</label>
     </div>
-    <div class="input-container form-container">
+    <div className="input-container form-container">
       <input id="startTime" type="text" name="startTime" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="startTime" class="input-label">Start Time</label>
+      <span className="input-underline"></span>
+      <label for="startTime" className="input-label">Start Time</label>
     </div>
-    <div class="input-container form-container">
+    <div className="input-container form-container">
       <input id="endTime" type="text" name="endTime" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="endTime" class="input-label">End Time</label>
+      <span className="input-underline"></span>
+      <label for="endTime" className="input-label">End Time</label>
     </div>
-    <div class="input-container form-container">
+    <div className="input-container form-container">
       <input id="description" type="description" name="description" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="description" class="input-label">description</label>
+      <span className="input-underline"></span>
+      <label for="description" className="input-label">description</label>
     </div>
-    <div class="input-container form-container">
+    <div className="input-container form-container">
       <input id="city" type="text" name="city" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="city" class="input-label">city</label>
+      <span className="input-underline"></span>
+      <label for="city" className="input-label">city</label>
     </div>
-    <div class="input-container form-container">
+    <div className="input-container form-container">
       <input id="state" type="text" name="state" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="state" class="input-label">state</label>
+      <span className="input-underline"></span>
+      <label for="state" className="input-label">state</label>
     </div>
-    <div class="input-container form-container">
+    <div className="input-container form-container">
       <input id="zip" type="number" name="zip" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="zip" class="input-label">zip</label>
+      <span className="input-underline"></span>
+      <label for="zip" className="input-label">zip</label>
     </div>
     <div class="input-container form-container">
       <select id="publicEvent" type="boolean" name="publicEvent" onChange={inputHandler}>
@@ -55,15 +55,15 @@ const Form = ({ inputHandler, submitHandler }) => (
         <option value="2">No</option>
       </select>
     </div>
-    <div class="input-container form-container">
+    <div className="input-container form-container">
       <input id="phone" type="phone" name="phone" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="phone" class="input-label">phone</label>
+      <span className="input-underline"></span>
+      <label for="phone" className="input-label">phone</label>
     </div>
-    <div class="input-container form-container">
+    <div className="input-container form-container">
       <input id="maxEntertainers" type="number" name="maxEntertainers" onChange={inputHandler} required />
-      <span class="input-underline"></span>
-      <label for="maxEntertainers" class="input-label">maxEntertainers</label>
+      <span className="input-underline"></span>
+      <label for="maxEntertainers" className="input-label">maxEntertainers</label>
     </div>
     {/* entsContacted automatically set to false*/}
     {/* entsConfirmed  automatically set to false*/}
@@ -71,7 +71,7 @@ const Form = ({ inputHandler, submitHandler }) => (
       {/* add search function and button to search in a component add each user choice to the events.search array */}
     </div>
 
-    <button class="btn">SUBMIT</button>
+    <button className="btn">SUBMIT</button>
   </form>
 );
 
