@@ -30,7 +30,7 @@ const routes = require('./routes');
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/users', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/users', { useUnifiedTopology: true, useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
