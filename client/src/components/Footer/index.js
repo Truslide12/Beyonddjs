@@ -23,7 +23,7 @@ function Footer() {
                         {/* <Link to="/promoter/home" className="float-right">FAQ</Link> */}
                     </Col>
                     <Col sm md lg={3} className="mt-3">
-                        <p id="BeyondDJ" className="m-0">BeyondDJ</p>
+                        <p className="BeyondDJ" className="m-0">BeyondDJ</p>
                         <p>&copy; 2019. All rights reserved.</p>
                     </Col>
                 </Row>

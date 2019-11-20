@@ -89,10 +89,10 @@ ul ul a {
     display: block;
 }
 
-#sidebar #BeyondDJ {
+#sidebar .BeyondDJ {
     display: block;
 }
-#sidebar.active #BeyondDJ {
+#sidebar.active .BeyondDJ {
     display: none;
 }
 #sidebar .navFoot img{

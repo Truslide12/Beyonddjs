@@ -73,7 +73,7 @@ class Basic extends Component {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                       <ul className="navbar-nav">
                         <li className="nav-item active">
-                          <Button id="logout" onClick={this.handleLogout} variant="secondary"><i class="fa fa-sign-out"></i>LOG OUT</Button>
+                          <Button id="logout" onClick={this.handleLogout} variant="secondary"><i className="fa fa-sign-out"></i>LOG OUT</Button>
                         </li>
                       </ul>
                     </div>
