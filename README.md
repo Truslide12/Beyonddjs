@@ -8,6 +8,7 @@ We dream of a world with more live music than ever because we’ve made it easy 
 
 We have THREE user types for our customers: <br />
 :headphones: Artists/Entertainer
+- Search Events: To search and find a list of available events to apply. 
 - 
 
 :squirrel: Promoter/Event Hosts
