@@ -103,6 +103,7 @@ class Dashboard extends Component {
           <p>Hello: {this.state.firstName} {this.state.lastName}</p>
           <p>Email: {this.state.email}</p>
           <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button> */}
+          <Availability />
           <PromoterPage firstName={this.state.firstName} lastName={this.state.lastName} email={this.state.email} handleLogout={this.handleLogout} firstInitial={this.state.firstInitial} lastInitial={this.state.lastInitial}/>
         </Fragment>
       );

@@ -12,6 +12,7 @@ class Availability extends React.Component {
     let schedule = this.state.schedule;
     alert("Your availability has been submitted successfully: " + schedule);
     event.preventDefault();
+    
   }
 
   handleChange = newSchedule => {
