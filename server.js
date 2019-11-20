@@ -29,8 +29,8 @@ passport.deserializeUser(auth.deserializeUser);
 const routes = require('./routes');
 
 const app = express();
-// { useUnifiedTopology: true, useNewUrlParser: true }
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/users');
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/users', { useUnifiedTopology: true, useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
