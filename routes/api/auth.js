@@ -11,7 +11,7 @@ router.route('/register')
 router.route('/login') //need to add different routes for each role
   .post((req, res, next) => { console.info('Before auth', req.body); next(); }, passport.authenticate('local'), (req, res) => {
     res.json(req.user);
-});
+  });
 
 router.route('/logout')
   .delete(authController.logout);
@@ -23,13 +23,19 @@ router.route('/updateUser')
   .put((authController.updateUser))
 
 router.route('/createEvent')
-  .get(authController.createEvent);
+.post((req, res, next) => { console.info('Before createEvent', req.body); next(); }, authController.createEvent, (req, res) => {
+  res.json(req.event);
+});
+
+
+router.route('/updateEvent')
+  .put((authController.updateEvent))
 
 router.route('/search')
-.get(authController.search);
+  .get(authController.search);
 
 router.route('/searchEvents')
-.get(authController.searchEvents);
+  .get(authController.searchEvents);
 
 // router.route('/auth/github')
 //   .get(passport.authenticate('github'));

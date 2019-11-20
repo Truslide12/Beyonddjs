@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const db = require('../models/');
 
+// console.log(Event);
+
 // Defining methods for the authController
 module.exports = {
   // User Authorization
@@ -81,14 +83,15 @@ module.exports = {
           state: req.body.state,
           zip: req.body.zip,
           phone: req.body.phone,
-          calendar: []
+          calendar: req.body.calendar
          })
       })
   },
 
   // Events 
 
-  createEvent: (res, req) => {
+  createEvent: (req, res) => {
+    // console.log(req.body);
     db.Event
     .create(
       {
@@ -101,13 +104,17 @@ module.exports = {
         city: req.body.city, 
         state: req.body.state, 
         zip: req.body.zip, 
-        public: req.body.public, 
+        publicEvent: req.body.public, 
         phone: req.body.phone, 
         maxEntertainers: req.body.maxEntertainers, 
         entsContacted: req.body.entsContacted, 
         entsConfirmed: req.body.entsConfirmed, 
         schedule: req.body.schedule
       })
+      // .then(newEvent => {
+      //   req.session.event = newEvent;
+      //   res.send(200);
+      // })
       .then(res.send(200))
       .catch(err => res.status(500).send(err.message));
   },

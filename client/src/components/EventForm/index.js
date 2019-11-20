@@ -1,4 +1,4 @@
- import React from "react";
+import React from "react";
 import "./Form.css";
 // Need to add all event form inputs and search functions
 const Form = ({ inputHandler, submitHandler }) => (
@@ -7,6 +7,11 @@ const Form = ({ inputHandler, submitHandler }) => (
       <input id="name" type="text" name="name" onChange={inputHandler} required />
       <span class="input-underline"></span>
       <label for="name" class="input-label">Event Name</label>
+    </div>
+    <div class="input-container form-container">
+      <input id="creator" type="text" name="creator" onChange={inputHandler} required />
+      <span class="input-underline"></span>
+      <label for="creator" class="input-label">User Name</label>
     </div>
     <div class="input-container form-container">
       <input id="date" type="date" name="date" onChange={inputHandler} required />
@@ -44,9 +49,8 @@ const Form = ({ inputHandler, submitHandler }) => (
       <label for="zip" class="input-label">zip</label>
     </div>
     <div class="input-container form-container">
-      <select>
-      <input id="public" type="boolean" name="public" onChange={inputHandler} required />
-      <option value="0">Public:</option>
+      <select id="publicEvent" type="boolean" name="publicEvent" onChange={inputHandler}>
+        <option value="0">Public Event:</option>
         <option value="1">Yes</option>
         <option value="2">No</option>
       </select>
@@ -64,8 +68,8 @@ const Form = ({ inputHandler, submitHandler }) => (
     {/* entsContacted automatically set to false*/}
     {/* entsConfirmed  automatically set to false*/}
     <div>
-    {/* add search function and button to search in a component add each user choice to the events.search array */}
-        </div>
+      {/* add search function and button to search in a component add each user choice to the events.search array */}
+    </div>
 
     <button class="btn">SUBMIT</button>
   </form>
