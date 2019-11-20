@@ -4,7 +4,7 @@ import { Nav, Navbar, Button, ButtonToolbar } from 'react-bootstrap';
 function NavBar() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="/" id="BeyondDJ"><span><img src="./imgs/disco.png" alt="disco ball" id="disco" /></span>&nbsp;BeyondDJ</Navbar.Brand>
+            <Navbar.Brand href="/" className="BeyondDJ"><span><img src="./imgs/disco.png" alt="disco ball" id="disco" /></span>&nbsp;BeyondDJ</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
                 <Nav>

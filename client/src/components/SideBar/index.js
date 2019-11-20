@@ -32,7 +32,7 @@ function SideBar(props) {
                         <i className="fa fa-comments-o"></i>&nbsp;
                         Contact Us</Link>
                     <div className="navFoot">
-                        <Link to="/dashboard/promoter/home" id="BeyondDJ">BeyondDJ</Link>
+                        <Link to="/dashboard/promoter/home" className="BeyondDJ">BeyondDJ</Link>
                         <img src="../../imgs/edm.png"></img>
                     </div>
                 </li>
