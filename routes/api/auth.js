@@ -27,7 +27,6 @@ router.route('/createEvent')
   res.json(req.event);
 });
 
-
 router.route('/updateEvent')
   .put((authController.updateEvent))
 
