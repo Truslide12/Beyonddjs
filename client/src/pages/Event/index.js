@@ -11,12 +11,21 @@ class Event extends Component {
     super(props);
 
     this.state = {
-      email: '',
-      password: '',
-      role: '',
-      // firstName: '', need to add all data going to event form and need to figure out how to get email from session
-      // lastName: '',
-      // phone: '',
+      name: '',
+      creator: '', 
+      date: '',
+      startTime: '', 
+      endTime: '', 
+      description: '', 
+      city: '',
+      state: '', 
+      zip: '', 
+      publicEvent: '', 
+      phone: '', 
+      maxEntertainers: '', 
+      entsContacted: '', 
+      entsConfirmed: '', 
+      schedule: '',
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -30,8 +39,25 @@ class Event extends Component {
 
   handleSubmit (event) {
     event.preventDefault();
+    console.log(this.state)
 // need to create event function in API.js and need to finish adding all data to be passed to event function
-    API.event(this.state.name, this.state.date, this.state.startTime) //, this.state.firstName, this.state.lastName, this.state.phone
+    API.createEvent(
+      this.state.name, 
+      this.state.creator, 
+      this.state.date, 
+      this.state.startTime,
+      this.state.endTime, 
+      this.state.description, 
+      this.state.city, 
+      this.state.state, 
+      this.state.zip, 
+      this.state.publicEvent, 
+      this.state.phone, 
+      this.state.maxEntertainers, 
+      this.state.entsContacted, 
+      // entsConfirmed, 
+      // schedule
+      ) 
       .then(res => res.json())
       .then(res => console.info(res))
       .catch(err => console.error(err));

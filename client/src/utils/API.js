@@ -19,7 +19,7 @@ export default {
 
   // Event APIs
   createEvent: (name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule) =>    //add appropriate event info from form
-    fetch("api/auth/event", {
+    fetch("/api/auth/createEvent", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule }) // add appropriate event info calls here too

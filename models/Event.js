@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const EventsSchema = new Schema({
+const EventSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -40,7 +40,7 @@ const EventsSchema = new Schema({
     type: Number,
     required: true
   },
-  public: {
+  publicEvent: {
     type: Boolean,
     require: false,
     default: false
@@ -67,6 +67,8 @@ const EventsSchema = new Schema({
   }
 })
 
-const Events = mongoose.model('Events', EventsSchema);
+const Event = mongoose.model('Event', EventSchema);
 
-module.exports = Events;
+// console.log(Event);
+
+module.exports = Event;
