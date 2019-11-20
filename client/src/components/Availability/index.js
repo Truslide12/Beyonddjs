@@ -1,5 +1,6 @@
 import ScheduleSelector from 'react-schedule-selector'
 import React, { Component } from 'react';
+import Moment from 'moment';
 
 class Availability extends React.Component {
   constructor(props) {
@@ -10,10 +11,12 @@ class Availability extends React.Component {
 
   handleSubmit(event) {
     let schedule = this.state.schedule;
-    alert("Your availability has been submitted successfully: " + schedule);
+    alert("Your availability has been submitted successfully!");
+    let ISOschedule = schedule.map(date => Moment(date).toISOString());
+    console.log(ISOschedule);
     event.preventDefault();
-    
   }
+
 
   handleChange = newSchedule => {
     this.setState({ schedule: newSchedule })
