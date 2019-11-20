@@ -73,7 +73,17 @@ class Register extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    API.register(this.state.email, this.state.password, this.state.role, this.state.firstName, this.state.lastName, this.state.city, this.state.state, this.state.zip, this.state.phone)
+    API.register(
+      this.state.email, 
+      this.state.password, 
+      this.state.role, 
+      this.state.firstName, 
+      this.state.lastName, 
+      this.state.city, 
+      this.state.state, 
+      this.state.zip, 
+      this.state.phone
+      )
       .then(res => res.json())
       .then(res => console.info(res))
       .then(res => this.props.history.push('/login'))
