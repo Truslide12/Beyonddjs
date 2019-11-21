@@ -12,3 +12,7 @@
 #promoContent{
     background-color: lavender;
 }
+#promoAd{
+    max-width: 100%;
+    height: auto;
+}
