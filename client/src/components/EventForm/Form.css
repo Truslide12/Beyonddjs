@@ -1,0 +1,109 @@
+.form {
+	display: flex;
+	flex-direction: column;
+}
+.centerInput {
+	align-items: center;
+}
+#regForm, #eveForm{
+	margin-right: 200px !important;
+	margin-left: 200px !important;
+	border-top: 3px solid whitesmoke;
+	background-color: rgba(255, 235, 205, 0.678);
+}
+.regSelect, #publicEvent {
+	width: 100%;
+	height:45px;
+	background-color: blanchedalmond;
+	/* font-family: 'Oxygen'; */
+}
+.input-container {
+	position: relative;
+	margin: 10px;
+	border-bottom: solid 2px #a8a6a69c;
+}
+input {
+	padding: 10px;
+	font-family: 'Oxygen';
+	font-size: 1em;
+	background-color: inherit;
+	border: none;
+	box-sizing: border-box;
+	transition: 0.3s;
+}
+
+input:focus {
+	outline: none;
+}
+
+.input-underline {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	transition: 0.3s;
+}
+
+input:focus~.input-underline {
+	width: 100%;
+	background-color: gray;
+	transition: 0.3s;
+}
+
+input:valid~.input-underline {
+	width: 100%;
+	background-color: #768BB4;
+	transition: 0.3s;
+}
+
+.input-label {
+	position: absolute;
+	top: 12px;
+	left: 10px;
+	font-family: 'Oxygen';
+	color: black;
+	text-transform: capitalize;
+	cursor: text;
+	pointer-events: none;
+	transition: 0.3s;
+}
+
+input:focus~.input-label {
+	top: -13px;
+	left: 10px;
+	font-size: 1em;
+	color: gray;
+	font-weight: bold;
+}
+
+input:valid~.input-label {
+	top: -13px;
+	left: 10px;
+	font-size: 1em;
+	color: #768BB4;
+	font-weight: bold;
+}
+.formErrors {
+	color:black;
+}
+
+.btn {
+	margin: 20px;
+	width: 180px;
+	font-size: 2em;
+	border-radius: 10px;
+	box-shadow: 2px 2px #888888;
+	transition: 0.2s;
+}
+
+.submit {
+	background-color: rgb(152, 248, 242) !important;
+	text-shadow: 1px 1px rgba(238, 232, 170, 0.808);
+}
+.link-to-register {
+	padding: 0 !important;
+}
+.link-to-register:hover{
+	text-decoration: underline;
+}

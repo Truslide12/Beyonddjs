@@ -20,19 +20,19 @@ class PauseOnHover extends Component {
                         <img src="./imgs/random.jpg" />
                     </div>
                     <div>
-                        <img src="./imgs/dance.JPG" />
-                    </div>
-                    <div>
                         <img src="./imgs/club.jpg" />
                     </div>
                     <div>
-                        <img src="./imgs/omfgnye.jpg" />
+                        <img src="./imgs/blurry.JPG" />
                     </div>
                     <div>
-                        <img src="./imgs/marsh.jpg"/>
+                        <img src="./imgs/party.JPG" />
                     </div>
                     <div>
-                        <img src="./imgs/entertainer.JPG" />
+                        <img src="./imgs/toast.JPG" />
+                    </div>
+                    <div>
+                        <img src="./imgs/wedDance.JPG" />
                     </div>
                 </Slider>
             </div>

@@ -70,7 +70,8 @@ module.exports = {
         res.status(500).send(err.message);
       }
       res.send(200);
-    });
+    })
+    .then()
   },
   updateUser: (req, res) => { // figure out how to do this correctly
     db.User
