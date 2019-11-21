@@ -5,7 +5,7 @@ const db = require('../models/');
 
 // Defining methods for the authController
 module.exports = {
-  // User Authorization
+  // User Authorization and Universal Methods
   register: (req, res) => {
     bcrypt.genSalt()
       .then(salt => {
@@ -29,7 +29,18 @@ module.exports = {
                 req.session.user = newUser;
                 res.send(200);
               })
-              .catch(err => res.status(500).send(err.message));
+              .catch(err => res.status(500).send(err.message))
+              .then(req => {
+                if (req.body.role === "Admin") {
+                  this.createAdmin(req.body.email)
+                }
+                else if (req.body.role === "Entertainer") {
+                  this.createEntertainer(req.body.email)
+                }
+                else if (req.body.role === "PromoterVendor") {
+                    this.createPromoterVendor(req.body.email)
+                }
+              });
           })
           .catch(err => res.status(500).send(err.message));
       })
@@ -92,14 +103,105 @@ module.exports = {
     db.User
     .findOne({ _id: req.session.passport.user.id })
     .then(user => {
-      let newCalendar = user.calendar.concat(req.body.schelude)
+      let newCalendar = user.calendar.concat(req.body.scheludw)
       update({
         calendar: newCalendar,
       })
     })
   },
-  // Events 
 
+  // Admin
+  createAdmin:(email) => {
+    db.Admin
+    .create(
+      {
+        email: email,
+        viewAll: true,
+        canEdit: true,
+        canDelete: true,
+      })
+    .then(newAdmin => {
+      req.session.Admin = newAdmin;
+      res.send(200);
+    })
+    .catch(err => res.status(500).send(err.message));
+  },
+
+  // Entertainer
+  createEntertainer:(mail) => {
+    db.createEntertainer
+    .create(
+      {
+        email: req.body.email,
+        entertainerName: "",
+        job: "",
+        img: "",
+        summary: "",
+        genres: "",
+        links: "",
+        calendar: []
+      })
+    .then(newEntertainer => {
+      req.session.Entertainer = newEntertainer;
+      res.send(200);
+    })
+    .catch(err => res.status(500).send(err.message));
+  },
+  updateEntertainer:(req, res) => {
+    db.createEntertainer
+    .findOne({ _id: req.session.passport.user.id })
+    .then(entertainer => {
+      update({
+        email: req.body.email,
+        entertainerName: req.body.entertainerName,
+        job: req.body.job,
+        img: req.body.img,
+        summary: req.body.summary,
+        genres: req.body.genres,
+        links: req.body.links,
+        calendar: []
+      })
+    .then(
+      res.send(200))
+    .catch(err => res.status(500).send(err.message));
+  },
+
+  // PromoterVendor
+  createPromoterVendor:(req, res) => {
+    db.PromoterVendor
+    .create(
+      {
+        email: req.body.email,
+        img: "",
+        summary: "",
+        genres: "",
+        links: "",
+        calendar: []
+      })
+    .then(newPromoterVendor => {
+      req.session.PromoterVendor = newPromoterVendor;
+      res.send(200);
+    })
+    .catch(err => res.status(500).send(err.message));
+  },
+  updatePromoterVendor:(req, res) => {
+    db.PromoterVendor
+    .findOne({ _id: req.session.passport.user.id })
+    .then(promoterVendro => {
+      update({
+        email: req.body.email,
+        img: req.body.img,
+        summary: req.body.summary,
+        genres: req.body.genres,
+        links: req.body.links,
+        calendar: []
+      })
+    .then(
+      res.send(200))
+    .catch(err => res.status(500).send(err.message));
+  },
+
+  // Events 
   createEvent: (req, res) => {
     // console.log(req.body);
     db.Event
