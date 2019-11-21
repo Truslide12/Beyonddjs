@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const sessConfig = {
-  secret: apis.sessionSecret, resave: false, saveUninitialized: false, // need to add secret to dotenv.env folder and gitignore
+  secret: apis.sessionSecret, resave: false, saveUninitialized: false, 
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
   cookie: { path: '/', httpOnly: false, maxAge: 5 * 60 * 1000 }
 }

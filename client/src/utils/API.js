@@ -16,7 +16,7 @@ export default {
   validateCookie: sid => fetch(`/api/auth/session/${encodeURIComponent(sid)}`),
 
   // Entertainer APIs
-
+  
   // Event APIs
   createEvent: (name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule) =>
     fetch("/api/auth/createEvent", {
@@ -25,7 +25,7 @@ export default {
       body: JSON.stringify({ name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule })
     }),
 
-  search: ( name, creator, date, startTime, endTime, description, city, state, zip, publicEvent ) => fetch("/api/auth/search", {
+  search: (name, creator, date, startTime, endTime, description, city, state, zip, publicEvent) => fetch("/api/auth/search", {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, creator, date, startTime, endTime, description, city, state, zip, publicEvent })
