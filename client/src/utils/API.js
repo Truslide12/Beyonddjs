@@ -44,10 +44,10 @@ export default {
       body: JSON.stringify({ name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule })
     }),
 
-  search: ( date, startTime, endTime, zip ) => fetch("/api/auth/search", {
+  search: () => fetch("/api/auth/search", {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ date, startTime, endTime, zip })
+    body: JSON.stringify()
   })
 
   // searchEvents: ( name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule ) => { // add all search info to run search
