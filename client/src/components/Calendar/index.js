@@ -29,7 +29,8 @@ class TestCalendar extends Component {
     alert('A ' + eventType + ' DJ request was submitted for a ' + duration + ' hour set on ' + date + ' at ' + time + '.');
     event.preventDefault();
     API.search()
-      .then(res => this.setState({ artists: res.data}))
+      .then(res => console.log(res.data))
+      // .then(res => this.setState({ artists: res.data}))
       .catch(err => console.log(err));
   }
 

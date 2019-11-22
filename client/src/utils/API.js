@@ -45,7 +45,7 @@ export default {
     }),
 
   search: ( date, startTime, endTime, zip ) => fetch("/api/auth/search", {
-    method: 'POST',
+    method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ date, startTime, endTime, zip })
   })
