@@ -15,8 +15,6 @@ class Availability extends React.Component {
   }
 }
 
-  }
-
   componentDidMount() {
     this.validateCookie();
   }
