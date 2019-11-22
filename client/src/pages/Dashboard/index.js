@@ -10,7 +10,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cookie: null,
+      loggedIn: false,
       loading: true,
       email: '',
       role: '',
@@ -33,13 +33,12 @@ class Dashboard extends Component {
   }
 
   validateCookie() {
-    const cookieValue = cookie.load('connect.sid');
-    API.validateCookie(cookieValue)
+    API.validateCookie()
       .then(res => {
         if (res.status === 200) {
           res.json().then(user => {
             this.setState({
-              cookie: cookieValue,
+              loggedIn: true,
               loading: false,
               email: user.email,
               role: user.role,
@@ -63,7 +62,13 @@ class Dashboard extends Component {
 
   handleLogout () {
     API.logout()
-      .then(res => this.props.history.push('/login'))
+      .then(res => {
+        if (res.ok) {
+          window.location.reload();
+        } else {
+          throw new Error('Something happened while trying to logout');
+        }
+      })
       .catch(err => console.error(err));
   }
 
@@ -71,7 +76,7 @@ class Dashboard extends Component {
     if (this.state.loading) {
       return <div>Loading...</div>;
     }
-    if (!this.state.cookie) {
+    if (!this.state.loggedIn) {
       return <Redirect to='/login' />
     }
     if (this.state.role === 'Admin') {

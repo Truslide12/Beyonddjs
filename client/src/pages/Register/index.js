@@ -101,9 +101,8 @@ class Register extends Component {
       this.state.zip, 
       this.state.phone
       )
-      // .then(res => res.json())
-      // .then(res => console.info(res))
-      .then(res => this.props.history.push('/dashboard'))
+      .then(res => res.json())
+      .then(res => { console.info(res); this.props.history.push('/login') })
       .catch(err => console.error(err));
 
   }

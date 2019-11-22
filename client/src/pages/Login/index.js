@@ -29,6 +29,7 @@ class Login extends Component {
     this.setState({ [name]: value },
     () => { this.validateField(name, value) });
   }
+
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
@@ -64,8 +65,7 @@ class Login extends Component {
 
     API.login(this.state.email, this.state.password)
       .then(res => res.json())
-      .then(res => console.info(res))
-      .then(res => this.props.history.push('/dashboard'))
+      .then(res => { console.info(res); this.props.history.push('/dashboard') })
       .catch(err => console.error(err));
   }
 
