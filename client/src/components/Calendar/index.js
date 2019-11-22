@@ -10,7 +10,8 @@ class TestCalendar extends Component {
       date: '',
       time: '',
       duration: '1',
-      eventType: 'Wedding'
+      eventType: '',
+      artists: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,13 +22,14 @@ class TestCalendar extends Component {
   }
 
   handleSubmit(event) {
-    let date = this.state.date;
-    let time = this.state.time;
-    let duration = this.state.duration;
-    let eventType = this.state.eventType;
+    this.setState({
+      [name]: value
+    });
     alert('A ' + eventType + ' DJ request was submitted for a ' + duration + ' hour set on ' + date + ' at ' + time + '.');
     event.preventDefault();
-    // API.search()
+    API.search()
+      .then(res => this.setState({ artists: res.data}))
+      .catch(err => console.log(err));
   }
 
   dateChange = event => {
@@ -69,7 +71,7 @@ class TestCalendar extends Component {
                   </Row>
                   <Row>
                     <Col className="calInput p-0 rounded">
-                      <input type='date' value={this.state.date} onChange={this.dateChange} />
+                      <input name='date' value={this.state.date} onChange={this.dateChange} />
                     </Col>
                   </Row>
                 </Col>
@@ -81,7 +83,7 @@ class TestCalendar extends Component {
                   </Row>
                   <Row>
                     <Col className="calInput rounded">
-                      <input type='time' value={this.state.time} onChange={this.timeChange} />
+                      <input name='time' value={this.state.time} onChange={this.timeChange} />
                     </Col>
                   </Row>
                 </Col>
@@ -93,7 +95,7 @@ class TestCalendar extends Component {
                   </Row>
                   <Row>
                     <Col>
-                      <select className="form-control" value={this.state.duration} onChange={this.durationChange} style={{height:"46px"}}>
+                      <select className="form-control" value={this.state.duration} name="duration" onChange={this.durationChange} style={{height:"46px"}}>
                         <option value="1">1 hrs</option>
                         <option value="2">2 hrs</option>
                         <option value="3">3 hrs</option>
@@ -111,7 +113,7 @@ class TestCalendar extends Component {
                   </Row>
                   <Row>
                     <Col>
-                      <select className="form-control" value={this.state.eventType} type="select" onChange={this.eventTypeChange} style={{height:"46px"}}>
+                      <select className="form-control" name="eventType" value={this.state.eventType} type="select" onChange={this.eventTypeChange} style={{height:"46px"}}>
                         <option value="Choose">Choose...</option>
                         <option value="Wedding">Wedding</option>
                         <option value="Bar Mitzvah">Bar Mitzvah</option>
