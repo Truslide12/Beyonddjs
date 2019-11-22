@@ -33,23 +33,6 @@ router.route('/updateUser')
 // router.route('/auth/github/callback')
 //   .get(passport.authenticate('github', { successRedirect: '/secure', failureRedirect: '/login' }));
 
-
-// // Entertainer Routes
-
-// router.route('/loadEntertainer/')
-//   .get(authController.loadEntertainer)
-
-// router.route('/updateEntertainer')
-//   .put((authController.updateEntertainer))
-
-// // PromoterVendor Routes
-
-// router.route('/updatePromoterVendor')
-//   .put((authController.updatePromoterVendor))
-
-// router.route('/loadPromoterVendor/')
-//   .get(authController.loadPromoterVendor)
-
 // Event Routes
 router.route('/createEvent')
   .post((req, res, next) => { console.info('Before createEvent', req.body); next(); }, authController.createEvent);
@@ -62,6 +45,9 @@ router.route('/search')
 
 router.route('/searchEvents')
   .get(authController.searchEvents);
+
+router.route('/myEvents')
+  .get(authController.myEvents);
 
 module.exports = router;
 

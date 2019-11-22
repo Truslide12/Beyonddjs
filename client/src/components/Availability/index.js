@@ -2,25 +2,61 @@ import ScheduleSelector from 'react-schedule-selector'
 import React, { Component } from 'react';
 import Moment from 'moment';
 import { Row, Col, Button } from 'react-bootstrap';
+import API from '../../utils/API';
 
 class Availability extends React.Component {
   constructor(props) {
     super(props);
+    this.state.email = "";
+    this.state.calendar = "";
     this.state = { schedule: [] }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.validateCookie();
+  }
+
   handleSubmit(event) {
     let schedule = this.state.schedule;
-    alert("Your availability has been submitted successfully!");
+    // alert("Your availability has been submitted successfully!");
     let ISOschedule = schedule.map(date => Moment(date).toISOString());
-    console.log(ISOschedule);
+    let newCalendar = (this.calendar.concat(ISOschedule));
+
+    console.log(this.state);
+    
     event.preventDefault();
+    API.updateAvailability(
+      this.state.email,
+      this.state.calendar,
+      newCalendar,
+    );
   }
 
 
   handleChange = newSchedule => {
     this.setState({ schedule: newSchedule })
+  }
+
+  validateCookie() {
+    API.validateCookie()
+      .then(res => {
+        if (res.status === 200) {
+          res.json().then(user => {
+            this.setState({
+              loggedIn: true,
+              loading: false,
+              email: user.email,
+              calendar: user.calendar,
+            });
+          })
+          .then(console.log(this.state)
+          )
+        } else {
+          this.setState({ loading: false });
+        }
+      })
+      .catch(err => this.setState({ loading: false }))
   }
 
   render() {
