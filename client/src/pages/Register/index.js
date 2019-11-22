@@ -25,6 +25,9 @@ class Register extends Component {
       zip: '',
       phone: '',
       formErrors: { email: '', password: '' },
+      viewAll: '',
+      canEdit: '',
+      canDelete: '',
       emailValid: false,
       passwordValid: false,
       formValid: false
@@ -70,8 +73,22 @@ class Register extends Component {
   errorClass(error) {
     return (error.length === 0 ? '' : 'has-error');
   }
+
   handleSubmit(event) {
     event.preventDefault();
+
+    if (this.state.email === "Admin") {
+      API.createAdmin(this.state.email)
+      .catch(err => console.error(err));
+    }
+    else if (this.state.email === "Entertainer") {
+      API.createEntertainer(this.state.email)
+      .catch(err => console.error(err));
+    }
+    else if (this.state.email === "PromoterVendor") {
+      API.createPromoterVendor(this.state.email)
+      .catch(err => console.error(err));
+    };
 
     API.register(
       this.state.email, 
@@ -84,10 +101,11 @@ class Register extends Component {
       this.state.zip, 
       this.state.phone
       )
-      .then(res => res.json())
-      .then(res => console.info(res))
-      .then(res => this.props.history.push('/login'))
+      // .then(res => res.json())
+      // .then(res => console.info(res))
+      .then(res => this.props.history.push('/dashboard'))
       .catch(err => console.error(err));
+
   }
   // We need to have a selector that will load different forms based on the user role
   render() {
