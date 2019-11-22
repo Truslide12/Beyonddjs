@@ -16,12 +16,6 @@ class Basic extends Component {
     this.state = {
       cookie: null,
       loading: true,
-      venueName: '',
-      img: '',
-      summary: '',
-      genres: [],
-      links: [],
-      calendar: []
     };
   }
 

@@ -21,13 +21,17 @@ class TestCalendar extends Component {
   }
 
   handleSubmit(event) {
-    let date = this.state.date;
-    let time = this.state.time;
-    let duration = this.state.duration;
-    let eventType = this.state.eventType;
-    alert('A ' + eventType + ' DJ request was submitted for a ' + duration + ' hour set on ' + date + ' at ' + time + '.');
+    // let date = this.state.date;
+    // let time = this.state.time;
+    // let duration = this.state.duration;
+    // let eventType = this.state.eventType;
+    // alert('A ' + eventType + ' DJ request was submitted for a ' + duration + ' hour set on ' + date + ' at ' + time + '.');
     event.preventDefault();
-    // API.search()
+    API.search()
+    // axios.get('/api/auth/search/')
+    // .then(res => {
+    //   this.setState({ searchData: res.data });
+    //   console.log(this.state.book);
   }
 
   dateChange = event => {

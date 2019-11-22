@@ -25,8 +25,16 @@ class Dashboard extends Component {
       zip: '',
       phone: '',
       calendar: [],
+      viewAll: '',
+      canEdit: '',
+      canDelete: '',
       firstInitial: '',
-      lastInitial: ''
+      lastInitial: '',
+      stageName: '',
+      img: '',
+      summary: '',
+      genres: [],
+      links: [],
     };
   }
 
@@ -54,7 +62,15 @@ class Dashboard extends Component {
               phone: user.phone,
               calendar: user.calendar,
               firstInitial: user.firstName.charAt(0),
-              lastInitial: user.lastName.charAt(0)
+              lastInitial: user.lastName.charAt(0),
+              viewAll: user.viewAll,
+              canEdit: user.canEdit,
+              canDelete: user.canDelete,
+              stageName: user.stageName,
+              img: user.img,
+              summary: user.summary,
+              genres: user.genres,
+              links: user.links,
             });
           })
         } else {
