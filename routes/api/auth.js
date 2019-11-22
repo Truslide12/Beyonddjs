@@ -11,14 +11,14 @@ router.route('/register')
   .post(authController.register);
 
 router.route('/login')
-  .post((req, res, next) => { console.info('Before auth', req.body); next(); }, passport.authenticate('local'), (req, res) => {
+  .post(passport.authenticate('local'), (req, res) => {
     res.json(req.user);
   });
 
 router.route('/logout')
   .delete(authController.logout);
   
-  router.route('/session/:sid')
+  router.route('/session/')
   .get(authController.validateSession);
   
   // router.route('/auth/github')
@@ -43,9 +43,7 @@ router.route('/updatePromoterVendor')
 
 // Event Routes
 router.route('/createEvent')
-.post((req, res, next) => { console.info('Before createEvent', req.body); next(); }, authController.createEvent, (req, res) => {
-  res.json(req.event);
-});
+.post((req, res, next) => { console.info('Before createEvent', req.body); next(); }, authController.createEvent);
 
 router.route('/updateEvent')
   .put((authController.updateEvent))

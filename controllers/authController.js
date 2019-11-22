@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const db = require('../models/');
+const passport = require('passport');
 
 // console.log(Event);
 
@@ -29,8 +30,7 @@ module.exports = {
                   canDelete: false
                 })
               .then(newUser => {
-                req.session.user = newUser;
-                res.send(200);
+                res.json(newUser);
               })
               .catch(err => res.status(500).send(err.message))
 
@@ -39,43 +39,16 @@ module.exports = {
       })
       .catch(err => res.status(500).send(err.message));
   },
-  login: (req, res) => {
-    db.User
-      .findOne({ email: req.body.email })
-      .then(user => {
-        if (!user) {
-          res.status(401).send("email or password incorrect");
-        }
-
-        bcrypt.compare(req.body.password, user.hash)
-          .then(match => {
-            if (match) {
-              req.session.user = user;
-              res.send(200);
-            }
-            res.status(401).send("email or password incorrect");
-          })
-          .catch(err => res.status(500).send(err.message))
-      })
-      .catch(err => res.status(500).send(err.message));
-  },
   validateSession: (req, res) => {
-    const reqsid = decodeURIComponent(req.params.sid).split(':')[1].split('.')[0];
-    console.info('sid:', req.sessionID, reqsid);
-    if (reqsid === req.sessionID) {
+    if (req.user) {
       res.json(req.user);
     } else {
-      res.send(403);
+      res.send(401);
     }
   },
   logout: (req, res) => {
-    req.session.destroy(err => {
-      if (err) {
-        res.status(500).send(err.message);
-      }
-      res.send(200);
-    })
-      .then()
+    req.logout();
+    res.send(200);
   },
   updateUser: (req, res) => { // figure out how to do this correctly
     db.User
