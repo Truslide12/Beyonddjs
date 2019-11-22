@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import { Redirect } from 'react-router-dom';
 import Title from "../../components/Title/index";
-
 import TestCalendar from "../../components/Calendar";
 import AdminPage from "../Admin";
 import EntertainerPage from "../Entertainer";

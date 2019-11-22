@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import "./Calendar.css";
+import API from '../../utils/API';
 
 class TestCalendar extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class TestCalendar extends Component {
     let eventType = this.state.eventType;
     alert('A ' + eventType + ' DJ request was submitted for a ' + duration + ' hour set on ' + date + ' at ' + time + '.');
     event.preventDefault();
+    // API.search()
   }
 
   dateChange = event => {
