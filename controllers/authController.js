@@ -87,7 +87,7 @@ module.exports = {
 
   updateAvailability: (req, res) => {
     db.User
-      .findOneAndUpdate( { 'email': req.body.email } , 
+      .findOneAndUpdate( { email: req.body.email } , 
         {calendar: req.body.newCalendar },
         {new: true}, 
         )

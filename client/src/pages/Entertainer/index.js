@@ -26,7 +26,6 @@ class Basic extends Component {
 
   componentDidMount() {
     this.validateCookie();
-    this.loadEntertainer();
   }
 
   validateCookie() {
