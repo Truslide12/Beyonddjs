@@ -1,6 +1,7 @@
 import ScheduleSelector from 'react-schedule-selector'
 import React, { Component } from 'react';
 import Moment from 'moment';
+import { Row, Col, Button } from 'react-bootstrap';
 
 class Availability extends React.Component {
   constructor(props) {
@@ -26,15 +27,19 @@ class Availability extends React.Component {
     return (
       <div>
         <form ref="form" onSubmit={this.handleSubmit}>
-          <button type="submit">Submit Availability</button>
+          <ScheduleSelector
+            selection={this.state.schedule}
+            numDays={7}
+            minTime={0}
+            maxTime={23}
+            onChange={this.handleChange}
+          />
+          <Row>
+            <Col>
+              <Button type="submit" className="float-right">Submit Availability</Button>
+            </Col>
+          </Row>
         </form>
-        <ScheduleSelector
-          selection={this.state.schedule}
-          numDays={7}
-          minTime={0}
-          maxTime={23}
-          onChange={this.handleChange}
-        />
       </div>
     )
   }

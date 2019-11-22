@@ -37,8 +37,14 @@ class Basic extends Component {
 
   handleLogout() {
     API.logout()
-      .then(res => this.props.history.push('/login'))
-      .catch(err => console.error(err));
+    .then(res => {
+      if (res.ok) {
+        window.location.reload();
+      } else {
+        throw new Error('Something happened while trying to logout');
+      }
+    })
+    .catch(err => console.error(err));
   }
 
   handleCollapse = () => {
