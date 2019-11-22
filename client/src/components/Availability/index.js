@@ -7,10 +7,14 @@ import API from '../../utils/API';
 class Availability extends React.Component {
   constructor(props) {
     super(props);
-    this.state.email = "";
-    this.state.calendar = "";
-    this.state = { schedule: [] }
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {
+    loading: true,
+    email: "",
+    calendar: [],
+    schedule: [],
+  }
+}
+
   }
 
   componentDidMount() {
@@ -22,7 +26,6 @@ class Availability extends React.Component {
     // alert("Your availability has been submitted successfully!");
     let ISOschedule = schedule.map(date => Moment(date).toISOString());
     let newCalendar = (this.calendar.concat(ISOschedule));
-
     console.log(this.state);
     
     event.preventDefault();
@@ -44,7 +47,7 @@ class Availability extends React.Component {
         if (res.status === 200) {
           res.json().then(user => {
             this.setState({
-              loggedIn: true,
+              loggedIn:true,
               loading: false,
               email: user.email,
               calendar: user.calendar,
@@ -52,6 +55,7 @@ class Availability extends React.Component {
           })
           .then(console.log(this.state)
           )
+
         } else {
           this.setState({ loading: false });
         }
