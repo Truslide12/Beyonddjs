@@ -24,9 +24,9 @@ module.exports = {
                   zip: req.body.zip,
                   phone: req.body.phone,
                   calendar: [],
-                  viewAll: true,
-                  canEdit: false,
-                  canDelete: false
+                  viewAll: req.body.viewAll,
+                  canEdit: req.body.canEdit,
+                  canDelete: req.body.canDelete
                 })
               .then(newUser => {
                 res.json(newUser);
@@ -163,8 +163,7 @@ module.exports = {
         if (!promoterVendor) {
           create({
             email: req.body.email,
-            entertainerName: req.body.entertainerName,
-            job: req.body.job,
+            venueName: req.body.venueName,
             img: req.body.img,
             summary: req.body.summary,
             genres: req.body.genres,
@@ -253,7 +252,7 @@ module.exports = {
         }
       });
   },
-  
+
   searchEvents: (req, res) => {
     // var queryCond = {}
     // if(query.name){
