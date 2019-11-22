@@ -7,6 +7,11 @@ function PromoHome() {
     return (
         <div>
             <Row>
+                <Col className="p-3">
+                    <h1 id="welcome"><span className="BeyondDJ p-3">WELCOME</span></h1>
+                </Col>
+            </Row>
+            <Row>
                 <Col>
                     <Availability />
                 </Col>
