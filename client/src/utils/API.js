@@ -56,36 +56,12 @@ export default {
 
   validateCookie: () => fetch("/api/auth/session/"),
 
-  // Entertainer APIs
-  // loadEntertainer:  ( email ) =>
-  // fetch("/api/auth/loadEntertainer", {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ email })
-  // }),
-
-  // updateEntertainer: ( email, entertainerName, job, img, summary, genres, links, calendar ) =>
-  // fetch("/api/auth/updateEntertainer", {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ email, entertainerName, job, img, summary, genres, links, calendar })
-  // }),
-
-  // PromoterVendor APIs
-
-  // loadPromoterVendor: ( email, venueName, img, summary, genres, links, calendar ) =>
-  // fetch("/api/auth/loadPromoterVendor", {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ email, venueName, img, summary, genres, links, calendar })
-  // }),
-
-  // updatePromoterVendor: ( email, venueName, img, summary, genres, links, calendar ) =>
-  // fetch("/api/auth/updatePromoterVendor", {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ email, venueName, img, summary, genres, links, calendar })
-  // }),
+  updateAvailability: ( email, calendar, newCalendar ) => 
+  fetch("/api/auth/updateAvailability", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify( email, calendar, newCalendar ),
+    }),
 
   // Event APIs
   createEvent: (
@@ -132,13 +108,19 @@ export default {
       method: "GET",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify()
-    })
+    }),
 
-  // searchEvents: ( name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule ) => { // add all search info to run search
-  //   fetch("api/auth/search"), {
-  //     method: 'Post',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule })
-  //   }
-  // }
+  searchEvents: () =>  // add all search info to run search
+    fetch("api/auth/searchEvents", {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify()
+  }),
+
+  myEvents: () => 
+    fetch("api/auth/myEvents", {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify()
+    })
 };
