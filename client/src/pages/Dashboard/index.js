@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import { Redirect } from 'react-router-dom';
 import Title from "../../components/Title/index";
-import Availability from "../../components/Availability";
+
 import TestCalendar from "../../components/Calendar";
 import PromoterPage from "../Promoter";
 import API from "../../utils/API";
@@ -104,7 +104,7 @@ class Dashboard extends Component {
           <p>Email: {this.state.email}</p>
           <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button> */}
           <PromoterPage firstName={this.state.firstName} lastName={this.state.lastName} email={this.state.email} handleLogout={this.handleLogout} firstInitial={this.state.firstInitial} lastInitial={this.state.lastInitial}/>
-          <Availability />
+
         </Fragment>
       );
       }
