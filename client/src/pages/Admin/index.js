@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
-import PromoHome from "./PromoHome";
-import PromoSearch from "./PromoSearch";
+import PromoHome from "./AdminHome";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import API from "../../utils/API";
-import "./Promoter.css";
+import "./Admin.css";
 import Availability from "../../components/Availability";
 
 class Basic extends Component {
@@ -15,19 +14,11 @@ class Basic extends Component {
     this.state = {
       cookie: null,
       loading: true,
-      entertainerName: '',
-      job: '',
-      img: '',
-      summary: '',
-      genres: '',
-      links: '',
-      calendar: []
     };
   }
 
   componentDidMount() {
     this.validateCookie();
-    this.loadPromoterVendor();
   }
 
   validateCookie() {
@@ -62,32 +53,6 @@ class Basic extends Component {
     document.getElementById('sidebar').classList.toggle('active');
   };
 
-  loadPromoterVendor() {
-    API.loadPromoterVendor()      .then(res => {
-      if (res.status === 200) {
-        res.json().then(user => {
-          this.setState({
-            loggedIn: true,
-            loading: false,
-            email: user.email,
-            role: user.role,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            city: user.city,
-            state: user.state,
-            zip: user.zip,
-            phone: user.phone,
-            calendar: user.calendar,
-            firstInitial: user.firstName.charAt(0),
-            lastInitial: user.lastName.charAt(0)
-          });
-        })
-      } else {
-        this.setState({ loading: false });
-      }
-    })
-    .catch(err => this.setState({ loading: false }))
-  }
   render() {
     if (this.state.loading) {
       return <div>Loading...</div>;
@@ -131,13 +96,12 @@ class Basic extends Component {
               <Col>
                 <Switch>
                   <Route exact path="/dashboard/promoter/home" component={PromoHome} />
-                  <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
                 </Switch>
               </Col>
             </Row>
           </Container>
         </div>
-        {/* <Title>This the Vendor/Promoter page</Title> */}
+        {/* <Title>This the Admin page</Title> */}
       </Fragment>
     );
   }
