@@ -15,6 +15,8 @@ class Availability extends React.Component {
   }
 }
 
+  }
+
   componentDidMount() {
     this.validateCookie();
   }
@@ -24,7 +26,6 @@ class Availability extends React.Component {
     // alert("Your availability has been submitted successfully!");
     let ISOschedule = schedule.map(date => Moment(date).toISOString());
     let newCalendar = (this.calendar.concat(ISOschedule));
-    
     console.log(this.state);
     
     event.preventDefault();
@@ -52,6 +53,9 @@ class Availability extends React.Component {
               calendar: user.calendar,
             });
           })
+          .then(console.log(this.state)
+          )
+
         } else {
           this.setState({ loading: false });
         }
