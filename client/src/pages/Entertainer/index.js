@@ -1,14 +1,11 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
-import PromoHome from "./PromoHome";
-import PromoSearch from "./PromoSearch";
-import PromoCreate from "./PromoCreate";
-import PromoContact from "./PromoContact";
+import PromoHome from "./EntertainerHome";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import API from "../../utils/API";
-import "./Promoter.css";
+import "./Entertainer.css";
 import Availability from "../../components/Availability";
 
 class Basic extends Component {
@@ -17,18 +14,19 @@ class Basic extends Component {
     this.state = {
       cookie: null,
       loading: true,
-      venueName: '',
+      entertainerName: '',
+      job: '',
       img: '',
       summary: '',
-      genres: [],
-      links: [],
+      genres: '',
+      links: '',
       calendar: []
     };
   }
 
   componentDidMount() {
     this.validateCookie();
-    // this.loadPromoterVendor();
+    // this.loadEntertainer();
   }
 
   validateCookie() {
@@ -63,21 +61,21 @@ class Basic extends Component {
     document.getElementById('sidebar').classList.toggle('active');
   };
 
-  // loadPromoterVendor() {
-  //   API.loadPromoterVendor()      
+  // loadEntertainer() {
+  //   API.loadEntertainer()      
   //   .then(res => {
   //     if (res.status === 200) {
-  //       res.json().then(promoterVendor => {
+  //       res.json().then(entertainer => {
   //         this.setState({
   //           loggedIn: true,
   //           loading: false,
-  //           venueName: promoterVendor.entertainerName,
-  //           job: promoterVendor.role,
-  //           img: promoterVendor.img,
-  //           summary: promoterVendor.summary,
-  //           genres: promoterVendor.genres,
-  //           links: promoterVendor.links,
-  //           calendar: promoterVendor.calendar,
+  //           entertainerName: entertainer.entertainerName,
+  //           job: entertainer.role,
+  //           img: entertainer.img,
+  //           summary: entertainer.summary,
+  //           genres: entertainer.genres,
+  //           links: entertainer.links,
+  //           calendar: entertainer.calendar,
   //         });
   //       })
   //     } else {
@@ -130,9 +128,6 @@ class Basic extends Component {
               <Col>
                 <Switch>
                   <Route exact path="/dashboard/promoter/home" component={PromoHome} />
-                  <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
-                  <Route exact path="/dashboard/promoter/create" component={PromoCreate} />
-                  <Route exact path="/dashboard/promoter/contact" component={PromoContact} />
                 </Switch>
               </Col>
             </Row>

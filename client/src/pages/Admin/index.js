@@ -1,14 +1,11 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
-import PromoHome from "./PromoHome";
-import PromoSearch from "./PromoSearch";
-import PromoCreate from "./PromoCreate";
-import PromoContact from "./PromoContact";
+import PromoHome from "./AdminHome";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import API from "../../utils/API";
-import "./Promoter.css";
+import "./Admin.css";
 import Availability from "../../components/Availability";
 
 class Basic extends Component {
@@ -17,18 +14,11 @@ class Basic extends Component {
     this.state = {
       cookie: null,
       loading: true,
-      venueName: '',
-      img: '',
-      summary: '',
-      genres: [],
-      links: [],
-      calendar: []
     };
   }
 
   componentDidMount() {
     this.validateCookie();
-    // this.loadPromoterVendor();
   }
 
   validateCookie() {
@@ -62,30 +52,6 @@ class Basic extends Component {
   handleCollapse = () => {
     document.getElementById('sidebar').classList.toggle('active');
   };
-
-  // loadPromoterVendor() {
-  //   API.loadPromoterVendor()      
-  //   .then(res => {
-  //     if (res.status === 200) {
-  //       res.json().then(promoterVendor => {
-  //         this.setState({
-  //           loggedIn: true,
-  //           loading: false,
-  //           venueName: promoterVendor.entertainerName,
-  //           job: promoterVendor.role,
-  //           img: promoterVendor.img,
-  //           summary: promoterVendor.summary,
-  //           genres: promoterVendor.genres,
-  //           links: promoterVendor.links,
-  //           calendar: promoterVendor.calendar,
-  //         });
-  //       })
-  //     } else {
-  //       this.setState({ loading: false });
-  //     }
-  //   })
-  //   .catch(err => this.setState({ loading: false }))
-  // }
 
   render() {
     if (this.state.loading) {
@@ -130,15 +96,12 @@ class Basic extends Component {
               <Col>
                 <Switch>
                   <Route exact path="/dashboard/promoter/home" component={PromoHome} />
-                  <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
-                  <Route exact path="/dashboard/promoter/create" component={PromoCreate} />
-                  <Route exact path="/dashboard/promoter/contact" component={PromoContact} />
                 </Switch>
               </Col>
             </Row>
           </Container>
         </div>
-        {/* <Title>This the Vendor/Promoter page</Title> */}
+        {/* <Title>This the Admin page</Title> */}
       </Fragment>
     );
   }

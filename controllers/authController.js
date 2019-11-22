@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const db = require('../models/');
 const passport = require('passport');
-
 // console.log(Event);
 
 // Defining methods for the authController
@@ -25,9 +24,9 @@ module.exports = {
                   zip: req.body.zip,
                   phone: req.body.phone,
                   calendar: [],
-                  viewAll: true,
-                  canEdit: false,
-                  canDelete: false
+                  viewAll: req.body.viewAll,
+                  canEdit: req.body.canEdit,
+                  canDelete: req.body.canDelete
                 })
               .then(newUser => {
                 res.json(newUser);
@@ -39,6 +38,7 @@ module.exports = {
       })
       .catch(err => res.status(500).send(err.message));
   },
+
   validateSession: (req, res) => {
     if (req.user) {
       res.json(req.user);
@@ -46,10 +46,12 @@ module.exports = {
       res.send(401);
     }
   },
+
   logout: (req, res) => {
     req.logout();
     res.send(200);
   },
+
   updateUser: (req, res) => { // figure out how to do this correctly
     db.User
       .findOne({ _id: req.session.passport.user.id })
@@ -69,6 +71,7 @@ module.exports = {
         res.send(200);
       })
   },
+
   updateAvailability: (req, res) => {
     db.User
       .findOne({ _id: req.session.passport.user.id })
@@ -81,6 +84,22 @@ module.exports = {
   },
 
   // Entertainer
+
+  loadEntertainer: (req, res) => {
+    db.Entertainer
+      .findOne({ email: req.body.email })
+      .then(entertainer => {
+        if (!entertainer) {
+          res.status(401).send("entertainer does not exist");
+        }
+        else {
+          req.session.entertainer = entertainer;
+          res.send(200);
+        }
+      })
+      .catch(err => res.status(500).send(err.message))
+  },
+
   updateEntertainer: (req, res) => {
     db.Entertainer
       .findOne({ email: req.body.email })
@@ -96,11 +115,11 @@ module.exports = {
             links: req.body.links,
             calendar: req.body.calendar,
           })
-          .then(updatedEntertainer => {
-            req.session.user = updatedEntertainer;
-            res.send(200);
-          })
-          .catch(err => res.status(500).send(err.message));
+            .then(updatedEntertainer => {
+              req.session.user = updatedEntertainer;
+              res.send(200);
+            })
+            .catch(err => res.status(500).send(err.message));
         }
         else {
           update({
@@ -113,14 +132,30 @@ module.exports = {
             links: req.body.links,
             calendar: req.body.calendar,
           })
-            .then(
-              res.send(200))
+          .then(
+            res.send(200))
             .catch(err => res.status(500).send(err.message));
         }
       })
   },
 
   // PromoterVendor
+
+  loadPromoterVendor: (req, res) => {
+    db.PromoterVendor
+      .findOne({ email: req.body.email })
+      .then(promoterVendor => {
+        if (!promoterVendor) {
+          res.status(401).send("promoterVendor does not exist");
+        }
+        else {
+          req.session.promoterVendor = promoterVendor;
+          res.send(200);
+        }
+      })
+      .catch(err => res.status(500).send(err.message))
+  },
+
   updatePromoterVendor: (req, res) => {
     db.PromoterVendor
       .findOne({ email: req.body.email })
@@ -128,18 +163,17 @@ module.exports = {
         if (!promoterVendor) {
           create({
             email: req.body.email,
-            entertainerName: req.body.entertainerName,
-            job: req.body.job,
+            venueName: req.body.venueName,
             img: req.body.img,
             summary: req.body.summary,
             genres: req.body.genres,
             links: req.body.links,
-             calendar: req.body.calendar
+            calendar: req.body.calendar
           })
-          .then(updatedPromoterVendor => {
-            req.session.user = updatedPromoterVendor;
-            res.send(200);
-          })
+            .then(updatedPromoterVendor => {
+              req.session.user = updatedPromoterVendor;
+              res.send(200);
+            })
             .catch(err => res.status(500).send(err.message));
         }
         else {
@@ -153,11 +187,12 @@ module.exports = {
           })
           Entertainer
             .catch(err => res.status(500).send(err.message));
-          }
-        })
-      },
+        }
+      })
+  },
 
   // Events 
+
   createEvent: (req, res) => {
     // console.log(req.body);
     db.Event
@@ -179,13 +214,10 @@ module.exports = {
           entsConfirmed: req.body.entsConfirmed,
           schedule: req.body.schedule
         })
-      // .then(newEvent => {
-      //   req.session.event = newEvent;
-      //   res.send(200);
-      // })
       .then(res.send(200))
       .catch(err => res.status(500).send(err.message));
   },
+
   updateEvent: (req, res) => { // figure out how to do this correctly
     db.Event
       .findOne({ _id: req.session.passport.event.id })
@@ -207,6 +239,9 @@ module.exports = {
         })
       })
   },
+
+  // Search
+
   search: (req, res) => {
     db.User.find({}, { role: "Entertainer" },
       function (err, result) {
@@ -217,6 +252,7 @@ module.exports = {
         }
       });
   },
+
   searchEvents: (req, res) => {
     // var queryCond = {}
     // if(query.name){
