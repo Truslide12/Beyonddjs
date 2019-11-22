@@ -9,6 +9,7 @@ function PromoHome() {
             <Row>
                 <Col className="p-3">
                     <h1 id="welcome"><span className="BeyondDJ p-3">WELCOME</span></h1>
+                    <p>Here's your schedule for the week:</p>
                 </Col>
             </Row>
             <Row>
