@@ -2,12 +2,13 @@ import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import { Redirect } from 'react-router-dom';
 import Title from "../../components/Title/index";
-
 import TestCalendar from "../../components/Calendar";
 import AdminPage from "../Admin";
 import EntertainerPage from "../Entertainer";
 import PromoterPage from "../Promoter";
 import API from "../../utils/API";
+import { Row, Col } from 'react-bootstrap';
+
 
 class Dashboard extends Component {
   constructor(props) {

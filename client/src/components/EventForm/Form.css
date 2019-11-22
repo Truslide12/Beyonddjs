@@ -5,17 +5,23 @@
 .centerInput {
 	align-items: center;
 }
-#regForm, #eveForm{
+#regForm{
 	margin-right: 200px !important;
 	margin-left: 200px !important;
 	border-top: 3px solid whitesmoke;
 	background-color: rgba(255, 235, 205, 0.678);
 }
-.regSelect, #publicEvent {
+.regSelect {
 	width: 100%;
 	height:45px;
 	background-color: blanchedalmond;
 	/* font-family: 'Oxygen'; */
+}
+#publicEvent {
+	width: 100%;
+	height:45px;
+	background-color:lavender;
+
 }
 .input-container {
 	position: relative;
