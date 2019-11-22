@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const AdminSchema = new Schema({
-    username: {
+  username: {
     type: String,
     required: true,
     unique: true
@@ -13,6 +13,10 @@ const AdminSchema = new Schema({
     required: true
   },
   canEdit: {
+    type: Boolean,
+    required: true
+  },
+  canDelete: {
     type: Boolean,
     required: true
   },

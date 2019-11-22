@@ -45,6 +45,21 @@ const UserSchema = new Schema({
     required: false,
     default: [],
   },
+  viewAll: {
+    type: Boolean,
+    required: true,
+    default:true
+  },
+  canEdit: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
+  canDelete: {
+    type: Boolean,
+    required: false,
+    default: false
+  },
 })
 
 const User = mongoose.model('User', UserSchema);
