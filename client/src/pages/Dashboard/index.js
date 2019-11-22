@@ -5,6 +5,8 @@ import Title from "../../components/Title/index";
 import TestCalendar from "../../components/Calendar";
 import PromoterPage from "../Promoter";
 import API from "../../utils/API";
+import { Row, Col } from 'react-bootstrap';
+
 
 class Dashboard extends Component {
   constructor(props) {

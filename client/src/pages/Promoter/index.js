@@ -3,6 +3,7 @@ import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
 import PromoHome from "./PromoHome";
 import PromoSearch from "./PromoSearch";
+import PromoCreate from "./PromoCreate";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Title from "../../components/Title";
@@ -92,6 +93,7 @@ class Basic extends Component {
                 <Switch>
                   <Route exact path="/dashboard/promoter/home" component={PromoHome} />
                   <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
+                  <Route exact path="/dashboard/promoter/create" component={PromoCreate} />
                 </Switch>
               </Col>
             </Row>
