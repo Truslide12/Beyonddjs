@@ -31,19 +31,13 @@ router.route('/logout')
 router.route('/updateUser')
   .put((authController.updateUser))
 
-// Admin Routes
-router.route('/createAdmin')
-  .post(authController.createAdmin);
-
 // Entertainer Routes
-router.route('/createEntertainer')
-  .post(authController.createEntertainer);
+
 router.route('/updateEntertainer')
   .put((authController.updateEntertainer))
 
 // PromoterVendor Routes
-router.route('/createPromoterVendor')
-  .post(authController.createPromoterVendor);
+
 router.route('/updatePromoterVendor')
   .put((authController.updatePromoterVendor))
 
