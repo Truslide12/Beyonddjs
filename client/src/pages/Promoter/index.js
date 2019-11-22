@@ -15,19 +15,18 @@ class Basic extends Component {
     this.state = {
       cookie: null,
       loading: true,
-      entertainerName: '',
-      job: '',
+      venueName: '',
       img: '',
       summary: '',
-      genres: '',
-      links: '',
+      genres: [],
+      links: [],
       calendar: []
     };
   }
 
   componentDidMount() {
     this.validateCookie();
-    this.loadPromoterVendor();
+    // this.loadPromoterVendor();
   }
 
   validateCookie() {
@@ -62,32 +61,30 @@ class Basic extends Component {
     document.getElementById('sidebar').classList.toggle('active');
   };
 
-  loadPromoterVendor() {
-    API.loadPromoterVendor()      .then(res => {
-      if (res.status === 200) {
-        res.json().then(user => {
-          this.setState({
-            loggedIn: true,
-            loading: false,
-            email: user.email,
-            role: user.role,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            city: user.city,
-            state: user.state,
-            zip: user.zip,
-            phone: user.phone,
-            calendar: user.calendar,
-            firstInitial: user.firstName.charAt(0),
-            lastInitial: user.lastName.charAt(0)
-          });
-        })
-      } else {
-        this.setState({ loading: false });
-      }
-    })
-    .catch(err => this.setState({ loading: false }))
-  }
+  // loadPromoterVendor() {
+  //   API.loadPromoterVendor()      
+  //   .then(res => {
+  //     if (res.status === 200) {
+  //       res.json().then(promoterVendor => {
+  //         this.setState({
+  //           loggedIn: true,
+  //           loading: false,
+  //           venueName: promoterVendor.entertainerName,
+  //           job: promoterVendor.role,
+  //           img: promoterVendor.img,
+  //           summary: promoterVendor.summary,
+  //           genres: promoterVendor.genres,
+  //           links: promoterVendor.links,
+  //           calendar: promoterVendor.calendar,
+  //         });
+  //       })
+  //     } else {
+  //       this.setState({ loading: false });
+  //     }
+  //   })
+  //   .catch(err => this.setState({ loading: false }))
+  // }
+
   render() {
     if (this.state.loading) {
       return <div>Loading...</div>;

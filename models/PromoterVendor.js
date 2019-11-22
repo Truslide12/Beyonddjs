@@ -8,6 +8,10 @@ const PromoterVendorSchema = new Schema({
     required: true,
     unique: true
   },
+  venueName: {
+    type: String,
+    required: false
+  },
   img: {
     type: String,
     required: false
