@@ -4,6 +4,7 @@ import SideBar from '../../components/SideBar';
 import PromoHome from "./PromoHome";
 import PromoSearch from "./PromoSearch";
 import PromoCreate from "./PromoCreate";
+import PromoContact from "./PromoContact";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import API from "../../utils/API";
@@ -131,6 +132,7 @@ class Basic extends Component {
                   <Route exact path="/dashboard/promoter/home" component={PromoHome} />
                   <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
                   <Route exact path="/dashboard/promoter/create" component={PromoCreate} />
+                  <Route exact path="/dashboard/promoter/contact" component={PromoContact} />
                 </Switch>
               </Col>
             </Row>
