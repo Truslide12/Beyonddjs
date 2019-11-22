@@ -16,7 +16,7 @@ export default {
 
   logout: () => fetch("/api/auth/", { method: 'DELETE' }), 
 
-  validateCookie: sid => fetch(`/api/auth/session/${encodeURIComponent(sid)}`),
+  validateCookie: () => fetch('/api/auth/session/'),
 
   // Entertainer APIs
 
