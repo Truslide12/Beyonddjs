@@ -22,7 +22,7 @@ router.route('/session/')
   .get(authController.validateSession);
 
 router.route('/updateAvailability/')
-  .post(authController.updateAvailability)
+  .put(authController.updateAvailability)
 
 router.route('/updateUser')
   .put((authController.updateUser))
@@ -32,23 +32,6 @@ router.route('/updateUser')
 
 // router.route('/auth/github/callback')
 //   .get(passport.authenticate('github', { successRedirect: '/secure', failureRedirect: '/login' }));
-
-
-// Entertainer Routes
-
-router.route('/loadEntertainer/')
-  .get(authController.loadEntertainer)
-
-router.route('/updateEntertainer')
-  .put((authController.updateEntertainer))
-
-// PromoterVendor Routes
-
-router.route('/updatePromoterVendor')
-  .put((authController.updatePromoterVendor))
-
-router.route('/loadPromoterVendor/')
-  .get(authController.loadPromoterVendor)
 
 // Event Routes
 router.route('/createEvent')
@@ -62,6 +45,9 @@ router.route('/search')
 
 router.route('/searchEvents')
   .get(authController.searchEvents);
+
+router.route('/myEvents')
+  .get(authController.myEvents);
 
 module.exports = router;
 

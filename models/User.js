@@ -60,6 +60,26 @@ const UserSchema = new Schema({
     required: false,
     default: false
   },
+  stageName: {
+    type: String,
+    required: false
+  },
+  img: {
+    type: String,
+    required: false
+  },
+  summary: {
+    type: String,
+    required: false
+  },
+  genres: { //need to add more genres
+    type: Array,
+    default: []
+  },
+  links: {
+    type: Array,
+    default: []
+  },
 })
 
 const User = mongoose.model('User', UserSchema);

@@ -26,7 +26,12 @@ module.exports = {
                   calendar: [],
                   viewAll: req.body.viewAll,
                   canEdit: req.body.canEdit,
-                  canDelete: req.body.canDelete
+                  canDelete: req.body.canDelete,
+                  stageName: req.body.stageName, 
+                  img: req.body.img, 
+                  summary: req.body.summary, 
+                  genres: [], 
+                  links: [],
                 })
               .then(newUser => {
                 res.json(newUser);
@@ -54,141 +59,43 @@ module.exports = {
 
   updateUser: (req, res) => { // figure out how to do this correctly
     db.User
-      .findOne({ _id: req.session.passport.user.id })
-      .then(user => {
-        update({
+      .findOneAndUpdate({ _id: req.session.passport.user.id }, 
+        {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           city: req.body.city,
           state: req.body.state,
           zip: req.body.zip,
           phone: req.body.phone,
-          calendar: req.body.calendar
-        })
-      })
+          viewAll: req.body.viewAll,
+          canEdit: req.body.canEdit,
+          canDelete: req.body.canDelete,
+          stageName: req.body.stageName, 
+          img: req.body.img, 
+          summary: req.body.summary, 
+          genres: req.body.genres, 
+          links: req.body.links,
+        },
+        {upsert: true},
+      )
       .then(updatedUser => {
         req.session.user = updatedUser;
         res.send(200);
       })
+      .catch(err => res.status(500).send(err.message));
   },
 
   updateAvailability: (req, res) => {
     db.User
-      .findOne({ _id: req.session.passport.user.id })
-      .then(user => {
-        let newCalendar = user.calendar.concat(req.body.scheludw)
-        update({
-          calendar: newCalendar,
+      .findOneAndUpdate( { email: req.body.email } , 
+        {calendar: req.body.newCalendar },
+        {new: true}, 
+        )
+        .then(updatedUser => {
+          req.session.user = updatedUser;
+          res.send(200);
         })
-      })
-  },
-
-  // Entertainer
-
-  loadEntertainer: (req, res) => {
-    db.Entertainer
-      .findOne({ email: req.body.email })
-      .then(entertainer => {
-        if (!entertainer) {
-          res.status(401).send("entertainer does not exist");
-        }
-        else {
-          req.session.entertainer = entertainer;
-          res.send(200);
-        }
-      })
-      .catch(err => res.status(500).send(err.message))
-  },
-
-  updateEntertainer: (req, res) => {
-    db.Entertainer
-      .findOne({ email: req.body.email })
-      .then(entertainer => {
-        if (!entertainer) {
-          create({
-            email: req.body.email,
-            entertainerName: req.body.entertainerName,
-            job: req.body.job,
-            img: req.body.img,
-            summary: req.body.summary,
-            genres: req.body.genres,
-            links: req.body.links,
-            calendar: req.body.calendar,
-          })
-            .then(updatedEntertainer => {
-              req.session.user = updatedEntertainer;
-              res.send(200);
-            })
-            .catch(err => res.status(500).send(err.message));
-        }
-        else {
-          update({
-            email: req.body.email,
-            entertainerName: req.body.entertainerName,
-            job: req.body.job,
-            img: req.body.img,
-            summary: req.body.summary,
-            genres: req.body.genres,
-            links: req.body.links,
-            calendar: req.body.calendar,
-          })
-          .then(
-            res.send(200))
-            .catch(err => res.status(500).send(err.message));
-        }
-      })
-  },
-
-  // PromoterVendor
-
-  loadPromoterVendor: (req, res) => {
-    db.PromoterVendor
-      .findOne({ email: req.body.email })
-      .then(promoterVendor => {
-        if (!promoterVendor) {
-          res.status(401).send("promoterVendor does not exist");
-        }
-        else {
-          req.session.promoterVendor = promoterVendor;
-          res.send(200);
-        }
-      })
-      .catch(err => res.status(500).send(err.message))
-  },
-
-  updatePromoterVendor: (req, res) => {
-    db.PromoterVendor
-      .findOne({ email: req.body.email })
-      .then(promoterVendor => {
-        if (!promoterVendor) {
-          create({
-            email: req.body.email,
-            venueName: req.body.venueName,
-            img: req.body.img,
-            summary: req.body.summary,
-            genres: req.body.genres,
-            links: req.body.links,
-            calendar: req.body.calendar
-          })
-            .then(updatedPromoterVendor => {
-              req.session.user = updatedPromoterVendor;
-              res.send(200);
-            })
-            .catch(err => res.status(500).send(err.message));
-        }
-        else {
-          update({
-            email: req.body.email,
-            img: req.body.img,
-            summary: req.body.summary,
-            genres: req.body.genres,
-            links: req.body.links,
-            calendar: req.body.calendar,
-          })
-          Entertainer
-            .catch(err => res.status(500).send(err.message));
-        }
-      })
+        .catch(err => res.status(500).send(err.message));
   },
 
   // Events 
@@ -214,15 +121,17 @@ module.exports = {
           entsConfirmed: req.body.entsConfirmed,
           schedule: req.body.schedule
         })
-      .then(res.send(200))
+        .then(updatedEvent => {
+          req.session.event = updatedEvent;
+          res.send(200);
+        })
       .catch(err => res.status(500).send(err.message));
   },
 
   updateEvent: (req, res) => { // figure out how to do this correctly
     db.Event
-      .findOne({ _id: req.session.passport.event.id })
-      .then(event => {
-        update({
+      .findOneAndUpdate({ _id: req.event._id }, 
+        {
           date: req.body.date,
           startTime: req.body.startTime,
           endTime: req.body.endTime,
@@ -236,14 +145,14 @@ module.exports = {
           entsContacted: req.body.entsContacted,
           entsConfirmed: req.body.entsConfirmed,
           schedule: req.body.schedule
-        })
-      })
+        },
+        {upsert: true})
   },
 
   // Search
 
   search: (req, res) => {
-    db.User.find({}, { role: "Entertainer" },
+    db.User.find({ role: "Entertainer" },
       function (err, result) {
         if (err) {
           console.log(err);
@@ -254,6 +163,7 @@ module.exports = {
   },
 
   searchEvents: (req, res) => {
+    // IceBox - to be added later
     // var queryCond = {}
     // if(query.name){
     //    queryCond.name={$regex:query.name,$options:"i"};
@@ -272,12 +182,24 @@ module.exports = {
     //         { type: query.type }
     //       ]
     // });
-    db.Event.find({}, { date: req.event.date }, function (err, result) {
+    db.Event.find( { publicEvent: true }, function (err, result) {
       if (err) {
         console.log(err);
       } else {
         res.json(result);
       }
     })
+  },
+
+  myEvents: (req, res) => {
+      db.Event.find( {$or:[creator = req.user.email, entsContacted = req.user.email] },
+        // need to figure out how to make this an or statement
+        function (err, result) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.json(result);
+          }
+        });
   }
 };
