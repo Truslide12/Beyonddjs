@@ -26,15 +26,15 @@ class Availability extends React.Component {
     return (
       <div>
         <form ref="form" onSubmit={this.handleSubmit}>
+          <ScheduleSelector
+            selection={this.state.schedule}
+            numDays={7}
+            minTime={0}
+            maxTime={23}
+            onChange={this.handleChange}
+          />
           <button type="submit">Submit Availability</button>
         </form>
-        <ScheduleSelector
-          selection={this.state.schedule}
-          numDays={7}
-          minTime={0}
-          maxTime={23}
-          onChange={this.handleChange}
-        />
       </div>
     )
   }
