@@ -26,7 +26,12 @@ module.exports = {
                   calendar: [],
                   viewAll: req.body.viewAll,
                   canEdit: req.body.canEdit,
-                  canDelete: req.body.canDelete
+                  canDelete: req.body.canDelete,
+                  stageName: req.body.stageName, 
+                  img: req.body.img, 
+                  summary: req.body.summary, 
+                  genres: [], 
+                  links: [],
                 })
               .then(newUser => {
                 res.json(newUser);
@@ -76,120 +81,121 @@ module.exports = {
     db.User
       .findOne({ _id: req.session.passport.user.id })
       .then(user => {
-        let newCalendar = user.calendar.concat(req.body.scheludw)
+        let newCalendar = user.calendar.concat(req.body.schedule)
         update({
           calendar: newCalendar,
         })
       })
   },
 
-  // Entertainer
+  // // Entertainer
 
-  loadEntertainer: (req, res) => {
-    db.Entertainer
-      .findOne({ email: req.body.email })
-      .then(entertainer => {
-        if (!entertainer) {
-          res.status(401).send("entertainer does not exist");
-        }
-        else {
-          req.session.entertainer = entertainer;
-          res.send(200);
-        }
-      })
-      .catch(err => res.status(500).send(err.message))
-  },
+  // loadEntertainer: (req, res) => {
+  
+  //   db.Entertainer
+  //     .findOne({ email: req.body.email })
+  //     .then(entertainer => {
+  //       if (entertainer) {
+  //         req.session.entertainer = entertainer;
+  //         res.send(200);
+  //       }
+  //       else {
+  //         res.status(401).send("entertainer does not exist");
+  //       }
+  //     })
+  //     .catch(err => res.status(500).send(err.message))
+  // },
 
-  updateEntertainer: (req, res) => {
-    db.Entertainer
-      .findOne({ email: req.body.email })
-      .then(entertainer => {
-        if (!entertainer) {
-          create({
-            email: req.body.email,
-            entertainerName: req.body.entertainerName,
-            job: req.body.job,
-            img: req.body.img,
-            summary: req.body.summary,
-            genres: req.body.genres,
-            links: req.body.links,
-            calendar: req.body.calendar,
-          })
-            .then(updatedEntertainer => {
-              req.session.user = updatedEntertainer;
-              res.send(200);
-            })
-            .catch(err => res.status(500).send(err.message));
-        }
-        else {
-          update({
-            email: req.body.email,
-            entertainerName: req.body.entertainerName,
-            job: req.body.job,
-            img: req.body.img,
-            summary: req.body.summary,
-            genres: req.body.genres,
-            links: req.body.links,
-            calendar: req.body.calendar,
-          })
-          .then(
-            res.send(200))
-            .catch(err => res.status(500).send(err.message));
-        }
-      })
-  },
+  // updateEntertainer: (req, res) => {
+  //   db.Entertainer
+  //     .findOne({ email: req.body.email })
+  //     .then(entertainer => {
+  //       if (!entertainer) {
+  //         create({
+  //           email: req.body.email,
+  //           entertainerName: req.body.entertainerName,
+  //           job: req.body.job,
+  //           img: req.body.img,
+  //           summary: req.body.summary,
+  //           genres: req.body.genres,
+  //           links: req.body.links,
+  //           calendar: req.body.calendar,
+  //         })
+  //           .then(updatedEntertainer => {
+  //             req.session.user = updatedEntertainer;
+  //             res.send(200);
+  //           })
+  //           .catch(err => res.status(500).send(err.message));
+  //       }
+  //       else {
+  //         update({
+  //           email: req.body.email,
+  //           entertainerName: req.body.entertainerName,
+  //           job: req.body.job,
+  //           img: req.body.img,
+  //           summary: req.body.summary,
+  //           genres: req.body.genres,
+  //           links: req.body.links,
+  //           calendar: req.body.calendar,
+  //         })
+  //         .then(
+  //           res.send(200))
+  //           .catch(err => res.status(500).send(err.message));
+  //       }
+  //     })
+  // },
 
-  // PromoterVendor
+  // // PromoterVendor
 
-  loadPromoterVendor: (req, res) => {
-    db.PromoterVendor
-      .findOne({ email: req.body.email })
-      .then(promoterVendor => {
-        if (!promoterVendor) {
-          res.status(401).send("promoterVendor does not exist");
-        }
-        else {
-          req.session.promoterVendor = promoterVendor;
-          res.send(200);
-        }
-      })
-      .catch(err => res.status(500).send(err.message))
-  },
+  // loadPromoterVendor: (req, res) => {
+  //   db.PromoterVendor
+  //     .findOne({ email: req.body.email })
+  //     .then(promoterVendor => {
+  //       if (!promoterVendor) {
+  //         res.status(401).send("promoterVendor does not exist");
+  //       }
+  //       else {
+  //         req.session.promoterVendor = promoterVendor;
+  //         res.send(200);
+  //       }
+  //     })
+  //     .catch(err => res.status(500).send(err.message))
+  // },
 
-  updatePromoterVendor: (req, res) => {
-    db.PromoterVendor
-      .findOne({ email: req.body.email })
-      .then(promoterVendor => {
-        if (!promoterVendor) {
-          create({
-            email: req.body.email,
-            venueName: req.body.venueName,
-            img: req.body.img,
-            summary: req.body.summary,
-            genres: req.body.genres,
-            links: req.body.links,
-            calendar: req.body.calendar
-          })
-            .then(updatedPromoterVendor => {
-              req.session.user = updatedPromoterVendor;
-              res.send(200);
-            })
-            .catch(err => res.status(500).send(err.message));
-        }
-        else {
-          update({
-            email: req.body.email,
-            img: req.body.img,
-            summary: req.body.summary,
-            genres: req.body.genres,
-            links: req.body.links,
-            calendar: req.body.calendar,
-          })
-          Entertainer
-            .catch(err => res.status(500).send(err.message));
-        }
-      })
-  },
+  // updatePromoterVendor: (req, res) => {
+  //   db.PromoterVendor
+  //     .findOne({ email: req.body.email })
+  //     .then(promoterVendor => {
+  //       if (!promoterVendor) {
+  //         create({
+  //           email: req.body.email,
+  //           venueName: req.body.venueName,
+  //           img: req.body.img,
+  //           summary: req.body.summary,
+  //           genres: req.body.genres,
+  //           links: req.body.links,
+  //           calendar: req.body.calendar
+  //         })
+  //           .then(updatedPromoterVendor => {
+  //             req.session.user = updatedPromoterVendor;
+  //             res.send(200);
+  //           })
+  //           .catch(err => res.status(500).send(err.message));
+  //       }
+  //       else {
+  //         update({
+  //           email: req.body.email,
+  //           img: req.body.img,
+  //           summary: req.body.summary,
+  //           genres: req.body.genres,
+  //           links: req.body.links,
+  //           calendar: req.body.calendar,
+  //         })
+  //         Entertainer
+  //           .catch(err => res.status(500).send(err.message));
+  //       }
+  //     })
+  // },
 
   // Events 
 
@@ -243,7 +249,7 @@ module.exports = {
   // Search
 
   search: (req, res) => {
-    db.User.find({}, { role: "Entertainer" },
+    db.User.find({ role: "Entertainer" },
       function (err, result) {
         if (err) {
           console.log(err);
