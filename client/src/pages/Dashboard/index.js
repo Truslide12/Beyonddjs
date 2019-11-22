@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom';
 import Title from "../../components/Title/index";
 
 import TestCalendar from "../../components/Calendar";
+import AdminPage from "../Admin";
+import EntertainerPage from "../Entertainer";
 import PromoterPage from "../Promoter";
 import API from "../../utils/API";
 
@@ -83,22 +85,25 @@ class Dashboard extends Component {
     if (this.state.role === 'Admin') {
     return (
       <Fragment>
-        <Title>This is the Admin page</Title>
-        <p>Hello: {this.state.firstName} {this.state.lastName}</p>
-        <p>Email: {this.state.email}</p>
-        <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
-      </Fragment>
+          <AdminPage firstName={this.state.firstName} 
+            lastName={this.state.lastName} 
+            email={this.state.email} 
+            handleLogout={this.handleLogout} 
+            firstInitial={this.state.firstInitial} 
+            lastInitial={this.state.lastInitial}/>
+       </Fragment>
     );
     }
     else if (this.state.role === 'Entertainer') {
     return (
       <Fragment>
-        <Title>This is the Entertainer page</Title>
-        <p>Hello: {this.state.firstName} {this.state.lastName}</p>
-        <p>Email: {this.state.email}</p>
-        <Availability />
-        <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
-      </Fragment>
+          <EntertainerPage firstName={this.state.firstName} 
+            lastName={this.state.lastName} 
+            email={this.state.email} 
+            handleLogout={this.handleLogout} 
+            firstInitial={this.state.firstInitial} 
+            lastInitial={this.state.lastInitial}/>
+       </Fragment>
     );
     }
     else if (this.state.role === 'PromoterVendor') {
@@ -108,8 +113,12 @@ class Dashboard extends Component {
           <p>Hello: {this.state.firstName} {this.state.lastName}</p>
           <p>Email: {this.state.email}</p>
           <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button> */}
-          <PromoterPage firstName={this.state.firstName} lastName={this.state.lastName} email={this.state.email} handleLogout={this.handleLogout} firstInitial={this.state.firstInitial} lastInitial={this.state.lastInitial}/>
-
+          <PromoterPage firstName={this.state.firstName} 
+            lastName={this.state.lastName} 
+            email={this.state.email} 
+            handleLogout={this.handleLogout} 
+            firstInitial={this.state.firstInitial} 
+            lastInitial={this.state.lastInitial}/>
         </Fragment>
       );
       }

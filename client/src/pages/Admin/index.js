@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
-import PromoHome from "./PromoHome";
-import PromoSearch from "./PromoSearch";
+import PromoHome from "./AdminHome";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import API from "../../utils/API";
-import "./Promoter.css";
+import "./Admin.css";
 import Availability from "../../components/Availability";
 
 class Basic extends Component {
@@ -15,13 +14,6 @@ class Basic extends Component {
     this.state = {
       cookie: null,
       loading: true,
-      entertainerName: '',
-      job: '',
-      img: '',
-      summary: '',
-      genres: '',
-      links: '',
-      calendar: []
     };
   }
 
@@ -37,13 +29,6 @@ class Basic extends Component {
           this.setState({ 
             cookie: cookieValue, 
             loading: false,
-            entertainerName: promoterVendor.entertainerName,
-            job: promoterVendor.job,
-            img: promoterVendor.img,
-            summary: promoterVendor.summary,
-            genres: promoterVendor.genres,
-            links: promoterVendor.links,
-            calendar: promoterVendor.calendar
           });
         } else {
           this.setState({ loading: false });
@@ -52,9 +37,15 @@ class Basic extends Component {
       .catch(err => this.setState({ loading: false }))
   }
 
-  handleLogout() {
+  handleLogout () {
     API.logout()
-      .then(res => this.props.history.push('/login'))
+      .then(res => {
+        if (res.ok) {
+          window.location.reload();
+        } else {
+          throw new Error('Something happened while trying to logout');
+        }
+      })
       .catch(err => console.error(err));
   }
 
@@ -105,13 +96,12 @@ class Basic extends Component {
               <Col>
                 <Switch>
                   <Route exact path="/dashboard/promoter/home" component={PromoHome} />
-                  <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
                 </Switch>
               </Col>
             </Row>
           </Container>
         </div>
-        {/* <Title>This the Vendor/Promoter page</Title> */}
+        {/* <Title>This the Admin page</Title> */}
       </Fragment>
     );
   }

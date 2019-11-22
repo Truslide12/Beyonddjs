@@ -1,6 +1,6 @@
 import React from "react";
 
-function PromoHome(){
+function EntertainerHome(){
     return (
         <div className="promoContent">
             <h1 id="welcome"><span className="BeyondDJ">Welcome to BeyondDJ!</span></h1>
@@ -9,4 +9,4 @@ function PromoHome(){
     );
 }
 
-export default PromoHome;
+export default EntertainerHome;

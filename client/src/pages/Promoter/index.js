@@ -27,6 +27,7 @@ class Basic extends Component {
 
   componentDidMount() {
     this.validateCookie();
+    this.loadPromoterVendor();
   }
 
   validateCookie() {
@@ -37,13 +38,6 @@ class Basic extends Component {
           this.setState({ 
             cookie: cookieValue, 
             loading: false,
-            entertainerName: promoterVendor.entertainerName,
-            job: promoterVendor.job,
-            img: promoterVendor.img,
-            summary: promoterVendor.summary,
-            genres: promoterVendor.genres,
-            links: promoterVendor.links,
-            calendar: promoterVendor.calendar
           });
         } else {
           this.setState({ loading: false });
@@ -52,9 +46,15 @@ class Basic extends Component {
       .catch(err => this.setState({ loading: false }))
   }
 
-  handleLogout() {
+  handleLogout () {
     API.logout()
-      .then(res => this.props.history.push('/login'))
+      .then(res => {
+        if (res.ok) {
+          window.location.reload();
+        } else {
+          throw new Error('Something happened while trying to logout');
+        }
+      })
       .catch(err => console.error(err));
   }
 
@@ -62,6 +62,32 @@ class Basic extends Component {
     document.getElementById('sidebar').classList.toggle('active');
   };
 
+  loadPromoterVendor() {
+    API.loadPromoterVendor()      .then(res => {
+      if (res.status === 200) {
+        res.json().then(user => {
+          this.setState({
+            loggedIn: true,
+            loading: false,
+            email: user.email,
+            role: user.role,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            city: user.city,
+            state: user.state,
+            zip: user.zip,
+            phone: user.phone,
+            calendar: user.calendar,
+            firstInitial: user.firstName.charAt(0),
+            lastInitial: user.lastName.charAt(0)
+          });
+        })
+      } else {
+        this.setState({ loading: false });
+      }
+    })
+    .catch(err => this.setState({ loading: false }))
+  }
   render() {
     if (this.state.loading) {
       return <div>Loading...</div>;

@@ -17,21 +17,27 @@ router.route('/login')
 
 router.route('/logout')
   .delete(authController.logout);
-  
-  router.route('/session/')
+
+router.route('/session/')
   .get(authController.validateSession);
-  
-  // router.route('/auth/github')
-  //   .get(passport.authenticate('github'));
-  
-  // router.route('/auth/github/callback')
-  //   .get(passport.authenticate('github', { successRedirect: '/secure', failureRedirect: '/login' }));
-  
-// General User Routes
+
+router.route('/updateAvailability/')
+  .post(authController.updateAvailability)
+
 router.route('/updateUser')
   .put((authController.updateUser))
 
+// router.route('/auth/github')
+//   .get(passport.authenticate('github'));
+
+// router.route('/auth/github/callback')
+//   .get(passport.authenticate('github', { successRedirect: '/secure', failureRedirect: '/login' }));
+
+
 // Entertainer Routes
+
+router.route('/loadEntertainer/')
+  .get(authController.loadEntertainer)
 
 router.route('/updateEntertainer')
   .put((authController.updateEntertainer))
@@ -41,9 +47,12 @@ router.route('/updateEntertainer')
 router.route('/updatePromoterVendor')
   .put((authController.updatePromoterVendor))
 
+router.route('/loadPromoterVendor/')
+  .get(authController.loadPromoterVendor)
+
 // Event Routes
 router.route('/createEvent')
-.post((req, res, next) => { console.info('Before createEvent', req.body); next(); }, authController.createEvent);
+  .post((req, res, next) => { console.info('Before createEvent', req.body); next(); }, authController.createEvent);
 
 router.route('/updateEvent')
   .put((authController.updateEvent))
