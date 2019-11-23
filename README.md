@@ -1,7 +1,7 @@
 # :space_invader: BeyondDJ - Project #3
 <img src="https://3.imimg.com/data3/CL/AH/MY-13717014/night-party-dj-booking-500x500.jpg" width="60%"> <br/>
 
-We dream of a world with more live music than ever because we’ve made it easy to find and book the right talent! What are you waiting for? Join us today!
+We dream of a world with more live music than ever because we’ve made it easy to find and book the right talent! What are you waiting for? Join us today! https://beyonddjs.herokuapp.com/
 
 # About BeyondDJ
 **BeyondDJ** is a website that helps people by providing access to one of the live music marketplace that makes it easy for talent buyers, event planners, venues and individuals to find, book, and pay musicians and bands.
