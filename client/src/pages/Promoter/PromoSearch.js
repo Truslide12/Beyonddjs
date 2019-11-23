@@ -6,7 +6,6 @@ function PromoSearch(){
         <div>
             <h1 className="BeyondDJ mt-3">Begin Your Search</h1>
             <Calendar />
-            <div id="artistSearchResults"></div>
         </div>
     );
 }
