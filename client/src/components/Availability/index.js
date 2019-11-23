@@ -4,15 +4,17 @@ import Moment from 'moment';
 import { Row, Col, Button } from 'react-bootstrap';
 import API from '../../utils/API';
 
-class Availability extends React.Component {
+class Availability extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    loading: true,
+    user: [],
     email: "",
-    calendar: [],
+    calendar: "",
     schedule: [],
   }
+  // this.handleInputChange = this.handleInputChange.bind(this);
+  // this.handleSubmit = this.handleSubmit.bind(this);
 }
 
   componentDidMount() {
@@ -20,45 +22,34 @@ class Availability extends React.Component {
   }
 
   handleSubmit(event) {
-    let schedule = this.state.schedule;
-    // alert("Your availability has been submitted successfully!");
-    let ISOschedule = schedule.map(date => Moment(date).toISOString());
-    let newCalendar = (this.calendar.concat(ISOschedule));
-    console.log(this.state);
+    // let schedule = this.state.schedule;
+    // // alert("Your availability has been submitted successfully!");
+    // let ISOschedule = this.state.schedule.map(date => Moment(date).toISOString());
+    // let newCalendar = this.state.schedule
+    console.log(this.state.user);
     
     event.preventDefault();
-    API.updateAvailability(
-      this.state.email,
-      this.state.calendar,
-      newCalendar,
-    );
+    // API.updateAvailability(
+    //   this.state.user.email,
+    //   this.state.user.calendar,
+    //   this.state.user.schedule,
+    // );
   }
 
 
   handleChange = newSchedule => {
-    this.setState({ schedule: newSchedule })
+    this.setState({ schedule: newSchedule.map(date => Moment(date).toISOString()) })
   }
 
-  validateCookie() {
+  validateCookie(res) {
     API.validateCookie()
-      .then(res => {
-        if (res.status === 200) {
-          res.json().then(user => {
-            this.setState({
-              loggedIn:true,
-              loading: false,
-              email: user.email,
-              calendar: user.calendar,
-            });
-          })
-          .then(console.log(this.state)
-          )
-
-        } else {
-          this.setState({ loading: false });
-        }
-      })
-      .catch(err => this.setState({ loading: false }))
+    .then(res => res.json())
+    .then(res => this.setState({ user: res}))
+    .then(res => {
+      console.log(this.state)
+      console.log(this.state.user)
+    })
+    .catch(err => console.log(err));
   }
 
   render() {

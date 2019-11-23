@@ -56,11 +56,11 @@ export default {
 
   validateCookie: () => fetch("/api/auth/session/"),
 
-  updateAvailability: ( email, calendar, newCalendar ) => 
+  updateAvailability: ( email, calendar, schedule ) => 
   fetch("/api/auth/updateAvailability", {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify( email, calendar, newCalendar ),
+    body: JSON.stringify( email, calendar, schedule ),
     }),
 
   // Event APIs
@@ -123,18 +123,4 @@ export default {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify()
     }),
-
-  search: () => fetch("/api/auth/search", {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify()
-  })
-
-  // searchEvents: ( name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule ) => { // add all search info to run search
-  //   fetch("api/auth/search"), {
-  //     method: 'Post',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule })
-  //   }
-  // }
 };

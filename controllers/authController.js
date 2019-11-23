@@ -88,13 +88,13 @@ module.exports = {
   updateAvailability: (req, res) => {
     db.User
       .findOneAndUpdate( { email: req.body.email } , 
-        {calendar: req.body.newCalendar },
+        {$set:{calendar: req.body.schedule }},
         {new: true}, 
         )
-        .then(updatedUser => {
-          req.session.user = updatedUser;
-          res.send(200);
-        })
+        // .then(updatedUser => {
+        //   req.session.user = updatedUser;
+        //   res.send(200);
+        // })
         .catch(err => res.status(500).send(err.message));
   },
 
