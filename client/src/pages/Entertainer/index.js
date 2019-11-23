@@ -26,7 +26,6 @@ class Basic extends Component {
 
   componentDidMount() {
     this.validateCookie();
-    // this.loadEntertainer();
   }
 
   validateCookie() {
@@ -60,30 +59,6 @@ class Basic extends Component {
   handleCollapse = () => {
     document.getElementById('sidebar').classList.toggle('active');
   };
-
-  // loadEntertainer() {
-  //   API.loadEntertainer()      
-  //   .then(res => {
-  //     if (res.status === 200) {
-  //       res.json().then(entertainer => {
-  //         this.setState({
-  //           loggedIn: true,
-  //           loading: false,
-  //           entertainerName: entertainer.entertainerName,
-  //           job: entertainer.role,
-  //           img: entertainer.img,
-  //           summary: entertainer.summary,
-  //           genres: entertainer.genres,
-  //           links: entertainer.links,
-  //           calendar: entertainer.calendar,
-  //         });
-  //       })
-  //     } else {
-  //       this.setState({ loading: false });
-  //     }
-  //   })
-  //   .catch(err => this.setState({ loading: false }))
-  // }
 
   render() {
     if (this.state.loading) {
@@ -119,9 +94,6 @@ class Basic extends Component {
                     </div>
                   </nav>
                 </div>
-              </Col>
-              <Col>
-              <Availability />
               </Col>
             </Row>
             <Row>

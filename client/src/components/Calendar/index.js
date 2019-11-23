@@ -22,11 +22,11 @@ class TestCalendar extends Component {
   }
 
   handleSubmit(event) {
-    let date = this.state.date;
-    let time = this.state.time;
-    let duration = this.state.duration;
-    let eventType = this.state.eventType;
-    alert('A ' + eventType + ' DJ request was submitted for a ' + duration + ' hour set on ' + date + ' at ' + time + '.');
+    // let date = this.state.date;
+    // let time = this.state.time;
+    // let duration = this.state.duration;
+    // let eventType = this.state.eventType;
+    // alert('A ' + eventType + ' DJ request was submitted for a ' + duration + ' hour set on ' + date + ' at ' + time + '.');
     event.preventDefault();
     API.search()
       .then(res => res.json())

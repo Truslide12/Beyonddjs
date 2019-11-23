@@ -25,9 +25,9 @@ class Register extends Component {
       zip: '',
       phone: '',
       formErrors: { email: '', password: '' },
-      viewAll: '',
-      canEdit: '',
-      canDelete: '',
+      viewAll: true,
+      canEdit: false,
+      canDelete: false,
       emailValid: false,
       passwordValid: false,
       formValid: false
