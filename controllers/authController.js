@@ -152,14 +152,17 @@ module.exports = {
   // Search
 
   search: (req, res) => {
-    db.User.find({ role: "Entertainer" },
-      function (err, result) {
-        if (err) {
-          console.log(err);
-        } else {
-          res.json(result);
-        }
-      });
+    // db.User.find({ role: "Entertainer" },
+    //   function (err, result) {
+    //     if (err) {
+    //       console.log(err);
+    //     } else {
+    //       res.json(result);
+    //     }
+    //   });
+    db.User.find({role: "Entertainer"})
+      .then(dbUser => res.json(dbUser))
+      .catch(err => res.status(422).json(err));
   },
 
   searchEvents: (req, res) => {

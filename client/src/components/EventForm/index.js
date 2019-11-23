@@ -75,7 +75,7 @@ const Form = ({ inputHandler, submitHandler }) => (
         </Row>
         <Row className="m-4">
             <Col>
-                <div class="input-container">
+                <div className="input-container">
                     <select id="publicEvent" type="boolean" name="publicEvent" onChange={inputHandler}>
                         <option value="0">Public Event:</option>
                         <option value="1">Yes</option>
@@ -86,8 +86,8 @@ const Form = ({ inputHandler, submitHandler }) => (
             <Col>
                 <div className="input-container">
                     <input id="creator" type="text" name="creator" onChange={inputHandler} required />
-                    <span class="input-underline"></span>
-                    <label for="creator" class="input-label">Contact</label>
+                    <span className="input-underline"></span>
+                    <label for="creator" className="input-label">Contact</label>
                 </div>
             </Col>
             <Col>

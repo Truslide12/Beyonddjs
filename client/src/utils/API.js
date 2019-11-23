@@ -122,5 +122,19 @@ export default {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify()
-    })
+    }),
+
+  search: () => fetch("/api/auth/search", {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify()
+  })
+
+  // searchEvents: ( name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule ) => { // add all search info to run search
+  //   fetch("api/auth/search"), {
+  //     method: 'Post',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ name, creator, date, startTime, endTime, description, city, state, zip, publicEvent, phone, maxEntertainers, entsContacted, entsConfirmed, schedule })
+  //   }
+  // }
 };
