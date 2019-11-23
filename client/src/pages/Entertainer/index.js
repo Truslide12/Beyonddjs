@@ -95,9 +95,6 @@ class Basic extends Component {
                   </nav>
                 </div>
               </Col>
-              <Col>
-              <Availability />
-              </Col>
             </Row>
             <Row>
               <Col>
