@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
+import { DataList, DataListItem } from "../DataList";
 import "./Calendar.css";
 import API from '../../utils/API';
 
@@ -7,11 +8,11 @@ class TestCalendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      artists: [],
       date: '',
       time: '',
       duration: '1',
-      eventType: '',
-      artists: []
+      eventType: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,17 +23,22 @@ class TestCalendar extends Component {
   }
 
   handleSubmit(event) {
-    // let date = this.state.date;
-    // let time = this.state.time;
-    // let duration = this.state.duration;
-    // let eventType = this.state.eventType;
-    // alert('A ' + eventType + ' DJ request was submitted for a ' + duration + ' hour set on ' + date + ' at ' + time + '.');
+    let date = this.state.date;
+    let time = this.state.time;
+    let duration = this.state.duration;
+    let eventType = this.state.eventType;
+    alert('A ' + eventType + ' DJ request was submitted for a ' + duration + ' hour set on ' + date + ' at ' + time + '.');
     event.preventDefault();
     API.search()
       .then(res => res.json())
-      .then(res => console.log(res))
       .then(res => this.setState({ artists: res }))
+      .then(res => {
+        // console.log(res);
+        console.log(this.state);
+        console.log(this.state.artists);
+      })
       .catch(err => console.log(err));
+
   }
 
   dateChange = event => {
@@ -142,6 +148,29 @@ class TestCalendar extends Component {
           <Col>
             <div id="artistSearchResults">
               <h3>Search Results:</h3>
+              {!this.state.artists.length ? (
+                <h1 className="text-center">No Match Results</h1>
+              ) : (
+                  <DataList>
+                    {this.state.artists.map(artist => {
+                      return (
+                        <div className="my-2">
+                          <DataListItem
+                            firstName={artist.firstName}
+                            lastName={artist.lastName}
+                            email={artist.email}
+                            genre={artist.genre}
+                            city={artist.city}
+                            state={artist.state}
+                            zip={artist.zip}
+                            calendar={artist.calendar}
+                          >
+                          </DataListItem>
+                        </div>
+                      );
+                    })}
+                  </DataList>
+                )}
             </div>
           </Col>
         </Row>
