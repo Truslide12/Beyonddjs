@@ -115,6 +115,46 @@ module.exports = {
         .catch(err => res.status(500).send(err.message));
   },
 
+  updateUser: (req, res) => { // figure out how to do this correctly
+    db.User
+      .findOneAndUpdate({ _id: req.session.passport.user.id }, 
+        {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          city: req.body.city,
+          state: req.body.state,
+          zip: req.body.zip,
+          phone: req.body.phone,
+          viewAll: req.body.viewAll,
+          canEdit: req.body.canEdit,
+          canDelete: req.body.canDelete,
+          stageName: req.body.stageName, 
+          img: req.body.img, 
+          summary: req.body.summary, 
+          genres: req.body.genres, 
+          links: req.body.links,
+        },
+        {upsert: true},
+      )
+      .then(updatedUser => {
+        req.session.user = updatedUser;
+        res.send(200);
+      })
+      .catch(err => res.status(500).send(err.message));
+  },
+
+  updateAvailability: (req, res) => {
+    db.User
+      .findOneAndUpdate( { email: req.body.email } , 
+        {calendar: req.body.newCalendar },
+        {new: true}, 
+        )
+        .then(updatedUser => {
+          req.session.user = updatedUser;
+          res.send(200);
+        })
+        .catch(err => res.status(500).send(err.message));
+  },
   // Events 
 
   createEvent: (req, res) => {
@@ -165,6 +205,27 @@ module.exports = {
           event.save()
             .then(() => res.json("Your event has been updated"))
             .catch(err => res.status(400).json("Error: " + err))
+        },
+        {upsert: true})
+  },
+
+  updateEvent: (req, res) => { // figure out how to do this correctly
+    db.Event
+      .findOneAndUpdate({ _id: req.event._id }, 
+        {
+          date: req.body.date,
+          startTime: req.body.startTime,
+          endTime: req.body.endTime,
+          description: req.body.description,
+          city: req.body.city,
+          state: req.body.state,
+          zip: req.body.zip,
+          public: req.body.public,
+          phone: req.body.phone,
+          maxEntertainers: req.body.maxEntertainers,
+          entsContacted: req.body.entsContacted,
+          entsConfirmed: req.body.entsConfirmed,
+          schedule: req.body.schedule
         },
         {upsert: true})
   },
