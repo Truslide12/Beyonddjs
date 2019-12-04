@@ -23,7 +23,7 @@ class EntertainerHome extends Component {
 
     componentDidUpdate() {
         this.validateCookie();
-        console.log(this.state.user); // coming back empty because validate cookie is not passing data upstream
+        // console.log(this.state.user); // coming back empty because validate cookie is not passing data upstream
     }
 
 
@@ -81,7 +81,7 @@ class EntertainerHome extends Component {
                 this.setState(
                     {
                         user: res,
-                        _is: res._id,
+                        _id: res._id,
                         // calendar: res.calendar,
                     })
             })

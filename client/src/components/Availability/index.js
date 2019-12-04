@@ -8,10 +8,10 @@ class Availability extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    user: [],
-    email: "",
-    calendar: [],
-    schedule: [],
+      user: [],
+      id_: "",
+      calendar: [],
+      schedule: [],
   }
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,11 +29,26 @@ class Availability extends Component {
     this.handleChange();
     // let schedule = this.state.schedule;
     // // alert("Your availability has been submitted successfully!");
-    // let ISOschedule = this.state.schedule.map(date => Moment(date).toISOString());
+    let ISOschedule = this.state.schedule.map(date => Moment(date).toISOString());
     // let newCalendar = this.state.schedule
     console.log(this.state.schedule)
     console.log(this.state.user);
-    API.updateAvailability( this.state.user.email, this.state.user.firstName, this.state.user.lastName, this.state.user.city, this.state.user.state, this.state.user.zip, this.state.user.phone,  this.state.schedule, this.state.user.viewAll, this.state.user.canEdit, this.state.user.canDelete, this.state.user.stageName, this.state.user.img, this.state.user.summary, this.state.user.genres, this.state.user.links )
+    API.updateAvailability({
+      "_id": this.state._id,
+      "email": this.state.user.email, 
+      "firstName": this.state.user.firstName, 
+      "lastName": this.state.user.lastName, 
+      "city": this.state.user.city, 
+      "state": this.state.user.state, 
+      "zip": this.state.user.zip, 
+      "phone": this.state.user.phone,  
+      "calendar": ISOschedule, 
+      "stageName": this.state.user.stageName, 
+      "img": this.state.user.img, 
+      "summary": this.state.user.summary, 
+      "genres": this.state.user.genres, 
+      "links": this.state.user.links 
+  })
       .then(r => {
         console.log(r);
     }).catch(e => {

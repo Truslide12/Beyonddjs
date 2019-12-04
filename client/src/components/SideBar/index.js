@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import "./SideBar.css";
 
-// const firstInitial = ;
 
 function SideBar(props) {
     return (
@@ -14,25 +13,25 @@ function SideBar(props) {
 
             <ul className="list-unstyled components">
                 <li>
-                    <Link to="/dashboard/promoter/home">
+                    <Link to={props.homeLink}>
                         <i className="fa fa-home"></i>&nbsp;
                         Home</Link>
                 </li>
                 <li>
-                    <Link to="/dashboard/promoter/search">
+                    <Link to={props.searchLink}>
                         <i className="fa fa-search"></i>&nbsp;
                         Search Artists</Link>
-                    <Link to="/dashboard/promoter/create">
+                    <Link to={props.createLink}>
                         <i className="fa fa-calendar"></i>&nbsp;
                         Create Event</Link>
-                    <Link to="/dashboard/promoter/settings">
+                    <Link to={props.searchLink}>
                         <i className="fa fa-cogs"></i>&nbsp;
                         Account Settings</Link>
-                    <Link to="/dashboard/promoter/contact">
+                    <Link to={props.contactLink}>
                         <i className="fa fa-comments-o"></i>&nbsp;
                         Contact Us</Link>
                     <div className="navFoot">
-                        <Link to="/dashboard/promoter/home" className="BeyondDJ">BeyondDJ</Link>
+                        <Link to={props.homeLink} className="BeyondDJ">BeyondDJ</Link>
                         <img src="../../imgs/edm.png"></img>
                     </div>
                 </li>

@@ -6,6 +6,7 @@ import TestCalendar from "../../components/Calendar";
 import AdminPage from "../Admin";
 import EntertainerPage from "../Entertainer";
 import PromoterPage from "../Promoter";
+import UserPage from "../User";
 import API from "../../utils/API";
 import { Row, Col } from 'react-bootstrap';
 
@@ -35,6 +36,11 @@ class Dashboard extends Component {
       summary: '',
       genres: [],
       links: [],
+      homeLink: "",
+      accountLink: "",
+      contactLink: "",
+      createLink: "",
+      searchLink: "",
     };
   }
 
@@ -71,6 +77,11 @@ class Dashboard extends Component {
               summary: user.summary,
               genres: user.genres,
               links: user.links,
+              homeLink: ("/dashboard/" + user.role + "/home"),
+              accountLink: ("/dashboard/" + user.role + "/account"),
+              contactLink: ("/dashboard/" + user.role + "/contact"),
+              createLink: ("/dashboard/" + user.role + "/create"),
+              searchLink: ("/dashboard/" + user.role + "/search"),
             });
           })
         } else {
@@ -105,9 +116,16 @@ class Dashboard extends Component {
           <AdminPage firstName={this.state.firstName} 
             lastName={this.state.lastName} 
             email={this.state.email} 
+            role={this.state.role}
             handleLogout={this.handleLogout} 
             firstInitial={this.state.firstInitial} 
-            lastInitial={this.state.lastInitial}/>
+            lastInitial={this.state.lastInitial}
+            homeLink={this.state.homeLink}
+            accountLink={this.state.accountLink}
+            contactLink={this.state.contactLink}
+            createLink={this.state.createLink}
+            searchLink={this.state.searchLink}
+            />
        </Fragment>
     );
     }
@@ -116,10 +134,17 @@ class Dashboard extends Component {
       <Fragment>
           <EntertainerPage firstName={this.state.firstName} 
             lastName={this.state.lastName} 
+            role={this.state.role}
             email={this.state.email} 
             handleLogout={this.handleLogout} 
             firstInitial={this.state.firstInitial} 
-            lastInitial={this.state.lastInitial}/>
+            lastInitial={this.state.lastInitial}
+            homeLink={this.state.homeLink}
+            accountLink={this.state.accountLink}
+            contactLink={this.state.contactLink}
+            createLink={this.state.createLink}
+            searchLink={this.state.searchLink}
+            />
        </Fragment>
     );
     }
@@ -132,19 +157,41 @@ class Dashboard extends Component {
           <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button> */}
           <PromoterPage firstName={this.state.firstName} 
             lastName={this.state.lastName} 
+            role={this.state.role}
             email={this.state.email} 
             handleLogout={this.handleLogout} 
             firstInitial={this.state.firstInitial} 
-            lastInitial={this.state.lastInitial}/>
+            lastInitial={this.state.lastInitial}
+            homeLink={this.state.homeLink}
+            accountLink={this.state.accountLink}
+            contactLink={this.state.contactLink}
+            createLink={this.state.createLink}
+            searchLink={this.state.searchLink}
+            />
         </Fragment>
       );
       }
-    else if (this.state.role) {
+    else if (this.state.role === "User") {
       return (
         <Fragment>
+          <UserPage
+          firstName={this.state.firstName} 
+          lastName={this.state.lastName} 
+          role={this.state.role}
+          email={this.state.email} 
+          handleLogout={this.handleLogout} 
+          firstInitial={this.state.firstInitial} 
+          lastInitial={this.state.lastInitial}
+          homeLink={this.state.homeLink}
+          accountLink={this.state.accountLink}
+          contactLink={this.state.contactLink}
+          createLink={this.state.createLink}
+          searchLink={this.state.searchLink}
+          />
           <Title>This is the Client page</Title>
           <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
-          <p>Email: {this.state.email}</p>
+          <p>Email: {this.state.email}
+          </p>
           <TestCalendar />
           <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
         </Fragment>
