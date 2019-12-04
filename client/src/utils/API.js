@@ -24,10 +24,10 @@ export default {
 
   validateCookie: () => fetch("/api/auth/session/"),
 
-  updateAvailability: () => fetch("/api/auth/updateAvailability", {
+  updateAvailability: ( _id, calendar ) => fetch("/api/auth/updateAvailability", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(), //
+    body: JSON.stringify({ _id, calendar }), //
   }),
 
   // Event APIs

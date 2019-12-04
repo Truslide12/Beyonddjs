@@ -1,19 +1,15 @@
-import React from "react";
-// import Availability from "../../components/Availability";
-import ScheduleSelector from "react-schedule-selector";
+// import React from "react";
 import React, { Component } from "react";
 import Moment from "moment";
 import { Row, Col, Button } from "react-bootstrap";
 import API from "../../utils/API";
 
-class EntertainerAccount extends Component {
+class PromoterAccount extends Component {
     constructor(props) {
         super(props);
         this.state = {
             user: [],
             id_: "",
-            calendar: [],
-            schedule: []
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,9 +28,7 @@ class EntertainerAccount extends Component {
 
     render() {
         return (
-            <Fragment>
                 <div className="wrapper">
-                    <Container fluid id="entertainerContent">
                         <Row>
                             <Col className="p-0"
                                 firstName={this.props.firstName}>First Name</Col>
@@ -93,10 +87,8 @@ class EntertainerAccount extends Component {
                           </Button>
                           </Col>
                     </Row>
-                    </Container>
                 </div>
-            </Fragment >
         );
     }
 }
-export default EntertainerAccount;
+export default PromoterAccount;

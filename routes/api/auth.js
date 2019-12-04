@@ -21,10 +21,10 @@ router.route('/logout')
 router.route('/session/')
   .get(authController.validateSession);
 
-router.route('/updateAvailability/:id')
+router.route('/updateAvailability/')
   .post(authController.updateAvailability)
 
-router.route('/updateUser/:id')
+router.route('/updateUser/')
   .post((authController.updateUser))
 
 // router.route('/auth/github')
