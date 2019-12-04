@@ -75,9 +75,9 @@ const Form = ({ inputHandler, submitHandler }) => (
         </Row>
         <Row className="m-4">
             <Col>
-                <div className="input-container">
+                <div className="input-container border-0">
+                    <label>Public Event:</label>
                     <select id="publicEvent" type="boolean" name="publicEvent" onChange={inputHandler}>
-                        <option value="0">Public Event:</option>
                         <option value="1">Yes</option>
                         <option value="2">No</option>
                     </select>
