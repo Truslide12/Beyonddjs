@@ -21,15 +21,8 @@ function PromoAccount() {
             <Row>
                 <Col className="p-0" id="accHead">
                     <div className="p-3">
-                        <Row>
-                            <Col>
-                                <h2>Account Settings</h2>
-                                <p className="p-0 mb-0" style={{ fontSize: "18px" }}>Change your basic account and address settings.</p>
-                            </Col>
-                            {/* <Col sm={3} md={6} lg={2}>
-                                <Button className="btn-success float-right">Save</Button>
-                            </Col> */}
-                        </Row>
+                        <h2>Account Settings</h2>
+                        <p className="p-0 mb-0" style={{ fontSize: "18px" }}>Change your basic account and address settings.</p>
                     </div>
                 </Col>
             </Row>
