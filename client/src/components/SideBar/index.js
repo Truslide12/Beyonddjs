@@ -14,7 +14,7 @@ function SideBar(props) {
 
             <ul className="list-unstyled components">
                 <li>
-                    <Link to="/dashboard/promoter/home">
+                    <Link to="/dashboard/">
                         <i className="fa fa-home"></i>&nbsp;
                         Home</Link>
                 </li>
