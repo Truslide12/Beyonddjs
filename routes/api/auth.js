@@ -22,10 +22,10 @@ router.route('/session/')
   .get(authController.validateSession);
 
 router.route('/updateAvailability/')
-  .put(authController.updateAvailability)
+  .post(authController.updateAvailability)
 
-router.route('/updateUser')
-  .put((authController.updateUser))
+router.route('/updateUser/')
+  .post((authController.updateUser))
 
 // router.route('/auth/github')
 //   .get(passport.authenticate('github'));
@@ -37,8 +37,8 @@ router.route('/updateUser')
 router.route('/createEvent')
   .post((req, res, next) => { console.info('Before createEvent', req.body); next(); }, authController.createEvent);
 
-router.route('/updateEvent')
-  .put((authController.updateEvent))
+router.route('/updateEvent/:id')
+  .post((authController.updateEvent))
 
 router.route('/search')
   .get(authController.search);

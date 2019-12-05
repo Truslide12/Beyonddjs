@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
 import SideBar from '../../components/SideBar';
-import PromoHome from "./EntertainerHome";
+import EntertainerHome from "./EntertainerHome";
+import EntertainerSearch from "./EntertainerSearch";
+import EntertainerCreate from "./EntertainerCreate";
+import EntertainerAccount from "./EntertainerAccount";
+import EntertainerContact from "./EntertainerContact";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import API from "../../utils/API";
@@ -14,18 +18,30 @@ class Basic extends Component {
     this.state = {
       cookie: null,
       loading: true,
-      entertainerName: '',
-      job: '',
+      email: '',
+      role: '',
+      firstName: '',
+      lastName: '',
+      city: '',
+      state: '',
+      zip: '',
+      phone: '',
+      calendar: [],
+      viewAll: '',
+      canEdit: '',
+      canDelete: '',
+      firstInitial: '',
+      lastInitial: '',
+      stageName: '',
       img: '',
       summary: '',
-      genres: '',
-      links: '',
-      calendar: []
+      genres: [],
+      links: [],
     };
   }
 
   componentDidMount() {
-    this.validateCookie();
+    this.isLoggedIn();
   }
 
   validateCookie() {
@@ -36,6 +52,25 @@ class Basic extends Component {
           this.setState({ 
             cookie: cookieValue, 
             loading: false,
+            email: res.user.email,
+            role: res.user.role,
+            firstName: res.user.firstName,
+            lastName: res.user.lastName,
+            city: res.user.city,
+            state: res.user.state,
+            zip: res.user.zip,
+            phone: res.user.phone,
+            calendar: res.user.calendar,
+            firstInitial: res.user.firstName.charAt(0),
+            lastInitial: res.user.lastName.charAt(0),
+            viewAll: res.user.viewAll,
+            canEdit: res.user.canEdit,
+            canDelete: res.user.canDelete,
+            stageName: res.user.stageName,
+            img: res.user.img,
+            summary: res.user.summary,
+            genres: res.user.genres,
+            links: res.user.links,
           });
         } else {
           this.setState({ loading: false });
@@ -70,8 +105,15 @@ class Basic extends Component {
     return (
       <Fragment>
         <div className="wrapper">
-          <SideBar firstName={this.props.firstName} lastName={this.props.lastName} firstInitial={this.props.firstInitial} lastInitial={this.props.lastInitial}/>
-          <Container fluid id="promoContent">
+          <SideBar 
+            firstName={this.props.firstName} 
+            lastName={this.props.lastName} 
+            role={this.props.role}
+            firstInitial={this.props.firstInitial} 
+            lastInitial={this.props.lastInitial}
+            homeLink={this.props.homeLink}
+            />
+          <Container fluid id="EntertainerContent">
             <Row>
               <Col className="p-0">
                 <div id="content">
@@ -99,13 +141,17 @@ class Basic extends Component {
             <Row>
               <Col>
                 <Switch>
-                  <Route exact path="/dashboard/promoter/home" component={PromoHome} />
+                  <Route exact path="/dashboard/entertainer/home" component={EntertainerHome} />
+                  <Route exact path="/dashboard/entertainer/search" component={EntertainerSearch} />
+                  <Route exact path="/dashboard/entertainer/create" component={EntertainerCreate} />
+                  <Route exact path="/dashboard/entertainer/account" component={EntertainerAccount} />
+                  <Route exact path="/dashboard/entertainer/contact" component={EntertainerContact} />
                 </Switch>
               </Col>
             </Row>
           </Container>
         </div>
-        {/* <Title>This the Vendor/Promoter page</Title> */}
+        {/* <Title>This the Vendor/Entertianer page</Title> */}
       </Fragment>
     );
   }

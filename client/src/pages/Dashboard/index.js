@@ -6,6 +6,7 @@ import TestCalendar from "../../components/Calendar";
 import AdminPage from "../Admin";
 import EntertainerPage from "../Entertainer";
 import PromoterPage from "../Promoter";
+import UserPage from "../User";
 import API from "../../utils/API";
 import { Row, Col } from 'react-bootstrap';
 
@@ -44,7 +45,7 @@ class Dashboard extends Component {
 
   }
 
-  validateCookie() {
+  validateCookie() {  
     API.validateCookie()
       .then(res => {
         if (res.status === 200) {
@@ -105,9 +106,11 @@ class Dashboard extends Component {
           <AdminPage firstName={this.state.firstName} 
             lastName={this.state.lastName} 
             email={this.state.email} 
+            role={this.state.role}
             handleLogout={this.handleLogout} 
             firstInitial={this.state.firstInitial} 
-            lastInitial={this.state.lastInitial}/>
+            lastInitial={this.state.lastInitial}
+            />
        </Fragment>
     );
     }
@@ -116,10 +119,12 @@ class Dashboard extends Component {
       <Fragment>
           <EntertainerPage firstName={this.state.firstName} 
             lastName={this.state.lastName} 
+            role={this.state.role}
             email={this.state.email} 
             handleLogout={this.handleLogout} 
             firstInitial={this.state.firstInitial} 
-            lastInitial={this.state.lastInitial}/>
+            lastInitial={this.state.lastInitial}
+            />
        </Fragment>
     );
     }
@@ -132,19 +137,31 @@ class Dashboard extends Component {
           <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button> */}
           <PromoterPage firstName={this.state.firstName} 
             lastName={this.state.lastName} 
+            role={this.state.role}
             email={this.state.email} 
             handleLogout={this.handleLogout} 
             firstInitial={this.state.firstInitial} 
-            lastInitial={this.state.lastInitial}/>
+            lastInitial={this.state.lastInitial}
+            />
         </Fragment>
       );
       }
-    else if (this.state.role) {
+    else if (this.state.role === "User") {
       return (
         <Fragment>
+          <UserPage
+          firstName={this.state.firstName} 
+          lastName={this.state.lastName} 
+          role={this.state.role}
+          email={this.state.email} 
+          handleLogout={this.handleLogout} 
+          firstInitial={this.state.firstInitial} 
+          lastInitial={this.state.lastInitial}
+          />
           <Title>This is the Client page</Title>
           <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>
-          <p>Email: {this.state.email}</p>
+          <p>Email: {this.state.email}
+          </p>
           <TestCalendar />
           <button id="logout" onClick={this.handleLogout} className="btn">LOG OUT</button>
         </Fragment>

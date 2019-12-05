@@ -5,6 +5,7 @@ import "./SideBar.css";
 // const firstInitial = ;
 
 function SideBar(props) {
+    console.log(props);
     return (
         <nav id="sidebar">
             <div className="sidebar-header">

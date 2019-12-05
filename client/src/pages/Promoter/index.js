@@ -19,8 +19,17 @@ class Basic extends Component {
       cookie: null,
       loading: true,
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
+  // this will pass all state to 
+  handleClick() {
+    this.setState({
+        sidbarPushCollapsed: !this.state.sidbarPushCollapsed,
+        profileCollapsed: !this.state.profileCollapsed
+      /// need to add the modified version of this to each page to each page <button type="button" id="sidbarPush" onClick={this.props.handleClick} profile={this.props.profileCollapsed}>
+    });
+}
   componentDidMount() {
     this.validateCookie();
   }
