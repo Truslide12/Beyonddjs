@@ -36,11 +36,6 @@ class Dashboard extends Component {
       summary: '',
       genres: [],
       links: [],
-      homeLink: "",
-      accountLink: "",
-      contactLink: "",
-      createLink: "",
-      searchLink: "",
     };
   }
 
@@ -50,7 +45,7 @@ class Dashboard extends Component {
 
   }
 
-  validateCookie() {
+  validateCookie() {  
     API.validateCookie()
       .then(res => {
         if (res.status === 200) {
@@ -77,11 +72,6 @@ class Dashboard extends Component {
               summary: user.summary,
               genres: user.genres,
               links: user.links,
-              homeLink: ("/dashboard/" + user.role + "/home"),
-              accountLink: ("/dashboard/" + user.role + "/account"),
-              contactLink: ("/dashboard/" + user.role + "/contact"),
-              createLink: ("/dashboard/" + user.role + "/create"),
-              searchLink: ("/dashboard/" + user.role + "/search"),
             });
           })
         } else {
@@ -120,11 +110,6 @@ class Dashboard extends Component {
             handleLogout={this.handleLogout} 
             firstInitial={this.state.firstInitial} 
             lastInitial={this.state.lastInitial}
-            homeLink={this.state.homeLink}
-            accountLink={this.state.accountLink}
-            contactLink={this.state.contactLink}
-            createLink={this.state.createLink}
-            searchLink={this.state.searchLink}
             />
        </Fragment>
     );
@@ -139,11 +124,6 @@ class Dashboard extends Component {
             handleLogout={this.handleLogout} 
             firstInitial={this.state.firstInitial} 
             lastInitial={this.state.lastInitial}
-            homeLink={this.state.homeLink}
-            accountLink={this.state.accountLink}
-            contactLink={this.state.contactLink}
-            createLink={this.state.createLink}
-            searchLink={this.state.searchLink}
             />
        </Fragment>
     );
@@ -162,11 +142,6 @@ class Dashboard extends Component {
             handleLogout={this.handleLogout} 
             firstInitial={this.state.firstInitial} 
             lastInitial={this.state.lastInitial}
-            homeLink={this.state.homeLink}
-            accountLink={this.state.accountLink}
-            contactLink={this.state.contactLink}
-            createLink={this.state.createLink}
-            searchLink={this.state.searchLink}
             />
         </Fragment>
       );
@@ -182,11 +157,6 @@ class Dashboard extends Component {
           handleLogout={this.handleLogout} 
           firstInitial={this.state.firstInitial} 
           lastInitial={this.state.lastInitial}
-          homeLink={this.state.homeLink}
-          accountLink={this.state.accountLink}
-          contactLink={this.state.contactLink}
-          createLink={this.state.createLink}
-          searchLink={this.state.searchLink}
           />
           <Title>This is the Client page</Title>
           <p>Hello: {this.state.emailfirstName} {this.state.lastName}</p>

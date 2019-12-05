@@ -11,9 +11,9 @@ class PromoterAccount extends Component {
             user: [],
             id_: "",
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.validateCookie = this.validateCookie.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
+        // this.validateCookie = this.validateCookie.bind(this);
         // this.componentDidMount = this.componentDidMount.bind(this)
     }
 
