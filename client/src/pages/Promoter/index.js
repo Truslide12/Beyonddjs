@@ -5,7 +5,7 @@ import PromoHome from "./PromoHome";
 import PromoSearch from "./PromoSearch";
 import PromoCreate from "./PromoCreate";
 import PromoContact from "./PromoContact";
-import PromoAccount from "./PromoterAccount";
+import PromoAccount from "./PromoAccount";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import API from "../../utils/API";
@@ -39,8 +39,8 @@ class Basic extends Component {
     API.validateCookie(cookieValue)
       .then(res => {
         if (res.status === 200) {
-          this.setState({ 
-            cookie: cookieValue, 
+          this.setState({
+            cookie: cookieValue,
             loading: false,
           });
         } else {
@@ -50,7 +50,7 @@ class Basic extends Component {
       .catch(err => this.setState({ loading: false }))
   }
 
-  handleLogout () {
+  handleLogout() {
     API.logout()
       .then(res => {
         if (res.ok) {
@@ -65,7 +65,7 @@ class Basic extends Component {
   handleCollapse = () => {
     document.getElementById('sidebar').classList.toggle('active');
   };
-  
+
   render() {
     if (this.state.loading) {
       return <div>Loading...</div>;
@@ -76,11 +76,7 @@ class Basic extends Component {
     return (
       <Fragment>
         <div className="wrapper">
-          <SideBar 
-            firstName={this.props.firstName} 
-            lastName={this.props.lastName} 
-            firstInitial={this.props.firstInitial} 
-            lastInitial={this.props.lastInitial}/>
+          <SideBar firstName={this.props.firstName} lastName={this.props.lastName} firstInitial={this.props.firstInitial} lastInitial={this.props.lastInitial} />
           <Container fluid id="promoContent">
             <Row>
               <Col className="p-0">
@@ -106,19 +102,16 @@ class Basic extends Component {
                 </div>
               </Col>
             </Row>
-            <Row>
-              <Col>
-                <Switch>
-                  <Route exact path="/dashboard/promoter/home" component={PromoHome} 
-                    // render={(props) => <Dashboard {props} isAuthed={true} />}
-                    />
-                  <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
-                  <Route exact path="/dashboard/promoter/create" component={PromoCreate} />
-                  <Route exact path="/dashboard/promoter/contact" component={PromoContact} />
-                  <Route exact path="/dashboard/promoter/account" component={PromoAccount} />
-                </Switch>
-              </Col>
-            </Row>
+
+            <div>
+              <Switch>
+                <Route exact path="/dashboard/" component={PromoHome} />
+                <Route exact path="/dashboard/promoter/search" component={PromoSearch} />
+                <Route exact path="/dashboard/promoter/create" component={PromoCreate} />
+                <Route exact path="/dashboard/promoter/contact" component={PromoContact} />
+                <Route exact path="/dashboard/promoter/settings" component={PromoAccount} />
+              </Switch>
+            </div>
           </Container>
         </div>
         {/* <Title>This the Vendor/Promoter page</Title> */}

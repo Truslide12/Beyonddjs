@@ -19,3 +19,8 @@
 #userFeatures{
     margin-top: 100px;
 }
+#accHead{
+    border: 1px solid lightslategrey;
+    border-left: none;
+    border-right: none;
+}
