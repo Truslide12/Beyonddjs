@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
-import SideBar from '../../components/SideBar';
+import SideBar from '../../components/SideBarEnt';
 import EntertainerHome from "./EntertainerHome";
 import EntertainerSearch from "./EntertainerSearch";
 import EntertainerCreate from "./EntertainerCreate";
-import EntertainerAccount from "./EntertainerAccount";
 import EntertainerContact from "./EntertainerContact";
+import EntertainerAccount from "./EntertainerAccount";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import API from "../../utils/API";
@@ -18,30 +18,20 @@ class Basic extends Component {
     this.state = {
       cookie: null,
       loading: true,
-      email: '',
-      role: '',
-      firstName: '',
-      lastName: '',
-      city: '',
-      state: '',
-      zip: '',
-      phone: '',
-      calendar: [],
-      viewAll: '',
-      canEdit: '',
-      canDelete: '',
-      firstInitial: '',
-      lastInitial: '',
-      stageName: '',
-      img: '',
-      summary: '',
-      genres: [],
-      links: [],
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
+  // this will pass all state to 
+  handleClick() {
+    this.setState({
+        sidbarPushCollapsed: !this.state.sidbarPushCollapsed,
+        profileCollapsed: !this.state.profileCollapsed
+      /// need to add the modified version of this to each page to each page <button type="button" id="sidbarPush" onClick={this.props.handleClick} profile={this.props.profileCollapsed}>
+    });
+}
   componentDidMount() {
-    this.isLoggedIn();
+    this.validateCookie();
   }
 
   validateCookie() {
@@ -49,28 +39,9 @@ class Basic extends Component {
     API.validateCookie(cookieValue)
       .then(res => {
         if (res.status === 200) {
-          this.setState({ 
-            cookie: cookieValue, 
+          this.setState({
+            cookie: cookieValue,
             loading: false,
-            email: res.user.email,
-            role: res.user.role,
-            firstName: res.user.firstName,
-            lastName: res.user.lastName,
-            city: res.user.city,
-            state: res.user.state,
-            zip: res.user.zip,
-            phone: res.user.phone,
-            calendar: res.user.calendar,
-            firstInitial: res.user.firstName.charAt(0),
-            lastInitial: res.user.lastName.charAt(0),
-            viewAll: res.user.viewAll,
-            canEdit: res.user.canEdit,
-            canDelete: res.user.canDelete,
-            stageName: res.user.stageName,
-            img: res.user.img,
-            summary: res.user.summary,
-            genres: res.user.genres,
-            links: res.user.links,
           });
         } else {
           this.setState({ loading: false });
@@ -79,7 +50,7 @@ class Basic extends Component {
       .catch(err => this.setState({ loading: false }))
   }
 
-  handleLogout () {
+  handleLogout() {
     API.logout()
       .then(res => {
         if (res.ok) {
@@ -105,15 +76,8 @@ class Basic extends Component {
     return (
       <Fragment>
         <div className="wrapper">
-          <SideBar 
-            firstName={this.props.firstName} 
-            lastName={this.props.lastName} 
-            role={this.props.role}
-            firstInitial={this.props.firstInitial} 
-            lastInitial={this.props.lastInitial}
-            homeLink={this.props.homeLink}
-            />
-          <Container fluid id="EntertainerContent">
+          <SideBar firstName={this.props.firstName} lastName={this.props.lastName} firstInitial={this.props.firstInitial} lastInitial={this.props.lastInitial} />
+          <Container fluid id="promoContent">
             <Row>
               <Col className="p-0">
                 <div id="content">
@@ -138,20 +102,18 @@ class Basic extends Component {
                 </div>
               </Col>
             </Row>
-            <Row>
-              <Col>
-                <Switch>
-                  <Route exact path="/dashboard/entertainer/home" component={EntertainerHome} />
-                  <Route exact path="/dashboard/entertainer/search" component={EntertainerSearch} />
-                  <Route exact path="/dashboard/entertainer/create" component={EntertainerCreate} />
-                  <Route exact path="/dashboard/entertainer/account" component={EntertainerAccount} />
-                  <Route exact path="/dashboard/entertainer/contact" component={EntertainerContact} />
-                </Switch>
-              </Col>
-            </Row>
+
+            <div>
+              <Switch>
+                <Route exact path="/dashboard/" component={EntertainerHome} />
+                <Route exact path="/dashboard/entertainer/search" component={EntertainerSearch} />
+                <Route exact path="/dashboard/entertainer/create" component={EntertainerCreate} />
+                <Route exact path="/dashboard/entertainer/contact" component={EntertainerContact} />
+                <Route exact path="/dashboard/entertainer/settings" component={EntertainerAccount} />
+              </Switch>
+            </div>
           </Container>
         </div>
-        {/* <Title>This the Vendor/Entertianer page</Title> */}
       </Fragment>
     );
   }

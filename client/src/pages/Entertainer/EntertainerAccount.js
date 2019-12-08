@@ -1,149 +1,131 @@
-// import React from "react";
-import React,{ Component } from "react";
-import Moment from "moment";
-import { Row, Col, Button } from "react-bootstrap";
-import API from "../../utils/API";
+import React, { Component, useState } from 'react';
+import { Row, Col, Button, Form, InputGroup } from 'react-bootstrap';
+import API from '../../utils/API';
 
-class EntertainerAccount extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: [],
-            id_: "",
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleUpdate = this.handleUpdate.bind(this);
-        this.validateCookie = this.validateCookie.bind(this);
-        // this.componentDidMount = this.componentDidMount.bind(this)
-    }
 
-    // add handleUpdate
-    handleUpdate = (event) => {
-        event.preventDefault();
-        this.handleChange();
-        // let newSchedule = this.state.schedule;
-        // alert("Your availability has been submitted successfully!");
-        let ISOschedule = this.state.schedule.map(date => Moment(date).toISOString());
-        // let newCalendar = this.state.schedule
-        console.log(this.state.schedule)
-        console.log(ISOschedule);
-        console.log(this.state._id);
-        console.log(this.state.calendar);
-        API.updateAvailability({
-                "_id": this.state._id,
-                "email": this.state.user.email, 
-                "firstName": this.state.user.firstName, 
-                "lastName": this.state.user.lastName, 
-                "city": this.state.user.city, 
-                "state": this.state.user.state, 
-                "zip": this.state.user.zip, 
-                "phone": this.state.user.phone,  
-                "calendar": ISOschedule, 
-                "stageName": this.state.user.stageName, 
-                "img": this.state.user.img, 
-                "summary": this.state.user.summary, 
-                "genres": this.state.user.genres, 
-                "links": this.state.user.links 
-            })
-            .then(r => {
-                console.log(r);
-            }).catch(e => {
-                console.log(e);
-            })
-    }
+function EntertainerAccount() {
+    const [validated, setValidated] = useState(false);
 
-    // Handle Changed
-    handleChange(event) {
-        const { name, value } = event.target;
-        this.setState({ [name]: value },
-          () => { this.validateField(name, value) });
-      }
+    const handleSubmit = event => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
 
-    // get user info
-    validateCookie() {
-        API.validateCookie()
-            .then(res => res.json())
-            .then(res => {
-                console.log(res)
-                return res
-                // console.log(this.state) // coming back with loading data aka empty 
-                // console.log(this.state.user) // coming back with all appropriate data
-            })
-            .then(res => {
-                console.log(res);
-                this.setState(
-                    {
-                        user: res,
-                        _id: res._id,
-                    })
-            })
-            .catch(err => console.log(err))
-            console.log(this.state.user) // coming back empty
-    }
+        setValidated(true);
+    };
 
-    render() {
-        return (
-                <div className="wrapper">
-                        <Row>
-                            <Col className="p-0"
-                                firstName={this.state.user.firstName}>First Name</Col>
-                            <Col className="P-0"
-                                lastName={this.state.user.lastName}>Last Name</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                email={this.props.user.email}>Email</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                city={this.props.user.city}>City</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                state={this.props.user.state}>State</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                zip={this.props.user.zip}>Zip</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                phone={this.props.users.phone}>Phone</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                stageName={this.props.user.stageName}>Stage Name</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                img={this.props.user.img}>Profile Image</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                summary={this.props.users.summary}>Introduction</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                genres={this.props.user.genres}>Genres</Col>
-                        </Row>
-                        <Row>
-                            <Col className="p-0"
-                                links={this.props.user.links}>Social Media</Col>
-                        </Row>
+    return (
+        <>
+            <Row>
+                <Col className="p-0" id="accHead">
+                    <div className="p-3">
+                        <h2>Account Settings</h2>
+                        <p className="p-0 mb-0" style={{ fontSize: "18px" }}>Change your basic account and address settings.</p>
+                    </div>
+                </Col>
+            </Row>
+            <Row>
+                <Col className="p-4">
+                    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                        <h4 className="my-3 mb-4">YOUR INFO</h4>
+                        <Form.Row className="my-2">
+                            <Form.Group as={Col} md="4" controlId="validationCustom01">
+                                <Form.Label>First name</Form.Label>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    placeholder="First name"
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter your first name.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            <Form.Group as={Col} md="4" controlId="validationCustom02">
+                                <Form.Label>Last name</Form.Label>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    placeholder="Last name"
+                                />
+                                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                <Form.Control.Feedback type="invalid">
+                                    Please enter your last name.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                        </Form.Row>
 
-                    <Row>
-                        <Col>≈
-                                <Button
-                                    id="updateUser"
-                                    onClick={this.handleUpdate}
-                                    variant="secondary"
-                                >
-                                    <i className="fa fa-update"></i>Update
-                          </Button>
-                          </Col>
-                    </Row>
-                </div>
-        );
-    }
+                        <Form.Row className="border-bottom border-secondary pb-4">
+                            <Form.Group as={Col} md="5" controlId="validationCustomUsername">
+                                <Form.Label>Email address</Form.Label>
+                                <InputGroup>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Username"
+                                        aria-describedby="inputGroupPrepend"
+                                        required
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        Please enter a valid email.
+                                    </Form.Control.Feedback>
+                                </InputGroup>
+                                <Form.Text className="text-muted"> We'll never share your email with anyone else. </Form.Text>
+                            </Form.Group>
+                            <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+                                <Form.Label>Phone number</Form.Label>
+                                <InputGroup>
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="Username"
+                                        aria-describedby="inputGroupPrepend"
+                                        required
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        Please enter a valid phone number.
+                                    </Form.Control.Feedback>
+                                </InputGroup>
+                            </Form.Group>
+                        </Form.Row>
+
+                        <h4 className="mt-3 pt-4 mb-4">ADDRESS</h4>
+                        <Form.Row className="my-2">
+                            <Form.Group as={Col} md="6" controlId="validationCustom03">
+                                <Form.Label>City</Form.Label>
+                                <Form.Control type="text" placeholder="City" required />
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a valid city.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            <Form.Group as={Col} md="3" controlId="validationCustom04">
+                                <Form.Label>State</Form.Label>
+                                <Form.Control type="text" placeholder="State" required />
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a valid state.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            <Form.Group as={Col} md="3" controlId="validationCustom05">
+                                <Form.Label>Zip</Form.Label>
+                                <Form.Control type="text" placeholder="Zip" required />
+                                <Form.Control.Feedback type="invalid">
+                                    Please provide a valid zip.
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                        </Form.Row>
+                        <Form.Group>
+                            <Form.Check
+                                required
+                                label="Agree to terms and conditions"
+                                feedback="You must agree before submitting."
+                            />
+                        </Form.Group>
+                        <Button type="submit" className="btn-success mx-0">Save</Button>
+                    </Form>
+                </Col>
+            </Row>
+        </>
+    );
 }
+
 export default EntertainerAccount;

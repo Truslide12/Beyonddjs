@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import cookie from 'react-cookies';
-import SideBar from '../../components/SideBar';
-import PromoHome from "./AdminHome";
+import SideBar from '../../components/SideBarAdmin';
+import AdminHome from "./AdminHome";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import API from "../../utils/API";
@@ -92,7 +92,7 @@ class Basic extends Component {
             <Row>
               <Col>
                 <Switch>
-                  <Route exact path="/dashboard/promoter/home" component={PromoHome} />
+                  <Route exact path="/dashboard/admin/home" component={AdminHome} />
                 </Switch>
               </Col>
             </Row>
